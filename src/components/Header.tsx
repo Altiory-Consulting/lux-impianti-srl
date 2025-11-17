@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Phone, MapPin, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,8 +39,8 @@ const Header = () => {
       {/* Main Navigation */}
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
-          <Link to="/" className="text-2xl font-bold text-primary-foreground">
-            Lux Impianti <span className="text-gold">S.R.L.</span>
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logo} alt="Lux Impianti S.R.L." className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
