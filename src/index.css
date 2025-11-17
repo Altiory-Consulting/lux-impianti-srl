@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 18%;
 
-    --primary: 219 100% 26%;
+    --primary: 211 100% 24%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 63% 40%;
@@ -34,12 +34,12 @@ All colors MUST be HSL.
 
     --border: 215 30% 90%;
     --input: 215 30% 90%;
-    --ring: 219 100% 26%;
+    --ring: 211 100% 24%;
 
     --radius: 0.5rem;
 
-    /* Custom Lux Impianti colors */
-    --blue-deep: 219 100% 26%;
+    /* Custom Lux Impianti colors matching logo */
+    --blue-deep: 211 100% 24%;
     --blue-medium: 210 63% 40%;
     --blue-light: 215 54% 73%;
     --gold: 46 89% 61%;

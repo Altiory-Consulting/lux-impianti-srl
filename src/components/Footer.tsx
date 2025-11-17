@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
   const handleNewsletterSubmit = (e: React.FormEvent) => {
@@ -15,7 +16,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-gold">Lux Impianti S.R.L.</h3>
+            <img src={logo} alt="Lux Impianti S.R.L." className="h-16 w-auto mb-4 brightness-0 invert" />
             <p className="text-sm mb-4">
               Soluzioni energetiche innovative per un futuro sostenibile.
             </p>
