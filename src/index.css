@@ -43,7 +43,20 @@ All colors MUST be HSL.
     --blue-medium: 211 80% 35%;
     --blue-light: 211 40% 70%;
     --lime-green: 74 61% 52%; /* Bright lime green for CTAs */
+    --lime-green-light: 74 61% 65%;
     --text-dark: 0 0% 18%;
+
+    /* Dynamic gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(211 100% 22%) 0%, hsl(211 80% 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(74 61% 52%) 0%, hsl(74 70% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(211 100% 22%) 0%, hsl(211 80% 35%) 50%, hsl(74 61% 52%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(214 50% 98%) 100%);
+    
+    /* Dynamic shadows */
+    --shadow-glow-lime: 0 0 30px hsla(74 61% 52% / 0.4);
+    --shadow-glow-blue: 0 0 30px hsla(211 80% 35% / 0.3);
+    --shadow-elevation: 0 10px 40px -10px hsla(211 100% 22% / 0.2);
+    --shadow-card-hover: 0 20px 50px -15px hsla(211 100% 22% / 0.25);
   }
 
   .dark {
@@ -74,6 +87,17 @@ All colors MUST be HSL.
     --border: 219 50% 20%;
     --input: 219 50% 20%;
     --ring: 211 80% 35%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(211 80% 35%) 0%, hsl(211 60% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(74 61% 52%) 0%, hsl(74 70% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(219 100% 10%) 0%, hsl(211 80% 20%) 50%, hsl(74 61% 30%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(219 80% 15%) 0%, hsl(219 70% 18%) 100%);
+    
+    --shadow-glow-lime: 0 0 30px hsla(74 61% 52% / 0.5);
+    --shadow-glow-blue: 0 0 30px hsla(211 80% 50% / 0.4);
+    --shadow-elevation: 0 10px 40px -10px hsla(0 0% 0% / 0.5);
+    --shadow-card-hover: 0 20px 50px -15px hsla(74 61% 52% / 0.3);
   }
 }
 

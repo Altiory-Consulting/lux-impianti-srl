@@ -51,7 +51,20 @@ export default {
         "blue-medium": "hsl(var(--blue-medium))",
         "blue-light": "hsl(var(--blue-light))",
         "lime-green": "hsl(var(--lime-green))",
+        "lime-green-light": "hsl(var(--lime-green-light))",
         "text-dark": "hsl(var(--text-dark))",
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-accent": "var(--gradient-accent)",
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-card": "var(--gradient-card)",
+      },
+      boxShadow: {
+        "glow-lime": "var(--shadow-glow-lime)",
+        "glow-blue": "var(--shadow-glow-blue)",
+        "elevation": "var(--shadow-elevation)",
+        "card-hover": "var(--shadow-card-hover)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -123,6 +136,34 @@ export default {
             transform: "translateY(-10px)",
           },
         },
+        "pulse-glow": {
+          "0%, 100%": {
+            opacity: "1",
+            filter: "drop-shadow(0 0 8px hsl(var(--lime-green)))",
+          },
+          "50%": {
+            opacity: "0.8",
+            filter: "drop-shadow(0 0 20px hsl(var(--lime-green)))",
+          },
+        },
+        "shimmer": {
+          "0%": {
+            backgroundPosition: "-1000px 0",
+          },
+          "100%": {
+            backgroundPosition: "1000px 0",
+          },
+        },
+        "bounce-slow": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+          },
+          "50%": {
+            transform: "translateY(-5%)",
+            animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -132,6 +173,9 @@ export default {
         "fade-in-right": "fade-in-right 0.6s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
         "float": "float 3s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "shimmer": "shimmer 3s linear infinite",
+        "bounce-slow": "bounce-slow 2s ease-in-out infinite",
       },
     },
   },
