@@ -114,3 +114,38 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Section transitions with color fades */
+  .section-transition-top {
+    position: relative;
+  }
+  
+  .section-transition-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, var(--transition-from, transparent), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .section-transition-bottom {
+    position: relative;
+  }
+  
+  .section-transition-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--transition-to, transparent), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+}

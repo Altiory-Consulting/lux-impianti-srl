@@ -114,7 +114,10 @@ const Home = () => {
       </section>
 
       {/* Services Section - White background with icons */}
-      <section ref={servicesSection.ref} className="py-16 bg-background">
+      <section ref={servicesSection.ref} className="py-16 bg-background section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(0 0% 0% / 0.3)',
+        '--transition-to': 'hsl(214 50% 98% / 0.5)'
+      } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
@@ -144,7 +147,10 @@ const Home = () => {
       </section>
 
       {/* I Nostri Lavori - Projects Carousel */}
-      <section ref={communitySection.ref} className="py-16 bg-muted/30">
+      <section ref={communitySection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(0 0% 100% / 0.5)',
+        '--transition-to': 'hsl(211 100% 22% / 0.3)'
+      } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`max-w-4xl mx-auto text-center mb-12 transition-all duration-700 ${communitySection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2">PORTFOLIO</p>
@@ -226,7 +232,10 @@ const Home = () => {
       </section>
 
       {/* Reddito Energetico */}
-      <section ref={redditoSection.ref} className="py-16 bg-gradient-blue-elegant text-primary-foreground relative overflow-hidden">
+      <section ref={redditoSection.ref} className="py-16 bg-gradient-blue-elegant text-primary-foreground relative overflow-hidden section-transition-top section-transition-bottom" style={{
+        '--transition-from': 'hsl(214 50% 98% / 0.5)',
+        '--transition-to': 'hsl(211 100% 22% / 0.3)'
+      } as React.CSSProperties}>
         <div className="absolute inset-0 bg-gradient-primary-soft opacity-50"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${redditoSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -250,7 +259,10 @@ const Home = () => {
       </section>
 
       {/* Soluzioni Energetiche */}
-      <section ref={solutionsSection.ref} className="py-16 bg-muted/30">
+      <section ref={solutionsSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(211 100% 22% / 0.3)',
+        '--transition-to': 'hsl(211 40% 70% / 0.2)'
+      } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2">I NOSTRI SERVIZI</p>
@@ -288,7 +300,10 @@ const Home = () => {
       </section>
 
       {/* Partnership & Stats */}
-      <section ref={partnersSection.ref} className="py-16 bg-blue-light/20">
+      <section ref={partnersSection.ref} className="py-16 bg-blue-light/20 section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(214 50% 98% / 0.5)',
+        '--transition-to': 'hsl(211 100% 22% / 0.3)'
+      } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${partnersSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
@@ -324,7 +339,9 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaSection.ref} className="py-16 bg-gradient-blue-elegant text-primary-foreground relative overflow-hidden">
+      <section ref={ctaSection.ref} className="py-16 bg-gradient-blue-elegant text-primary-foreground relative overflow-hidden section-transition-top" style={{
+        '--transition-from': 'hsl(211 40% 70% / 0.2)'
+      } as React.CSSProperties}>
         <div className="absolute inset-0 bg-gradient-primary-soft opacity-40"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
