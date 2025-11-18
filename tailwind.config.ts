@@ -166,6 +166,14 @@ export default {
             animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
           },
         },
+        "fade-gradient": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -178,6 +186,7 @@ export default {
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "shimmer": "shimmer 3s linear infinite",
         "bounce-slow": "bounce-slow 2s ease-in-out infinite",
+        "fade-gradient": "fade-gradient 1s ease-in-out",
       },
     },
   },
