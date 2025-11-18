@@ -2,10 +2,14 @@ import { Link } from "react-router-dom";
 import { Sun, Wind, Zap, Leaf, Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import projectResidential from "@/assets/project-residential-1.jpg";
+import projectIndustrial from "@/assets/project-industrial-1.jpg";
+import projectCommercial from "@/assets/project-commercial-1.jpg";
+import projectAgricultural from "@/assets/project-agricultural-1.jpg";
 const Home = () => {
   const servicesSection = useIntersectionObserver({
     threshold: 0.2
@@ -139,47 +143,84 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Fotovoltaico Comunità Energetiche */}
-      <section ref={communitySection.ref} className="py-16">
+      {/* I Nostri Lavori - Projects Carousel */}
+      <section ref={communitySection.ref} className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className={`max-w-4xl mx-auto text-center mb-12 transition-all duration-700 ${communitySection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+            <p className="text-lime-green uppercase tracking-wider text-sm mb-2">PORTFOLIO</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-              Fotovoltaico Comunità Energetiche
+              I Nostri Lavori
             </h2>
             <p className="text-lg text-muted-foreground">
-              Condividi l'energia prodotta con dipendenti, fornitori e cittadini
+              Scopri alcuni dei progetti energetici che abbiamo realizzato con successo
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[{
-            title: "Tariffa Incentivante",
-            desc: "Valorizza l'energia in eccesso con incentivi dedicati"
-          }, {
-            title: "Efficienza Energetica",
-            desc: "Aumenta l'autoconsumo e riduci gli sprechi"
-          }, {
-            title: "Incentivi Economici",
-            desc: "Accedi a contributi e finanziamenti agevolati"
-          }, {
-            title: "Impatto Ambientale",
-            desc: "Riduci le emissioni e proteggi l'ambiente"
-          }, {
-            title: "Ritorno d'Immagine",
-            desc: "Migliora la reputazione aziendale"
-          }, {
-            title: "Comunità Locale",
-            desc: "Crea valore per il territorio"
-          }].map((benefit, index) => <Card key={index} className={`hover:shadow-card-hover hover:-translate-y-2 hover:border-lime-green transition-all duration-300 cursor-pointer bg-gradient-card ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-            animationDelay: `${index * 0.1}s`,
-            animationFillMode: 'both'
-          }}>
-                <CardContent className="p-6">
-                  <CheckCircle className="h-8 w-8 text-secondary mb-3 transition-all duration-300 group-hover:text-lime-green" />
-                  <h3 className="font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">{benefit.desc}</p>
-                </CardContent>
-              </Card>)}
+          <div className={`max-w-5xl mx-auto transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {[
+                  {
+                    image: projectResidential,
+                    title: "Villa Residenziale - Milano",
+                    type: "Impianto Fotovoltaico Residenziale",
+                    power: "6 kW",
+                    description: "Installazione completa di pannelli solari di ultima generazione su abitazione privata con sistema di accumulo energetico."
+                  },
+                  {
+                    image: projectIndustrial,
+                    title: "Complesso Industriale - Avellino",
+                    type: "Impianto Fotovoltaico Industriale",
+                    power: "250 kW",
+                    description: "Grande installazione fotovoltaica su capannone industriale con copertura completa del tetto per massima produzione energetica."
+                  },
+                  {
+                    image: projectCommercial,
+                    title: "Centro Commerciale - Lombardia",
+                    type: "Sistema Ibrido Fotovoltaico + Eolico",
+                    power: "180 kW",
+                    description: "Soluzione energetica integrata che combina pannelli solari e turbine eoliche per massimizzare la produzione di energia rinnovabile."
+                  },
+                  {
+                    image: projectAgricultural,
+                    title: "Azienda Agricola - Campania",
+                    type: "Fotovoltaico Agricolo",
+                    power: "50 kW",
+                    description: "Impianto fotovoltaico a terra con sistema di storage per autoconsumo ottimizzato nelle attività agricole."
+                  }
+                ].map((project, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                    <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card">
+                      <div className="relative h-64 overflow-hidden">
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        />
+                        <div className="absolute top-4 right-4 bg-lime-green text-foreground px-3 py-1 rounded-full text-sm font-semibold shadow-glow-lime">
+                          {project.power}
+                        </div>
+                      </div>
+                      <CardContent className="p-6">
+                        <div className="mb-2">
+                          <span className="text-xs text-lime-green font-semibold uppercase tracking-wider">{project.type}</span>
+                        </div>
+                        <h3 className="text-xl font-bold mb-3 text-primary">{project.title}</h3>
+                        <p className="text-muted-foreground text-sm">{project.description}</p>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex -left-12 hover:bg-lime-green hover:text-foreground hover:border-lime-green transition-all" />
+              <CarouselNext className="hidden md:flex -right-12 hover:bg-lime-green hover:text-foreground hover:border-lime-green transition-all" />
+            </Carousel>
           </div>
         </div>
       </section>
