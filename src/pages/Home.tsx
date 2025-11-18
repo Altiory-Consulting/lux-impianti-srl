@@ -5,8 +5,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-solar-sunset.jpg";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Home = () => {
+  const servicesSection = useIntersectionObserver({ threshold: 0.2 });
+  const communitySection = useIntersectionObserver({ threshold: 0.2 });
+  const redditoSection = useIntersectionObserver({ threshold: 0.2 });
+  const solutionsSection = useIntersectionObserver({ threshold: 0.2 });
+  const partnersSection = useIntersectionObserver({ threshold: 0.2 });
+  const ctaSection = useIntersectionObserver({ threshold: 0.2 });
+
   const services = [
     { icon: Sun, title: "Progettazione", desc: "Progetti su misura per ogni esigenza" },
     { icon: Zap, title: "Preventivi su misura", desc: "Soluzioni personalizzate" },
@@ -50,15 +58,15 @@ const Home = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl">
-            <p className="text-lime-green uppercase tracking-wider text-sm md:text-base mb-4 font-semibold">
+          <div className="max-w-4xl animate-fade-in">
+            <p className="text-lime-green uppercase tracking-wider text-sm md:text-base mb-4 font-semibold animate-fade-in-left" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               LA TUA VISIONE, LA NOSTRA TECNOLOGIA
             </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight animate-fade-in-left" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
               Il futuro è green.<br/>
               Insieme lo stiamo costruendo
             </h1>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 text-foreground font-semibold text-lg px-8 py-6">
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg px-8 py-6 transition-all duration-300 animate-fade-in-left shadow-lg hover:shadow-xl" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
               <Link to="/contatti">
                 RICHIEDI INFO
               </Link>
@@ -68,9 +76,9 @@ const Home = () => {
       </section>
 
       {/* Services Section - White background with icons */}
-      <section className="py-16 bg-background">
+      <section ref={servicesSection.ref} className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 transition-all duration-700 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Innovazione al servizio dell'ambiente
             </h2>
@@ -84,11 +92,15 @@ const Home = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {services.map((service, index) => (
-              <div key={index} className="text-center group">
+              <div 
+                key={index} 
+                className={`text-center group cursor-pointer transition-all duration-500 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
+              >
                 <div className="mb-4 flex justify-center">
-                  <service.icon className="h-16 w-16 text-lime-green group-hover:scale-110 transition-transform" />
+                  <service.icon className="h-16 w-16 text-lime-green group-hover:scale-125 group-hover:rotate-6 transition-all duration-300" />
                 </div>
-                <h3 className="font-bold mb-2 text-primary">{service.title}</h3>
+                <h3 className="font-bold mb-2 text-primary group-hover:text-lime-green transition-colors">{service.title}</h3>
                 <p className="text-sm text-muted-foreground">{service.desc}</p>
               </div>
             ))}
@@ -97,9 +109,9 @@ const Home = () => {
       </section>
 
       {/* Fotovoltaico Comunità Energetiche */}
-      <section className="py-16">
+      <section ref={communitySection.ref} className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+          <div className={`max-w-4xl mx-auto text-center mb-12 transition-all duration-700 ${communitySection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Fotovoltaico Comunità Energetiche
             </h2>
@@ -135,9 +147,13 @@ const Home = () => {
                 desc: "Crea valore per il territorio",
               },
             ].map((benefit, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card 
+                key={index} 
+                className={`hover:shadow-xl hover:-translate-y-2 hover:border-lime-green transition-all duration-300 cursor-pointer ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
+              >
                 <CardContent className="p-6">
-                  <CheckCircle className="h-8 w-8 text-secondary mb-3" />
+                  <CheckCircle className="h-8 w-8 text-secondary mb-3 transition-all duration-300 group-hover:text-lime-green" />
                   <h3 className="font-semibold mb-2">{benefit.title}</h3>
                   <p className="text-sm text-muted-foreground">{benefit.desc}</p>
                 </CardContent>
@@ -148,9 +164,9 @@ const Home = () => {
       </section>
 
       {/* Reddito Energetico */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section ref={redditoSection.ref} className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${redditoSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">Fotovoltaico<br/>Reddito Energetico</h2>
             <p className="text-lg mb-4">
               Il Reddito Energetico Nazionale finanzia impianti fotovoltaici domestici (2-6 kW) 
@@ -166,7 +182,7 @@ const Home = () => {
             <Button
               asChild
               size="lg"
-              className="bg-lime-green hover:bg-lime-green/90 text-foreground font-semibold"
+              className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <Link to="/soluzione/reddito-energetico">SCOPRI DI PIÙ</Link>
             </Button>
@@ -175,9 +191,9 @@ const Home = () => {
       </section>
 
       {/* Soluzioni Energetiche */}
-      <section className="py-16 bg-muted/30">
+      <section ref={solutionsSection.ref} className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2">I NOSTRI SERVIZI</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Soluzioni Energetiche
@@ -186,13 +202,17 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {solutions.map((solution, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all hover:-translate-y-1">
+              <Card 
+                key={index} 
+                className={`hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-lime-green group cursor-pointer ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
+              >
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-primary">{solution.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 text-primary group-hover:text-lime-green transition-colors">{solution.title}</h3>
                   <p className="text-muted-foreground mb-4">{solution.desc}</p>
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="outline" className="w-full group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green transition-all">
                     <Link to={solution.link}>
-                      Leggi di più <ArrowRight className="ml-2 h-4 w-4" />
+                      Leggi di più <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
                 </CardContent>
@@ -200,8 +220,8 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button asChild size="lg" variant="outline">
+          <div className={`text-center mt-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
+            <Button asChild size="lg" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-all">
               <Link to="/soluzioni">Vedi Tutte le Soluzioni</Link>
             </Button>
           </div>
@@ -209,9 +229,9 @@ const Home = () => {
       </section>
 
       {/* Partnership & Stats */}
-      <section className="py-16 bg-blue-light/20">
+      <section ref={partnersSection.ref} className="py-16 bg-blue-light/20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 transition-all duration-700 ${partnersSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Partnership con Leader del Settore
             </h2>
@@ -227,8 +247,12 @@ const Home = () => {
               { label: "Progetti Completati", value: "500+" },
               { label: "Anni di Esperienza", value: "15+" },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-secondary mb-2">{stat.value}</div>
+              <div 
+                key={index} 
+                className={`text-center transition-all duration-700 hover:scale-110 cursor-default ${partnersSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
+              >
+                <div className="text-4xl font-bold text-secondary mb-2 hover:text-lime-green transition-colors">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
@@ -237,24 +261,24 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section ref={ctaSection.ref} className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             Scegli un Futuro più Green
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <p className={`text-xl mb-8 max-w-2xl mx-auto transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             Contattaci per una consulenza energetica gratuita e scopri come risparmiare con le
             energie rinnovabili
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 text-foreground font-semibold">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 ${ctaSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
               <Link to="/contatti">RICHIEDI INFO</Link>
             </Button>
             <a
               href="tel:800123456"
-              className="flex items-center gap-2 text-lg hover:text-gold transition-colors"
+              className="flex items-center gap-2 text-lg hover:text-lime-green transition-colors group"
             >
-              <Phone className="h-6 w-6" />
+              <Phone className="h-6 w-6 group-hover:animate-float" />
               <span className="font-semibold">800 123 456</span>
             </a>
           </div>
