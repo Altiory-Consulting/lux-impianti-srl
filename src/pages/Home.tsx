@@ -97,7 +97,7 @@ const Home = () => {
               Un futuro green, creato insieme.   <br />
               Insieme lo stiamo costruendo
             </h1>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg px-8 py-6 transition-all duration-300 animate-fade-in-left shadow-lg hover:shadow-xl" style={{
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg px-8 py-6 transition-all duration-300 animate-fade-in-left shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow" style={{
             animationDelay: '0.6s',
             animationFillMode: 'both'
           }}>
@@ -125,12 +125,12 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {services.map((service, index) => <div key={index} className={`text-center group cursor-pointer transition-all duration-500 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+            {services.map((service, index) => <div key={index} className={`text-center group cursor-pointer transition-all duration-500 hover:scale-110 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
             animationDelay: `${index * 0.1}s`,
             animationFillMode: 'both'
           }}>
                 <div className="mb-4 flex justify-center">
-                  <service.icon className="h-16 w-16 text-lime-green group-hover:scale-125 group-hover:rotate-6 transition-all duration-300" />
+                  <service.icon className="h-16 w-16 text-lime-green group-hover:scale-125 group-hover:rotate-6 transition-all duration-300 drop-shadow-lg group-hover:drop-shadow-[0_0_15px_hsl(var(--lime-green))]" />
                 </div>
                 <h3 className="font-bold mb-2 text-primary group-hover:text-lime-green transition-colors">{service.title}</h3>
                 <p className="text-sm text-muted-foreground">{service.desc}</p>
@@ -170,7 +170,7 @@ const Home = () => {
           }, {
             title: "Comunità Locale",
             desc: "Crea valore per il territorio"
-          }].map((benefit, index) => <Card key={index} className={`hover:shadow-xl hover:-translate-y-2 hover:border-lime-green transition-all duration-300 cursor-pointer ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+          }].map((benefit, index) => <Card key={index} className={`hover:shadow-card-hover hover:-translate-y-2 hover:border-lime-green transition-all duration-300 cursor-pointer bg-gradient-card ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
             animationDelay: `${index * 0.1}s`,
             animationFillMode: 'both'
           }}>
@@ -200,7 +200,7 @@ const Home = () => {
               Accessibile a famiglie con ISEE sotto i 15.000 euro (o 30.000 con 4 figli), 
               richiede requisiti catastali e contrattuali. L'energia in eccesso sostiene il fondo.
             </p>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
               <Link to="/soluzione/reddito-energetico">SCOPRI DI PIÙ</Link>
             </Button>
           </div>
@@ -218,14 +218,14 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {solutions.map((solution, index) => <Card key={index} className={`hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-lime-green group cursor-pointer ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+            {solutions.map((solution, index) => <Card key={index} className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 hover:border-lime-green group cursor-pointer overflow-hidden bg-gradient-card ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
             animationDelay: `${index * 0.1}s`,
             animationFillMode: 'both'
           }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-3 text-primary group-hover:text-lime-green transition-colors">{solution.title}</h3>
                   <p className="text-muted-foreground mb-4">{solution.desc}</p>
-                  <Button asChild variant="outline" className="w-full group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green transition-all">
+                  <Button asChild variant="outline" className="w-full group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green group-hover:shadow-glow-lime transition-all">
                     <Link to={solution.link}>
                       Leggi di più <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -270,11 +270,11 @@ const Home = () => {
           }, {
             label: "Anni di Esperienza",
             value: "15+"
-          }].map((stat, index) => <div key={index} className={`text-center transition-all duration-700 hover:scale-110 cursor-default ${partnersSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+          }].map((stat, index) => <div key={index} className={`text-center transition-all duration-700 hover:scale-110 cursor-default group ${partnersSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
             animationDelay: `${index * 0.1}s`,
             animationFillMode: 'both'
           }}>
-                <div className="text-4xl font-bold text-secondary mb-2 hover:text-lime-green transition-colors">{stat.value}</div>
+                <div className="text-4xl font-bold text-secondary mb-2 hover:text-lime-green transition-colors group-hover:drop-shadow-[0_0_10px_hsl(var(--lime-green))]">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>)}
           </div>
@@ -298,7 +298,7 @@ const Home = () => {
           animationDelay: '0.4s',
           animationFillMode: 'both'
         }}>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
               <Link to="/contatti">RICHIEDI INFO</Link>
             </Button>
             <a href="tel:800123456" className="flex items-center gap-2 text-lg hover:text-lime-green transition-colors group">
