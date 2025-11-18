@@ -51,6 +51,7 @@ export default {
         "blue-medium": "hsl(var(--blue-medium))",
         "blue-light": "hsl(var(--blue-light))",
         gold: "hsl(var(--gold))",
+        "lime-green": "hsl(var(--lime-green))",
         "text-dark": "hsl(var(--text-dark))",
       },
       borderRadius: {
