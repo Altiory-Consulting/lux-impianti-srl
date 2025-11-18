@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-solar.jpg";
+import heroImage from "@/assets/hero-solar-sunset.jpg";
 
 const Home = () => {
   const services = [
@@ -43,45 +43,54 @@ const Home = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section */}
+      {/* Hero Section - Full Screen */}
       <section
-        className="relative h-[600px] bg-cover bg-center"
+        className="relative min-h-[calc(100vh-120px)] bg-cover bg-center flex items-center"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70"></div>
-        <div className="container mx-auto px-4 h-full flex items-center relative z-10">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
-              Innovazione al servizio dell'ambiente
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl">
+            <p className="text-lime-green uppercase tracking-wider text-sm md:text-base mb-4 font-semibold">
+              LA TUA VISIONE, LA NOSTRA TECNOLOGIA
+            </p>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+              Il futuro è green.<br/>
+              Insieme lo stiamo costruendo
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground mb-8">
-              Energia green per privati & aziende
-            </p>
-            <p className="text-lg text-primary-foreground/90 mb-8">
-              Dalla consulenza alla manutenzione, copriamo tutte le fasi del progetto per garantirti
-              soluzioni energetiche complete e su misura.
-            </p>
-            <Button asChild size="lg" className="bg-gold hover:bg-gold/90 text-foreground">
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 text-foreground font-semibold text-lg px-8 py-6">
               <Link to="/contatti">
-                Richiedi Informazioni <ArrowRight className="ml-2 h-5 w-5" />
+                RICHIEDI INFO
               </Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Services Icons */}
-      <section className="py-16 bg-card">
+      {/* Services Section - White background with icons */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Innovazione al servizio dell'ambiente
+            </h2>
+            <p className="text-xl text-primary mb-2">Energia green per privati & aziende</p>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              In Lux Impianti, offriamo una gamma di servizi completa che copre ogni fase del progetto, 
+              dalla prima consulenza fino alla manutenzione nel tempo. Ogni soluzione è progettata per 
+              essere efficiente, duratura e beneficiare delle agevolazioni economiche più adeguate.
+            </p>
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <service.icon className="h-12 w-12 mx-auto mb-3 text-secondary" />
-                  <h3 className="font-semibold mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground">{service.desc}</p>
-                </CardContent>
-              </Card>
+              <div key={index} className="text-center group">
+                <div className="mb-4 flex justify-center">
+                  <service.icon className="h-16 w-16 text-lime-green group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="font-bold mb-2 text-primary">{service.title}</h3>
+                <p className="text-sm text-muted-foreground">{service.desc}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -139,38 +148,40 @@ const Home = () => {
       </section>
 
       {/* Reddito Energetico */}
-      <section className="py-16 bg-secondary text-primary-foreground">
+      <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Fotovoltaico Reddito Energetico</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">Fotovoltaico<br/>Reddito Energetico</h2>
             <p className="text-lg mb-4">
-              Il programma nazionale che finanzia impianti fotovoltaici domestici per famiglie con
-              ISEE sotto i 15.000 € (o 30.000 € con quattro figli o più)
+              Il Reddito Energetico Nazionale finanzia impianti fotovoltaici domestici (2-6 kW) 
+              per famiglie in difficoltà economica, promuovendo autoconsumo ed energie rinnovabili.
+            </p>
+            <p className="mb-4">
+              Gestito dal GSE, il fondo è alimentato da 200 milioni di euro (2024-2025) e contribuzioni volontarie.
             </p>
             <p className="mb-8">
-              Un'opportunità unica per accedere all'energia solare senza costi iniziali
+              Accessibile a famiglie con ISEE sotto i 15.000 euro (o 30.000 con 4 figli), 
+              richiede requisiti catastali e contrattuali. L'energia in eccesso sostiene il fondo.
             </p>
             <Button
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold/90 text-foreground"
+              className="bg-lime-green hover:bg-lime-green/90 text-foreground font-semibold"
             >
-              <Link to="/soluzione/reddito-energetico">Scopri di più</Link>
+              <Link to="/soluzione/reddito-energetico">SCOPRI DI PIÙ</Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Soluzioni Energetiche */}
-      <section className="py-16">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
+            <p className="text-lime-green uppercase tracking-wider text-sm mb-2">I NOSTRI SERVIZI</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-              Le Nostre Soluzioni Energetiche
+              Soluzioni Energetiche
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Scopri le tecnologie che trasformeranno il tuo consumo energetico
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -236,8 +247,8 @@ const Home = () => {
             energie rinnovabili
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button asChild size="lg" className="bg-gold hover:bg-gold/90 text-foreground">
-              <Link to="/contatti">Contattaci Ora</Link>
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 text-foreground font-semibold">
+              <Link to="/contatti">RICHIEDI INFO</Link>
             </Button>
             <a
               href="tel:800123456"

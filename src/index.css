@@ -43,6 +43,7 @@ All colors MUST be HSL.
     --blue-medium: 210 63% 40%;
     --blue-light: 215 54% 73%;
     --gold: 46 89% 61%;
+    --lime-green: 74 61% 52%; /* Bright lime green for CTAs */
     --text-dark: 0 0% 18%;
   }
 

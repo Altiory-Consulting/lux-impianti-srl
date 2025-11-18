@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Phone, MapPin, Menu, X } from "lucide-react";
+import { Phone, MapPin, Menu, X, Facebook, Instagram } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
@@ -12,25 +12,33 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-primary shadow-md">
-      {/* Top Bar */}
-      <div className="bg-secondary">
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex flex-wrap items-center justify-between text-sm text-primary-foreground">
-            <div className="flex items-center gap-4">
-              <a href="tel:800123456" className="flex items-center gap-2 hover:text-gold transition-colors">
-                <Phone className="h-4 w-4" />
-                <span className="font-semibold">Numero Verde: 800 123 456</span>
+      {/* Top Bar - Dark with contacts */}
+      <div className="bg-foreground text-background">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-sm">
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4" />
+              <a href="tel:800480840" className="hover:text-lime-green transition-colors font-semibold">
+                800.480.840
               </a>
             </div>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-center md:text-left">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Milano</span>
+                <span>Via Ilario Biagi, 65 Milano</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Avellino</span>
+                <span>Via Dei Due Principati, 60 Avellino</span>
               </div>
+            </div>
+            <div className="flex gap-3">
+              <a href="#" className="hover:text-lime-green transition-colors">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#" className="hover:text-lime-green transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>
@@ -43,41 +51,40 @@ const Header = () => {
             <img src={logo} alt="Lux Impianti S.R.L." className="h-12 w-auto" />
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <Link
               to="/"
-              className={`text-primary-foreground hover:text-gold transition-colors ${
-                isActive("/") ? "text-gold font-semibold" : ""
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+                isActive("/") ? "text-lime-green" : ""
               }`}
             >
-              Home
+              HOME
             </Link>
             <Link
               to="/chi-siamo"
-              className={`text-primary-foreground hover:text-gold transition-colors ${
-                isActive("/chi-siamo") ? "text-gold font-semibold" : ""
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+                isActive("/chi-siamo") ? "text-lime-green" : ""
               }`}
             >
-              Chi Siamo
+              CHI SIAMO
             </Link>
             <Link
               to="/soluzioni"
-              className={`text-primary-foreground hover:text-gold transition-colors ${
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
                 isActive("/soluzioni") || location.pathname.startsWith("/soluzione/")
-                  ? "text-gold font-semibold"
+                  ? "text-lime-green"
                   : ""
               }`}
             >
-              Soluzioni
+              SOLUZIONI
             </Link>
             <Link
               to="/contatti"
-              className={`text-primary-foreground hover:text-gold transition-colors ${
-                isActive("/contatti") ? "text-gold font-semibold" : ""
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+                isActive("/contatti") ? "text-lime-green" : ""
               }`}
             >
-              Contatti
+              CONTATTI
             </Link>
           </nav>
 
