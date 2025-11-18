@@ -11,7 +11,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-gradient-blue-elegant text-primary-foreground relative">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -27,30 +27,30 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold mb-4 text-gold">Navigazione</h4>
+            <h4 className="font-semibold mb-4 text-lime-green">Navigazione</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="hover:text-gold transition-colors">
+                <Link to="/" className="hover:text-lime-green transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/chi-siamo" className="hover:text-gold transition-colors">
+                <Link to="/chi-siamo" className="hover:text-lime-green transition-colors">
                   Chi Siamo
                 </Link>
               </li>
               <li>
-                <Link to="/soluzioni" className="hover:text-gold transition-colors">
+                <Link to="/soluzioni" className="hover:text-lime-green transition-colors">
                   Soluzioni
                 </Link>
               </li>
               <li>
-                <Link to="/contatti" className="hover:text-gold transition-colors">
+                <Link to="/contatti" className="hover:text-lime-green transition-colors">
                   Contatti
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="hover:text-gold transition-colors">
+                <Link to="/privacy" className="hover:text-lime-green transition-colors">
                   Privacy Policy
                 </Link>
               </li>
@@ -59,13 +59,13 @@ const Footer = () => {
 
           {/* Contacts */}
           <div>
-            <h4 className="font-semibold mb-4 text-gold">Contatti</h4>
+            <h4 className="font-semibold mb-4 text-lime-green">Contatti</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Numero Verde</p>
-                  <a href="tel:800123456" className="hover:text-gold">
+                  <a href="tel:800123456" className="hover:text-lime-green">
                     800 123 456
                   </a>
                 </div>
@@ -73,7 +73,7 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
-                  <a href="mailto:info@luximpianti.it" className="hover:text-gold">
+                  <a href="mailto:info@luximpianti.it" className="hover:text-lime-green">
                     info@luximpianti.it
                   </a>
                 </div>
@@ -97,7 +97,7 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-semibold mb-4 text-gold">Newsletter</h4>
+            <h4 className="font-semibold mb-4 text-lime-green">Newsletter</h4>
             <p className="text-sm mb-4">
               Iscriviti per ricevere aggiornamenti sulle energie rinnovabili
             </p>
