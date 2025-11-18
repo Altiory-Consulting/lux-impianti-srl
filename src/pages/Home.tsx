@@ -6,67 +6,94 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-solar-sunset.jpg";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-
 const Home = () => {
-  const servicesSection = useIntersectionObserver({ threshold: 0.2 });
-  const communitySection = useIntersectionObserver({ threshold: 0.2 });
-  const redditoSection = useIntersectionObserver({ threshold: 0.2 });
-  const solutionsSection = useIntersectionObserver({ threshold: 0.2 });
-  const partnersSection = useIntersectionObserver({ threshold: 0.2 });
-  const ctaSection = useIntersectionObserver({ threshold: 0.2 });
-
-  const services = [
-    { icon: Sun, title: "Progettazione", desc: "Progetti su misura per ogni esigenza" },
-    { icon: Zap, title: "Preventivi su misura", desc: "Soluzioni personalizzate" },
-    { icon: Leaf, title: "Installazione", desc: "Installatori certificati" },
-    { icon: CheckCircle, title: "Manutenzione", desc: "Assistenza post-vendita" },
-    { icon: Wind, title: "Conto Termico", desc: "Accesso agli incentivi" },
-    { icon: Sun, title: "Analisi Energetica", desc: "Gratuita e professionale" },
-  ];
-
-  const solutions = [
-    {
-      title: "Impianti Fotovoltaici",
-      desc: "Cattura l'energia del sole e riduci le bollette",
-      link: "/soluzione/fotovoltaico",
-    },
-    {
-      title: "Solare Termico",
-      desc: "Acqua calda naturale dal sole",
-      link: "/soluzione/solare-termico",
-    },
-    {
-      title: "Pompa di Calore",
-      desc: "Comfort in ogni stagione con massima efficienza",
-      link: "/soluzione/climatizzazione",
-    },
-    {
-      title: "Reddito Energetico",
-      desc: "Accedi ai contributi statali per il fotovoltaico",
-      link: "/soluzione/reddito-energetico",
-    },
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const servicesSection = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const communitySection = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const redditoSection = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const solutionsSection = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const partnersSection = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const ctaSection = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const services = [{
+    icon: Sun,
+    title: "Progettazione",
+    desc: "Progetti su misura per ogni esigenza"
+  }, {
+    icon: Zap,
+    title: "Preventivi su misura",
+    desc: "Soluzioni personalizzate"
+  }, {
+    icon: Leaf,
+    title: "Installazione",
+    desc: "Installatori certificati"
+  }, {
+    icon: CheckCircle,
+    title: "Manutenzione",
+    desc: "Assistenza post-vendita"
+  }, {
+    icon: Wind,
+    title: "Conto Termico",
+    desc: "Accesso agli incentivi"
+  }, {
+    icon: Sun,
+    title: "Analisi Energetica",
+    desc: "Gratuita e professionale"
+  }];
+  const solutions = [{
+    title: "Impianti Fotovoltaici",
+    desc: "Cattura l'energia del sole e riduci le bollette",
+    link: "/soluzione/fotovoltaico"
+  }, {
+    title: "Solare Termico",
+    desc: "Acqua calda naturale dal sole",
+    link: "/soluzione/solare-termico"
+  }, {
+    title: "Pompa di Calore",
+    desc: "Comfort in ogni stagione con massima efficienza",
+    link: "/soluzione/climatizzazione"
+  }, {
+    title: "Reddito Energetico",
+    desc: "Accedi ai contributi statali per il fotovoltaico",
+    link: "/soluzione/reddito-energetico"
+  }];
+  return <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section - Full Screen */}
-      <section
-        className="relative min-h-[calc(100vh-120px)] bg-cover bg-center flex items-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      <section className="relative min-h-[calc(100vh-120px)] bg-cover bg-center flex items-center" style={{
+      backgroundImage: `url(${heroImage})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl animate-fade-in">
-            <p className="text-lime-green uppercase tracking-wider text-sm md:text-base mb-4 font-semibold animate-fade-in-left" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-              LA TUA VISIONE, LA NOSTRA TECNOLOGIA
+            <p className="text-lime-green uppercase tracking-wider text-sm md:text-base mb-4 font-semibold animate-fade-in-left" style={{
+            animationDelay: '0.2s',
+            animationFillMode: 'both'
+          }}>
+              LA TUA VISIONE,TU LO IMMAGINI,NOI LO REALIZZIAMO                                             
             </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight animate-fade-in-left" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-              Il futuro è green.<br/>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight animate-fade-in-left" style={{
+            animationDelay: '0.4s',
+            animationFillMode: 'both'
+          }}>
+              Un futuro green, creato insieme.   <br />
               Insieme lo stiamo costruendo
             </h1>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg px-8 py-6 transition-all duration-300 animate-fade-in-left shadow-lg hover:shadow-xl" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg px-8 py-6 transition-all duration-300 animate-fade-in-left shadow-lg hover:shadow-xl" style={{
+            animationDelay: '0.6s',
+            animationFillMode: 'both'
+          }}>
               <Link to="/contatti">
                 RICHIEDI INFO
               </Link>
@@ -91,19 +118,16 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {services.map((service, index) => (
-              <div 
-                key={index} 
-                className={`text-center group cursor-pointer transition-all duration-500 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}
-                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
-              >
+            {services.map((service, index) => <div key={index} className={`text-center group cursor-pointer transition-all duration-500 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+            animationDelay: `${index * 0.1}s`,
+            animationFillMode: 'both'
+          }}>
                 <div className="mb-4 flex justify-center">
                   <service.icon className="h-16 w-16 text-lime-green group-hover:scale-125 group-hover:rotate-6 transition-all duration-300" />
                 </div>
                 <h3 className="font-bold mb-2 text-primary group-hover:text-lime-green transition-colors">{service.title}</h3>
                 <p className="text-sm text-muted-foreground">{service.desc}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -121,44 +145,34 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Tariffa Incentivante",
-                desc: "Valorizza l'energia in eccesso con incentivi dedicati",
-              },
-              {
-                title: "Efficienza Energetica",
-                desc: "Aumenta l'autoconsumo e riduci gli sprechi",
-              },
-              {
-                title: "Incentivi Economici",
-                desc: "Accedi a contributi e finanziamenti agevolati",
-              },
-              {
-                title: "Impatto Ambientale",
-                desc: "Riduci le emissioni e proteggi l'ambiente",
-              },
-              {
-                title: "Ritorno d'Immagine",
-                desc: "Migliora la reputazione aziendale",
-              },
-              {
-                title: "Comunità Locale",
-                desc: "Crea valore per il territorio",
-              },
-            ].map((benefit, index) => (
-              <Card 
-                key={index} 
-                className={`hover:shadow-xl hover:-translate-y-2 hover:border-lime-green transition-all duration-300 cursor-pointer ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
-                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
-              >
+            {[{
+            title: "Tariffa Incentivante",
+            desc: "Valorizza l'energia in eccesso con incentivi dedicati"
+          }, {
+            title: "Efficienza Energetica",
+            desc: "Aumenta l'autoconsumo e riduci gli sprechi"
+          }, {
+            title: "Incentivi Economici",
+            desc: "Accedi a contributi e finanziamenti agevolati"
+          }, {
+            title: "Impatto Ambientale",
+            desc: "Riduci le emissioni e proteggi l'ambiente"
+          }, {
+            title: "Ritorno d'Immagine",
+            desc: "Migliora la reputazione aziendale"
+          }, {
+            title: "Comunità Locale",
+            desc: "Crea valore per il territorio"
+          }].map((benefit, index) => <Card key={index} className={`hover:shadow-xl hover:-translate-y-2 hover:border-lime-green transition-all duration-300 cursor-pointer ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+            animationDelay: `${index * 0.1}s`,
+            animationFillMode: 'both'
+          }}>
                 <CardContent className="p-6">
                   <CheckCircle className="h-8 w-8 text-secondary mb-3 transition-all duration-300 group-hover:text-lime-green" />
                   <h3 className="font-semibold mb-2">{benefit.title}</h3>
                   <p className="text-sm text-muted-foreground">{benefit.desc}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -167,7 +181,7 @@ const Home = () => {
       <section ref={redditoSection.ref} className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${redditoSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">Fotovoltaico<br/>Reddito Energetico</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">Fotovoltaico<br />Reddito Energetico</h2>
             <p className="text-lg mb-4">
               Il Reddito Energetico Nazionale finanzia impianti fotovoltaici domestici (2-6 kW) 
               per famiglie in difficoltà economica, promuovendo autoconsumo ed energie rinnovabili.
@@ -179,11 +193,7 @@ const Home = () => {
               Accessibile a famiglie con ISEE sotto i 15.000 euro (o 30.000 con 4 figli), 
               richiede requisiti catastali e contrattuali. L'energia in eccesso sostiene il fondo.
             </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
               <Link to="/soluzione/reddito-energetico">SCOPRI DI PIÙ</Link>
             </Button>
           </div>
@@ -201,12 +211,10 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {solutions.map((solution, index) => (
-              <Card 
-                key={index} 
-                className={`hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-lime-green group cursor-pointer ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
-                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
-              >
+            {solutions.map((solution, index) => <Card key={index} className={`hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-lime-green group cursor-pointer ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+            animationDelay: `${index * 0.1}s`,
+            animationFillMode: 'both'
+          }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-3 text-primary group-hover:text-lime-green transition-colors">{solution.title}</h3>
                   <p className="text-muted-foreground mb-4">{solution.desc}</p>
@@ -216,11 +224,13 @@ const Home = () => {
                     </Link>
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
-          <div className={`text-center mt-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
+          <div className={`text-center mt-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+          animationDelay: '0.5s',
+          animationFillMode: 'both'
+        }}>
             <Button asChild size="lg" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-all">
               <Link to="/soluzioni">Vedi Tutte le Soluzioni</Link>
             </Button>
@@ -241,21 +251,25 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {[
-              { label: "Fotovoltaico", value: "99%" },
-              { label: "Soddisfazione Clienti", value: "98%" },
-              { label: "Progetti Completati", value: "500+" },
-              { label: "Anni di Esperienza", value: "15+" },
-            ].map((stat, index) => (
-              <div 
-                key={index} 
-                className={`text-center transition-all duration-700 hover:scale-110 cursor-default ${partnersSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
-                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
-              >
+            {[{
+            label: "Fotovoltaico",
+            value: "99%"
+          }, {
+            label: "Soddisfazione Clienti",
+            value: "98%"
+          }, {
+            label: "Progetti Completati",
+            value: "500+"
+          }, {
+            label: "Anni di Esperienza",
+            value: "15+"
+          }].map((stat, index) => <div key={index} className={`text-center transition-all duration-700 hover:scale-110 cursor-default ${partnersSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+            animationDelay: `${index * 0.1}s`,
+            animationFillMode: 'both'
+          }}>
                 <div className="text-4xl font-bold text-secondary mb-2 hover:text-lime-green transition-colors">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -266,18 +280,21 @@ const Home = () => {
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             Scegli un Futuro più Green
           </h2>
-          <p className={`text-xl mb-8 max-w-2xl mx-auto transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+          <p className={`text-xl mb-8 max-w-2xl mx-auto transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+          animationDelay: '0.2s',
+          animationFillMode: 'both'
+        }}>
             Contattaci per una consulenza energetica gratuita e scopri come risparmiare con le
             energie rinnovabili
           </p>
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 ${ctaSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 ${ctaSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+          animationDelay: '0.4s',
+          animationFillMode: 'both'
+        }}>
             <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
               <Link to="/contatti">RICHIEDI INFO</Link>
             </Button>
-            <a
-              href="tel:800123456"
-              className="flex items-center gap-2 text-lg hover:text-lime-green transition-colors group"
-            >
+            <a href="tel:800123456" className="flex items-center gap-2 text-lg hover:text-lime-green transition-colors group">
               <Phone className="h-6 w-6 group-hover:animate-float" />
               <span className="font-semibold">800 123 456</span>
             </a>
@@ -286,8 +303,6 @@ const Home = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
