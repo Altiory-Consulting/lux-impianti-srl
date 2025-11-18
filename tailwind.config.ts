@@ -56,9 +56,11 @@ export default {
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
+        "gradient-primary-soft": "var(--gradient-primary-soft)",
         "gradient-accent": "var(--gradient-accent)",
         "gradient-hero": "var(--gradient-hero)",
         "gradient-card": "var(--gradient-card)",
+        "gradient-blue-elegant": "var(--gradient-blue-elegant)",
       },
       boxShadow: {
         "glow-lime": "var(--shadow-glow-lime)",
