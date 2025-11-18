@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-solar-sunset.jpg";
+
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 const Home = () => {
   const servicesSection = useIntersectionObserver({
@@ -71,9 +71,16 @@ const Home = () => {
       <Header />
 
       {/* Hero Section - Full Screen */}
-      <section className="relative min-h-[calc(100vh-120px)] bg-cover bg-center flex items-center" style={{
-      backgroundImage: `url(${heroImage})`
-    }}>
+      <section className="relative min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl animate-fade-in">
