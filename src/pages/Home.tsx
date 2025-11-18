@@ -226,8 +226,9 @@ const Home = () => {
       </section>
 
       {/* Reddito Energetico */}
-      <section ref={redditoSection.ref} className="py-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
+      <section ref={redditoSection.ref} className="py-16 bg-gradient-blue-elegant text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-primary-soft opacity-50"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${redditoSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">Fotovoltaico<br />Reddito Energetico</h2>
             <p className="text-lg mb-4">
@@ -323,8 +324,9 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaSection.ref} className="py-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
+      <section ref={ctaSection.ref} className="py-16 bg-gradient-blue-elegant text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-primary-soft opacity-40"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             Scegli un Futuro più Green
           </h2>
