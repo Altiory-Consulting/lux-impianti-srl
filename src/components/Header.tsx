@@ -4,15 +4,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
 import logoTrasparente from "@/assets/logo-trasparente.png";
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
   const isActive = (path: string) => location.pathname === path;
-
-  return (
-    <header className="sticky top-0 z-50 bg-gradient-blue-elegant shadow-md relative">
+  return <header className="sticky top-0 z-50 bg-gradient-blue-elegant shadow-md relative">
       {/* Top Bar - Dark with contacts */}
       <div className="bg-foreground text-background">
         <div className="container mx-auto px-4 py-3">
@@ -48,9 +44,7 @@ const Header = () => {
       {/* Main Navigation */}
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Lux Impianti S.R.L." className="h-12 w-auto" />
-          </Link>
+          
 
           {/* Center Logo */}
           <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
@@ -58,97 +52,42 @@ const Header = () => {
           </div>
 
           <nav className="hidden md:flex items-center gap-8 relative z-10">
-            <Link
-              to="/"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/") ? "text-lime-green" : ""
-              }`}
-            >
+            <Link to="/" className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${isActive("/") ? "text-lime-green" : ""}`}>
               HOME
             </Link>
-            <Link
-              to="/chi-siamo"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/chi-siamo") ? "text-lime-green" : ""
-              }`}
-            >
+            <Link to="/chi-siamo" className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${isActive("/chi-siamo") ? "text-lime-green" : ""}`}>
               CHI SIAMO
             </Link>
-            <Link
-              to="/soluzioni"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/soluzioni") || location.pathname.startsWith("/soluzione/")
-                  ? "text-lime-green"
-                  : ""
-              }`}
-            >
+            <Link to="/soluzioni" className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${isActive("/soluzioni") || location.pathname.startsWith("/soluzione/") ? "text-lime-green" : ""}`}>
               SOLUZIONI
             </Link>
-            <Link
-              to="/contatti"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/contatti") ? "text-lime-green" : ""
-              }`}
-            >
+            <Link to="/contatti" className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${isActive("/contatti") ? "text-lime-green" : ""}`}>
               CONTATTI
             </Link>
           </nav>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-primary-foreground hover:text-gold"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <Button variant="ghost" size="icon" className="md:hidden text-primary-foreground hover:text-gold" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-4">
-            <Link
-              to="/"
-              className={`text-primary-foreground hover:text-gold transition-colors ${
-                isActive("/") ? "text-gold font-semibold" : ""
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
+        {isMenuOpen && <nav className="md:hidden pb-4 flex flex-col gap-4">
+            <Link to="/" className={`text-primary-foreground hover:text-gold transition-colors ${isActive("/") ? "text-gold font-semibold" : ""}`} onClick={() => setIsMenuOpen(false)}>
               Home
             </Link>
-            <Link
-              to="/chi-siamo"
-              className={`text-primary-foreground hover:text-gold transition-colors ${
-                isActive("/chi-siamo") ? "text-gold font-semibold" : ""
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link to="/chi-siamo" className={`text-primary-foreground hover:text-gold transition-colors ${isActive("/chi-siamo") ? "text-gold font-semibold" : ""}`} onClick={() => setIsMenuOpen(false)}>
               Chi Siamo
             </Link>
-            <Link
-              to="/soluzioni"
-              className={`text-primary-foreground hover:text-gold transition-colors ${
-                isActive("/soluzioni") ? "text-gold font-semibold" : ""
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link to="/soluzioni" className={`text-primary-foreground hover:text-gold transition-colors ${isActive("/soluzioni") ? "text-gold font-semibold" : ""}`} onClick={() => setIsMenuOpen(false)}>
               Soluzioni
             </Link>
-            <Link
-              to="/contatti"
-              className={`text-primary-foreground hover:text-gold transition-colors ${
-                isActive("/contatti") ? "text-gold font-semibold" : ""
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link to="/contatti" className={`text-primary-foreground hover:text-gold transition-colors ${isActive("/contatti") ? "text-gold font-semibold" : ""}`} onClick={() => setIsMenuOpen(false)}>
               Contatti
             </Link>
-          </nav>
-        )}
+          </nav>}
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
