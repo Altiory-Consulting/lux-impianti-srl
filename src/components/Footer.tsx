@@ -27,7 +27,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-semibold mb-4 text-lime-green">Navigazione</h4>
+            <h4 className="font-semibold mb-4" style={{ color: 'hsl(211, 100%, 22%)' }}>Navigazione</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="hover:text-lime-green transition-colors">
@@ -59,7 +59,7 @@ const Footer = () => {
 
           {/* Contacts */}
           <div>
-            <h4 className="font-semibold mb-4 text-lime-green">Contatti</h4>
+            <h4 className="font-semibold mb-4" style={{ color: 'hsl(211, 100%, 22%)' }}>Contatti</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
@@ -97,7 +97,7 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-semibold mb-4 text-lime-green">Newsletter</h4>
+            <h4 className="font-semibold mb-4" style={{ color: 'hsl(211, 100%, 22%)' }}>Newsletter</h4>
             <p className="text-sm mb-4">
               Iscriviti per ricevere aggiornamenti sulle energie rinnovabili
             </p>
