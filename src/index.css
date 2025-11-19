@@ -53,6 +53,7 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(211 100% 22%) 0%, hsl(211 80% 35%) 50%, hsl(74 61% 52%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 100%);
     --gradient-blue-elegant: linear-gradient(135deg, hsl(211 100% 18%) 0%, hsl(211 95% 25%) 35%, hsl(211 85% 32%) 70%, hsl(211 75% 38%) 100%);
+    --gradient-header: linear-gradient(180deg, hsl(210 25% 75%) 0%, hsl(210 35% 42%) 100%);
     
     /* Dynamic shadows */
     --shadow-glow-lime: 0 0 30px hsla(74 61% 52% / 0.4);
@@ -97,6 +98,7 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(219 100% 10%) 0%, hsl(211 80% 20%) 50%, hsl(74 61% 30%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(219 80% 15%) 0%, hsl(219 70% 18%) 100%);
     --gradient-blue-elegant: linear-gradient(135deg, hsl(211 90% 30%) 0%, hsl(211 80% 35%) 35%, hsl(211 70% 42%) 70%, hsl(211 60% 48%) 100%);
+    --gradient-header: linear-gradient(180deg, hsl(210 25% 75%) 0%, hsl(210 35% 42%) 100%);
     
     --shadow-glow-lime: 0 0 30px hsla(74 61% 52% / 0.5);
     --shadow-glow-blue: 0 0 30px hsla(211 80% 50% / 0.4);
