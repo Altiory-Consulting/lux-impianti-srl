@@ -43,7 +43,7 @@ const Header = () => {
 
       {/* Main Navigation */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-6">
           
 
           {/* Center Logo */}
