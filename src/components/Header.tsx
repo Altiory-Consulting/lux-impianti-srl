@@ -48,7 +48,9 @@ const Header = () => {
 
           {/* Center Logo */}
           <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
-            <img src={logoTrasparente} alt="Lux Impianti" className="h-20 w-auto" />
+            <div className="bg-white rounded-lg px-4 py-2 shadow-lg">
+              <img src={logoTrasparente} alt="Lux Impianti" className="h-20 w-auto" />
+            </div>
           </div>
 
           <nav className="hidden md:flex items-center gap-8 relative z-10">
