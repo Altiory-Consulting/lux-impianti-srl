@@ -8,7 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
-  return <header className="sticky top-0 z-50 shadow-md relative" style={{ background: 'var(--gradient-header)' }}>
+  return <header className="sticky top-0 z-50 relative" style={{ background: 'var(--gradient-header)', boxShadow: 'var(--shadow-header)' }}>
       {/* Top Bar - Dark with contacts */}
       <div className="bg-foreground text-background">
         <div className="container mx-auto px-4 py-3">
