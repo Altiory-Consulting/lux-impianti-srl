@@ -20,10 +20,7 @@ const Header = () => {
               </a>
             </div>
             <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-center md:text-left">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>Via Ilario Biagi, 65 Milano</span>
-              </div>
+              
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>Via Dei Due Principati, 60 Avellino</span>
