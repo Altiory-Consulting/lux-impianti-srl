@@ -107,7 +107,7 @@ const Footer = () => {
                 placeholder="La tua email"
                 className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
               />
-              <Button type="submit" className="w-full bg-gold hover:bg-gold/90 text-foreground">
+              <Button type="submit" className="w-full text-white" style={{ backgroundColor: 'hsl(211, 100%, 22%)' }}>
                 Iscriviti
               </Button>
             </form>
