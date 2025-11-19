@@ -11,7 +11,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-blue-elegant text-primary-foreground relative">
+    <footer className="text-primary-foreground relative" style={{ background: 'var(--gradient-header)' }}>
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}

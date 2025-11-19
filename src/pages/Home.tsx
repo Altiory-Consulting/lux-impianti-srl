@@ -232,7 +232,8 @@ const Home = () => {
       </section>
 
       {/* Reddito Energetico */}
-      <section ref={redditoSection.ref} className="py-16 bg-gradient-blue-elegant text-primary-foreground relative overflow-hidden section-transition-top section-transition-bottom" style={{
+      <section ref={redditoSection.ref} className="py-16 text-primary-foreground relative overflow-hidden section-transition-top section-transition-bottom" style={{
+        background: 'var(--gradient-header)',
         '--transition-from': 'hsl(214 50% 98% / 0.5)',
         '--transition-to': 'hsl(211 100% 22% / 0.3)'
       } as React.CSSProperties}>
@@ -339,7 +340,8 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaSection.ref} className="py-16 bg-gradient-blue-elegant text-primary-foreground relative overflow-hidden section-transition-top" style={{
+      <section ref={ctaSection.ref} className="py-16 text-primary-foreground relative overflow-hidden section-transition-top" style={{
+        background: 'var(--gradient-header)',
         '--transition-from': 'hsl(211 40% 70% / 0.2)'
       } as React.CSSProperties}>
         <div className="absolute inset-0 bg-gradient-primary-soft opacity-40"></div>

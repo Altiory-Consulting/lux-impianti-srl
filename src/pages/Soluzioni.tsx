@@ -74,7 +74,7 @@ const Soluzioni = () => {
       </div>
 
       {/* Page Header */}
-      <section className="bg-primary text-primary-foreground py-16">
+      <section className="text-primary-foreground py-16" style={{ background: 'var(--gradient-header)' }}>
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Le Nostre Soluzioni Energetiche</h1>
           <p className="text-xl max-w-2xl mx-auto">

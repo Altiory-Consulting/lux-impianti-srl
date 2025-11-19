@@ -19,7 +19,7 @@ const SolareTermico = () => {
         </div>
       </div>
 
-      <section className="bg-primary text-primary-foreground py-16">
+      <section className="text-primary-foreground py-16" style={{ background: 'var(--gradient-header)' }}>
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 mb-6 justify-center">
             <Droplets className="h-16 w-16 text-gold" />
