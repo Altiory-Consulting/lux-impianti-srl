@@ -18,7 +18,7 @@ const Privacy = () => {
         </div>
       </div>
 
-      <section className="text-primary-foreground py-16" style={{ background: 'var(--gradient-header)' }}>
+      <section className="text-primary-foreground py-16" style={{ background: 'var(--gradient-header)', boxShadow: 'var(--shadow-header)' }}>
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
           <p className="text-xl max-w-2xl mx-auto">
