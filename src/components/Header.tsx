@@ -3,6 +3,7 @@ import { Phone, MapPin, Menu, X, Facebook, Instagram } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
+import logoTrasparente from "@/assets/logo-trasparente.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +52,12 @@ const Header = () => {
             <img src={logo} alt="Lux Impianti S.R.L." className="h-12 w-auto" />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Center Logo */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
+            <img src={logoTrasparente} alt="Lux Impianti" className="h-20 w-auto" />
+          </div>
+
+          <nav className="hidden md:flex items-center gap-8 relative z-10">
             <Link
               to="/"
               className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
