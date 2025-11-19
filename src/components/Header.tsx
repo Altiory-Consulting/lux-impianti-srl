@@ -51,7 +51,7 @@ const Header = () => {
             <img src={logoTrasparente} alt="Lux Impianti" className="h-20 w-auto" />
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 relative z-10">
+          <nav className="hidden md:flex items-center gap-8 relative z-10 ml-auto">
             <Link to="/" className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${isActive("/") ? "text-lime-green" : ""}`}>
               HOME
             </Link>
