@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sun, Wind, Zap, Leaf, Phone, CheckCircle, ArrowRight, Droplets, Thermometer, CircleDollarSign } from "lucide-react";
+import { Sun, Wind, Zap, Leaf, Phone, CheckCircle, ArrowRight, Droplets, Thermometer, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -76,7 +76,7 @@ const Home = () => {
     color: "text-cyan-500",
     bgColor: "bg-cyan-500/10 group-hover:bg-cyan-500/20"
   }, {
-    icon: CircleDollarSign,
+    icon: Euro,
     title: "Reddito Energetico",
     desc: "Accedi ai contributi statali per il fotovoltaico",
     link: "/soluzione/reddito-energetico",
