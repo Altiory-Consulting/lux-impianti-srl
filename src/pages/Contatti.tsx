@@ -172,7 +172,7 @@ const Contatti = () => {
       {/* Hero Section - Completamente rinnovata */}
       <section 
         ref={heroSection.ref}
-        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden py-20"
+        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-24"
         style={{
           background: 'linear-gradient(135deg, hsl(211 100% 18%) 0%, hsl(211 95% 25%) 35%, hsl(211 85% 32%) 70%, hsl(211 75% 38%) 100%)',
         }}
