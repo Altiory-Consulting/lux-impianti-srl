@@ -10,6 +10,10 @@ import projectResidential from "@/assets/project-residential-1.jpg";
 import projectIndustrial from "@/assets/project-industrial-1.jpg";
 import projectCommercial from "@/assets/project-commercial-1.jpg";
 import projectAgricultural from "@/assets/project-agricultural-1.jpg";
+import projectHeating from "@/assets/project-heating-1.jpg";
+import projectSolarRooftop from "@/assets/project-solar-rooftop-1.jpg";
+import projectSolarTiles from "@/assets/project-solar-tiles-1.jpg";
+import projectSolarSunset from "@/assets/project-solar-sunset-1.jpg";
 const Home = () => {
   const servicesSection = useIntersectionObserver({
     threshold: 0.01,
@@ -213,11 +217,39 @@ const Home = () => {
                   description: "Installazione completa di pannelli solari di ultima generazione su abitazione privata con sistema di accumulo energetico."
                 },
                 {
+                  image: projectSolarTiles,
+                  title: "Impianto Residenziale su Tegole",
+                  type: "Fotovoltaico Residenziale",
+                  power: "8 kW",
+                  description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale."
+                },
+                {
+                  image: projectSolarRooftop,
+                  title: "Impianto Fotovoltaico su Tetto Piano",
+                  type: "Fotovoltaico Commerciale",
+                  power: "45 kW",
+                  description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica."
+                },
+                {
+                  image: projectSolarSunset,
+                  title: "Grande Impianto Fotovoltaico",
+                  type: "Fotovoltaico Industriale",
+                  power: "120 kW",
+                  description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale."
+                },
+                {
                   image: projectIndustrial,
                   title: "Complesso Industriale - Caserta",
                   type: "Impianto Fotovoltaico Industriale",
                   power: "250 kW",
                   description: "Grande installazione fotovoltaica su capannone industriale con copertura completa del tetto per massima produzione energetica."
+                },
+                {
+                  image: projectHeating,
+                  title: "Sistema Riscaldamento a Pavimento",
+                  type: "Climatizzazione",
+                  power: "12 kW",
+                  description: "Installazione di sistema di riscaldamento radiante a pavimento con pompa di calore per comfort ottimale ed efficienza energetica."
                 },
                   {
                     image: projectCommercial,
