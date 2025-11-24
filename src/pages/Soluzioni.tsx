@@ -10,6 +10,9 @@ const Soluzioni = () => {
   const servicesSection = useIntersectionObserver({
     threshold: 0.2
   });
+  const solutionsSection = useIntersectionObserver({
+    threshold: 0.2
+  });
 
   const services = [
     {
@@ -176,21 +179,39 @@ const Soluzioni = () => {
       </section>
 
       {/* Solutions Grid */}
-      <section className="py-16 bg-muted/30">
+      <section ref={solutionsSection.ref} className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {solutions.map((solution, index) => (
               <Card
                 key={index}
-                className="hover:shadow-xl transition-all hover:-translate-y-2 duration-300"
+                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2 ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
               >
-                <CardContent className="p-8">
-                  <solution.icon className={`h-16 w-16 mb-6 ${solution.color}`} />
-                  <h2 className="text-2xl font-bold mb-4 text-primary">{solution.title}</h2>
-                  <p className="text-muted-foreground mb-6">{solution.description}</p>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link to={solution.link}>Scopri di più</Link>
-                  </Button>
+                <CardContent className="p-8 relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <div className="mb-6 flex justify-start">
+                      <div className="p-4 rounded-full bg-lime-green/10 group-hover:bg-lime-green/20 transition-all duration-300 group-hover:scale-110">
+                        <solution.icon className="h-16 w-16 text-lime-green group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 drop-shadow-lg group-hover:drop-shadow-[0_0_20px_hsl(var(--lime-green))]" />
+                      </div>
+                    </div>
+                    <h2 className="text-2xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">
+                      {solution.title}
+                    </h2>
+                    <p className="text-muted-foreground mb-6 group-hover:text-foreground transition-colors duration-300">
+                      {solution.description}
+                    </p>
+                    <Button asChild variant="outline" className="w-full border-lime-green/30 hover:bg-lime-green hover:text-foreground hover:border-lime-green transition-all duration-300 group-hover:shadow-glow-lime">
+                      <Link to={solution.link} className="flex items-center justify-center gap-2">
+                        Scopri di più
+                        <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
