@@ -8,7 +8,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
-  return <header className="sticky top-0 z-50 relative" style={{ background: 'var(--gradient-header)', boxShadow: 'var(--shadow-header)' }}>
+  return <header className="sticky top-0 z-50 relative" style={{
+    background: 'var(--gradient-header)',
+    boxShadow: 'var(--shadow-header)'
+  }}>
       {/* Top Bar - Dark with contacts */}
       <div className="bg-foreground text-background">
         <div className="container mx-auto px-4 py-3">
@@ -23,7 +26,7 @@ const Header = () => {
               
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Via Dei Due Principati, 60 Avellino</span>
+                <span>Largo Ochi n.7 Capriolo (BS)</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
