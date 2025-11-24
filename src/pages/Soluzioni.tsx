@@ -1,11 +1,49 @@
 import { Link } from "react-router-dom";
-import { Sun, Droplets, Wind, Flame, Mountain, Battery } from "lucide-react";
+import { Sun, Droplets, Wind, Flame, Mountain, Battery, Zap, Leaf, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Soluzioni = () => {
+  const servicesSection = useIntersectionObserver({
+    threshold: 0.2
+  });
+
+  const services = [
+    {
+      icon: Sun,
+      title: "Progettazione",
+      desc: "Progetti su misura per ogni esigenza"
+    },
+    {
+      icon: Zap,
+      title: "Preventivi su misura",
+      desc: "Soluzioni personalizzate"
+    },
+    {
+      icon: Leaf,
+      title: "Installazione",
+      desc: "Installatori certificati"
+    },
+    {
+      icon: CheckCircle,
+      title: "Manutenzione",
+      desc: "Assistenza post-vendita"
+    },
+    {
+      icon: Wind,
+      title: "Conto Termico",
+      desc: "Accesso agli incentivi"
+    },
+    {
+      icon: Sun,
+      title: "Analisi Energetica",
+      desc: "Gratuita e professionale"
+    }
+  ];
+
   const solutions = [
     {
       icon: Sun,
@@ -83,8 +121,62 @@ const Soluzioni = () => {
         </div>
       </section>
 
+      {/* Services Section - Interactive Cards */}
+      <section ref={servicesSection.ref} className="py-16 bg-background section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(0 0% 0% / 0.3)',
+        '--transition-to': 'hsl(214 50% 98% / 0.5)'
+      } as React.CSSProperties}>
+        <div className="container mx-auto px-4">
+          <div className={`text-center mb-12 transition-all duration-700 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI SERVIZI</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Innovazione al servizio dell'ambiente
+            </h2>
+            <p className="text-xl text-primary mb-2">Energia green per privati & aziende</p>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              In Lux Impianti, offriamo una gamma di servizi completa che copre ogni fase del progetto, 
+              dalla prima consulenza fino alla manutenzione nel tempo. Ogni soluzione è progettata per 
+              essere efficiente, duratura e beneficiare delle agevolazioni economiche più adeguate.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <Card 
+                key={index} 
+                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2 ${servicesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
+              >
+                <CardContent className="p-6 text-center relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <div className="mb-4 flex justify-center">
+                      <div className="p-4 rounded-full bg-lime-green/10 group-hover:bg-lime-green/20 transition-all duration-300 group-hover:scale-110">
+                        <service.icon className="h-12 w-12 text-lime-green group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 drop-shadow-lg group-hover:drop-shadow-[0_0_20px_hsl(var(--lime-green))]" />
+                      </div>
+                    </div>
+                    <h3 className="font-bold text-xl mb-3 text-primary group-hover:text-lime-green transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                      {service.desc}
+                    </p>
+                    <div className="mt-4 flex justify-center">
+                      <ArrowRight className="h-5 w-5 text-lime-green opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Solutions Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {solutions.map((solution, index) => (
