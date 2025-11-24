@@ -74,7 +74,7 @@ P.IVA: IT04633810983</p>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
-                  <a href="mailto:info@luximpianti.it" className="hover:text-lime-green">info@luximpiantisrl.com</a>
+                  <a href="mailto:info@luximpiantisrl.com" className="hover:text-lime-green">info@luximpiantisrl.com</a>
                 </div>
               </li>
               <li className="flex items-start gap-2">

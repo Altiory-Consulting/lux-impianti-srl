@@ -123,8 +123,8 @@ const Contatti = () => {
       icon: Mail,
       title: "Scrivici",
       description: "Risposta entro 24h",
-      action: "info@luximpianti.it",
-      href: "mailto:info@luximpianti.it",
+      action: "info@luximpiantisrl.com",
+      href: "mailto:info@luximpiantisrl.com",
       color: "text-blue-medium",
       bgColor: "bg-blue-medium/10",
     },
@@ -555,9 +555,9 @@ const Contatti = () => {
               <CardHeader className="bg-gradient-card border-b">
                 <CardTitle className="text-2xl flex items-center gap-2">
                   <MapPin className="h-6 w-6 text-lime-green" />
-                  Milano
+                  Capriolo (BS)
                 </CardTitle>
-                <CardDescription>Sede operativa Nord Italia</CardDescription>
+                <CardDescription>Sede Legale</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-4">
@@ -565,15 +565,15 @@ const Contatti = () => {
                     <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-primary">Indirizzo</p>
-                      <p className="text-muted-foreground">Via Roma 123, 20100 Milano (MI)</p>
+                      <p className="text-muted-foreground">Largo Ochi, 7 Capriolo (BS)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-primary">Telefono</p>
-                      <a href="tel:+390212345678" className="text-secondary hover:text-lime-green transition-colors">
-                        +39 02 1234 5678
+                      <a href="tel:08231556627" className="text-secondary hover:text-lime-green transition-colors">
+                        0823 155 6627
                       </a>
                     </div>
                   </div>
@@ -581,8 +581,8 @@ const Contatti = () => {
                     <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-primary">Email</p>
-                      <a href="mailto:milano@luximpianti.it" className="text-secondary hover:text-lime-green transition-colors">
-                        milano@luximpianti.it
+                      <a href="mailto:info@luximpiantisrl.com" className="text-secondary hover:text-lime-green transition-colors">
+                        info@luximpiantisrl.com
                       </a>
                     </div>
                   </div>
@@ -601,9 +601,9 @@ const Contatti = () => {
               <CardHeader className="bg-gradient-card border-b">
                 <CardTitle className="text-2xl flex items-center gap-2">
                   <MapPin className="h-6 w-6 text-lime-green" />
-                  Avellino
+                  Caserta (CE)
                 </CardTitle>
-                <CardDescription>Sede operativa Centro-Sud Italia</CardDescription>
+                <CardDescription>Sede Operativa</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
                 <div className="space-y-4">
@@ -611,15 +611,15 @@ const Contatti = () => {
                     <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-primary">Indirizzo</p>
-                      <p className="text-muted-foreground">Corso Vittorio Emanuele 45, 83100 Avellino (AV)</p>
+                      <p className="text-muted-foreground">Via Mulini Militari, 40 Caserta (CE)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-primary">Telefono</p>
-                      <a href="tel:+390825123456" className="text-secondary hover:text-lime-green transition-colors">
-                        +39 0825 123456
+                      <a href="tel:08231556627" className="text-secondary hover:text-lime-green transition-colors">
+                        0823 155 6627
                       </a>
                     </div>
                   </div>
@@ -627,8 +627,8 @@ const Contatti = () => {
                     <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-primary">Email</p>
-                      <a href="mailto:avellino@luximpianti.it" className="text-secondary hover:text-lime-green transition-colors">
-                        avellino@luximpianti.it
+                      <a href="mailto:info@luximpiantisrl.com" className="text-secondary hover:text-lime-green transition-colors">
+                        info@luximpiantisrl.com
                       </a>
                     </div>
                   </div>

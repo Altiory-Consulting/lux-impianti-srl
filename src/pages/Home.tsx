@@ -205,20 +205,20 @@ const Home = () => {
             <div className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-lime-green scrollbar-track-muted">
               <div className="flex gap-6 min-w-max px-4">
                 {[
-                  {
-                    image: projectResidential,
-                    title: "Villa Residenziale - Milano",
-                    type: "Impianto Fotovoltaico Residenziale",
-                    power: "6 kW",
-                    description: "Installazione completa di pannelli solari di ultima generazione su abitazione privata con sistema di accumulo energetico."
-                  },
-                  {
-                    image: projectIndustrial,
-                    title: "Complesso Industriale - Avellino",
-                    type: "Impianto Fotovoltaico Industriale",
-                    power: "250 kW",
-                    description: "Grande installazione fotovoltaica su capannone industriale con copertura completa del tetto per massima produzione energetica."
-                  },
+                {
+                  image: projectResidential,
+                  title: "Villa Residenziale - Capriolo",
+                  type: "Impianto Fotovoltaico Residenziale",
+                  power: "6 kW",
+                  description: "Installazione completa di pannelli solari di ultima generazione su abitazione privata con sistema di accumulo energetico."
+                },
+                {
+                  image: projectIndustrial,
+                  title: "Complesso Industriale - Caserta",
+                  type: "Impianto Fotovoltaico Industriale",
+                  power: "250 kW",
+                  description: "Grande installazione fotovoltaica su capannone industriale con copertura completa del tetto per massima produzione energetica."
+                },
                   {
                     image: projectCommercial,
                     title: "Centro Commerciale - Lombardia",

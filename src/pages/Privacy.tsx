@@ -39,10 +39,10 @@ const Privacy = () => {
 
             <h3 className="text-xl font-bold mb-3 mt-8 text-primary">1. Titolare del Trattamento</h3>
             <p className="text-muted-foreground mb-6">
-              Il Titolare del trattamento è Lux Impianti S.R.L., con sede legale in Milano, Via
-              Roma 123, 20100 Milano (MI), P.IVA 12345678901. Per qualsiasi informazione o richiesta
+              Il Titolare del trattamento è Lux Impianti S.R.L., con sede legale in Largo Ochi, 7 
+              Capriolo (BS), P.IVA IT04633810983. Per qualsiasi informazione o richiesta
               relativa al trattamento dei dati personali, è possibile contattare il Titolare
-              all'indirizzo email info@luximpianti.it.
+              all'indirizzo email info@luximpiantisrl.com.
             </p>
 
             <h3 className="text-xl font-bold mb-3 mt-8 text-primary">2. Finalità del Trattamento</h3>
@@ -97,7 +97,7 @@ const Privacy = () => {
             </ul>
             <p className="text-muted-foreground mb-6">
               Per esercitare tali diritti, è possibile contattare il Titolare all'indirizzo email
-              info@luximpianti.it. L'interessato ha inoltre il diritto di proporre reclamo
+              info@luximpiantisrl.com. L'interessato ha inoltre il diritto di proporre reclamo
               all'Autorità Garante per la protezione dei dati personali.
             </p>
 
