@@ -74,10 +74,10 @@ const Contatti = () => {
                 <Phone className="h-12 w-12 mx-auto mb-4 text-secondary" />
                 <h3 className="text-xl font-bold mb-2">Numero Verde</h3>
                 <a
-                  href="tel:800123456"
+                  href="tel:08231556627"
                   className="text-lg text-secondary hover:text-primary transition-colors"
                 >
-                  800 123 456
+                  0823 155 6627
                 </a>
                 <p className="text-sm text-muted-foreground mt-2">Lun-Ven 9:00-18:00</p>
               </CardContent>
@@ -187,7 +187,7 @@ const Contatti = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-secondary hover:bg-secondary/90">
+                  <Button type="submit" size="lg" className="w-full bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime">
                     Invia Messaggio
                   </Button>
                 </form>

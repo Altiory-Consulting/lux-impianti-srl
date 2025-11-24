@@ -187,15 +187,15 @@ const Geotermico = () => {
             Richiedi uno studio di fattibilità gratuito per il tuo impianto geotermico
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90">
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
               <Link to="/contatti">Richiedi Studio di Fattibilità</Link>
             </Button>
             <a
-              href="tel:800123456"
-              className="inline-flex items-center justify-center gap-2 text-lg hover:text-secondary transition-colors px-6 py-3"
+              href="tel:08231556627"
+              className="inline-flex items-center justify-center gap-2 text-lg hover:text-lime-green transition-colors px-6 py-3 group"
             >
-              <Phone className="h-6 w-6" />
-              <span className="font-semibold">800 123 456</span>
+              <Phone className="h-6 w-6 group-hover:animate-float" />
+              <span className="font-semibold">0823 155 6627</span>
             </a>
           </div>
         </div>

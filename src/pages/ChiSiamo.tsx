@@ -202,7 +202,7 @@ const ChiSiamo = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto text-muted-foreground">
             Scopri come possiamo aiutarti a risparmiare energia e ridurre i costi
           </p>
-          <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90">
+          <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
             <Link to="/contatti">Contattaci Ora</Link>
           </Button>
         </div>
