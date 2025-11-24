@@ -133,9 +133,15 @@ const ChiSiamo = () => {
               Partner di fiducia per soluzioni energetiche sostenibili e innovative
             </p>
             
-            <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-6 py-4 border-2 border-white/30 shadow-2xl">
-              <MapPin className="h-6 w-6 text-lime-green" />
-              <span className="text-lg font-bold text-white">Caserta, Campania</span>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-6 py-4 border-2 border-white/30 shadow-2xl hover:scale-105 hover:bg-white/35 transition-all duration-300">
+                <MapPin className="h-6 w-6 text-lime-green" />
+                <span className="text-lg font-bold text-white">Capriolo (BS)</span>
+              </div>
+              <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-6 py-4 border-2 border-white/30 shadow-2xl hover:scale-105 hover:bg-white/35 transition-all duration-300">
+                <MapPin className="h-6 w-6 text-lime-green" />
+                <span className="text-lg font-bold text-white">Caserta (CE)</span>
+              </div>
             </div>
           </div>
         </div>
