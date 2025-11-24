@@ -12,28 +12,28 @@ import projectCommercial from "@/assets/project-commercial-1.jpg";
 import projectAgricultural from "@/assets/project-agricultural-1.jpg";
 const Home = () => {
   const servicesSection = useIntersectionObserver({
-    threshold: 0.05,
-    rootMargin: '100px'
+    threshold: 0.01,
+    rootMargin: '300px'
   });
   const communitySection = useIntersectionObserver({
-    threshold: 0.05,
-    rootMargin: '100px'
+    threshold: 0.01,
+    rootMargin: '300px'
   });
   const redditoSection = useIntersectionObserver({
-    threshold: 0.05,
-    rootMargin: '100px'
+    threshold: 0.01,
+    rootMargin: '300px'
   });
   const solutionsSection = useIntersectionObserver({
-    threshold: 0.05,
-    rootMargin: '100px'
+    threshold: 0.01,
+    rootMargin: '300px'
   });
   const partnersSection = useIntersectionObserver({
-    threshold: 0.05,
-    rootMargin: '100px'
+    threshold: 0.01,
+    rootMargin: '300px'
   });
   const ctaSection = useIntersectionObserver({
-    threshold: 0.05,
-    rootMargin: '100px'
+    threshold: 0.01,
+    rootMargin: '300px'
   });
   const services = [{
     icon: Sun,
