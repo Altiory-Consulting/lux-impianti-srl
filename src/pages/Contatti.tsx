@@ -196,7 +196,7 @@ const Contatti = () => {
               La nostra esperienza al tuo servizio. Consulenza gratuita e supporto completo per ogni fase del progetto.
             </p>
 
-            <div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
               {stats.map((stat, index) => (
                 <div 
                   key={index}
