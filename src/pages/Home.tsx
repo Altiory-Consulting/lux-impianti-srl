@@ -357,9 +357,9 @@ const Home = () => {
             <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
               <Link to="/contatti">RICHIEDI INFO</Link>
             </Button>
-            <a href="tel:800123456" className="flex items-center gap-2 text-lg hover:text-lime-green transition-colors group">
+            <a href="tel:08231556627" className="flex items-center gap-2 text-lg hover:text-lime-green transition-colors group">
               <Phone className="h-6 w-6 group-hover:animate-float" />
-              <span className="font-semibold">800 123 456</span>
+              <span className="font-semibold">0823 155 6627</span>
             </a>
           </div>
         </div>
