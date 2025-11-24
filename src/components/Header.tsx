@@ -15,8 +15,8 @@ const Header = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-sm">
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
-              <a href="tel:800480840" className="hover:text-lime-green transition-colors font-semibold">
-                800.480.840
+              <a href="tel:08231556627" className="hover:text-lime-green transition-colors font-semibold">
+                0823 1556627
               </a>
             </div>
             <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-center md:text-left">
