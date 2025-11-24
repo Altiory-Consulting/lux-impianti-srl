@@ -4,10 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import logo from "@/assets/logo-footer.png";
 const Footer = () => {
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Newsletter logic here
-  };
   return <footer className="text-primary-foreground relative" style={{
     background: 'var(--gradient-header)',
     boxShadow: '0 -4px 20px -2px hsla(210 35% 42% / 0.25)'
@@ -96,22 +92,33 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Legal Pages */}
           <div>
             <h4 className="font-semibold mb-4" style={{
             color: 'hsl(211, 100%, 22%)'
-          }}>Newsletter</h4>
-            <p className="text-sm mb-4">
-              Iscriviti per ricevere aggiornamenti sulle energie rinnovabili
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-2">
-              <Input type="email" placeholder="La tua email" className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60" />
-              <Button type="submit" className="w-full text-white" style={{
-              backgroundColor: 'hsl(211, 100%, 22%)'
-            }}>
-                Iscriviti
-              </Button>
-            </form>
+          }}>Pagine Legali</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/privacy" className="hover:text-lime-green transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/cookie-policy" className="hover:text-lime-green transition-colors">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/termini-condizioni" className="hover:text-lime-green transition-colors">
+                  Termini e Condizioni
+                </Link>
+              </li>
+              <li>
+                <Link to="/note-legali" className="hover:text-lime-green transition-colors">
+                  Note Legali
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
