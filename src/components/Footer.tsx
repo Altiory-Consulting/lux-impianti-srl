@@ -16,11 +16,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
+            <h4 className="font-semibold mb-4" style={{
+              color: 'hsl(211, 100%, 22%)'
+            }}>Informazioni Aziendali</h4>
             <img src={logo} alt="Lux Impianti S.R.L." className="h-16 w-auto mb-4" />
-            <p className="text-sm mb-4">LUX IMPIANTI S.R.L. 
-P.IVA: IT04633810983</p>
-            <div className="space-y-2 text-sm">
-              <p>​ </p>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="font-semibold text-base mb-1">LUX IMPIANTI S.R.L.</p>
+                <p className="text-primary-foreground/90">P.IVA: IT04633810983</p>
+              </div>
+              <div className="pt-2">
+                <p className="font-semibold mb-1">Sede Legale</p>
+                <p className="text-primary-foreground/90">Largo Ochi, 7</p>
+                <p className="text-primary-foreground/90">Capriolo (BS)</p>
+              </div>
             </div>
           </div>
 
@@ -67,8 +76,7 @@ P.IVA: IT04633810983</p>
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
-                  
-                  <a href="tel:800123456" className="hover:text-lime-green">0823 155 6627</a>
+                  <a href="tel:0823155662" className="hover:text-lime-green">0823 155 6627</a>
                 </div>
               </li>
               <li className="flex items-start gap-2">
@@ -80,15 +88,9 @@ P.IVA: IT04633810983</p>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold">Sede Legale </p>
-                  <p>Largo Ochi, 7 Capriolo (BS)</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">Sede Operativa                        </p>
-                  <p>Via Mulini Militari, 40 Caserta (CE)                        </p>
+                  <p className="font-semibold">Sede Operativa</p>
+                  <p>Via Mulini Militari, 40</p>
+                  <p>Caserta (CE)</p>
                 </div>
               </li>
             </ul>
