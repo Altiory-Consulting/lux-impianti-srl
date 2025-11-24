@@ -21,10 +21,13 @@ const Footer = () => {
                 <p className="font-semibold text-base mb-1">LUX IMPIANTI S.R.L.</p>
                 <p className="text-primary-foreground/90">P.IVA: IT04633810983</p>
               </div>
-              <div className="pt-2">
-                <p className="font-semibold mb-1">Sede Legale</p>
-                <p className="text-primary-foreground/90">Largo Ochi, 7</p>
-                <p className="text-primary-foreground/90">Capriolo (BS)</p>
+              <div className="pt-2 flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold mb-1">Sede Legale</p>
+                  <p className="text-primary-foreground/90">Largo Ochi, 7</p>
+                  <p className="text-primary-foreground/90">Capriolo (BS)</p>
+                </div>
               </div>
             </div>
           </div>
