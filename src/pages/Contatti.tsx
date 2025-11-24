@@ -169,8 +169,20 @@ const Contatti = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
+      {/* Breadcrumb */}
+      <div className="bg-muted py-4">
+        <div className="container mx-auto px-4">
+          <p className="text-sm text-muted-foreground">
+            <Link to="/" className="hover:text-primary">
+              Home
+            </Link>{" "}
+            / Contatti
+          </p>
+        </div>
+      </div>
+
       {/* Hero Section - Completamente rinnovata */}
-      <section 
+      <section
         ref={heroSection.ref}
         className="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-24"
         style={{
