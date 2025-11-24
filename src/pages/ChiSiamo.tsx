@@ -211,33 +211,43 @@ const ChiSiamo = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className={`transition-all duration-700 ${missionSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              <div className="flex items-center gap-3 mb-6">
-                <Target className="h-12 w-12 text-secondary group-hover:scale-125 transition-all duration-300 drop-shadow-lg" />
-                <h2 className="text-3xl font-bold text-primary">La Nostra Mission</h2>
+              <div className="flex items-center gap-3 mb-6 group">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <Target className="h-12 w-12 text-secondary relative z-10 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-lg" />
+                </div>
+                <h2 className="text-3xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300">La Nostra Mission</h2>
               </div>
-              <p className="text-lg text-muted-foreground mb-4">
+              <p className="text-lg text-muted-foreground mb-4 hover:text-foreground transition-colors duration-300">
                 Il nostro obiettivo è creare ambienti sostenibili e confortevoli attraverso soluzioni
                 energetiche innovative e personalizzate.
               </p>
-              <p className="text-lg text-muted-foreground mb-4">
+              <p className="text-lg text-muted-foreground mb-4 hover:text-foreground transition-colors duration-300">
                 Il nostro team di professionisti qualificati assiste il cliente in ogni fase del
                 progetto: dalla progettazione iniziale all'installazione, fino all'assistenza
                 post-vendita continuativa.
               </p>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground hover:text-foreground transition-colors duration-300">
                 Crediamo nell'importanza di costruire relazioni durature basate sulla fiducia,
                 l'affidabilità e la competenza tecnica.
               </p>
             </div>
-            <Card className={`shadow-elevation hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card border-border hover:border-lime-green ${missionSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+            <Card className={`shadow-elevation hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card border-border hover:border-lime-green overflow-hidden group ${missionSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
             animationDelay: '0.2s',
             animationFillMode: 'both'
           }}>
-              <CardContent className="p-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-8 relative z-10">
                 <ul className="space-y-4">
-                  {["Consulenza energetica personalizzata", "Progettazione su misura", "Installazione professionale", "Manutenzione programmata", "Assistenza post-vendita h24", "Accesso agli incentivi statali"].map((item, index) => <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
-                      <span className="text-lg">{item}</span>
+                  {["Consulenza energetica personalizzata", "Progettazione su misura", "Installazione professionale", "Manutenzione programmata", "Assistenza post-vendita h24", "Accesso agli incentivi statali"].map((item, index) => <li key={index} className={`flex items-start gap-3 group/item hover:translate-x-2 transition-all duration-300 ${missionSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+                      animationDelay: `${0.3 + index * 0.1}s`,
+                      animationFillMode: 'both'
+                    }}>
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-secondary/30 rounded-full blur-md opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
+                        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1 relative z-10 group-hover/item:scale-125 group-hover/item:rotate-12 transition-all duration-300" />
+                      </div>
+                      <span className="text-lg group-hover/item:text-lime-green group-hover/item:font-semibold transition-all duration-300">{item}</span>
                     </li>)}
                 </ul>
               </CardContent>
@@ -253,18 +263,23 @@ const ChiSiamo = () => {
     } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className={`flex items-center gap-3 mb-8 transition-all duration-700 ${valuesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              <Heart className="h-12 w-12 text-secondary drop-shadow-lg" />
-              <h2 className="text-3xl font-bold text-primary">I Nostri Valori</h2>
+            <div className={`flex items-center gap-3 mb-8 transition-all duration-700 group ${valuesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              <div className="relative">
+                <div className="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <Heart className="h-12 w-12 text-secondary drop-shadow-lg relative z-10 group-hover:scale-125 group-hover:fill-secondary/20 transition-all duration-500" />
+              </div>
+              <h2 className="text-3xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300">I Nostri Valori</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+              <Card className={`hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
               animationDelay: '0.1s',
               animationFillMode: 'both'
             }}>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4 text-primary">Ascolto del Cliente</h3>
-                  <p className="text-muted-foreground">
+                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-green/10 rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-700"></div>
+                <CardContent className="p-6 relative z-10">
+                  <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">Ascolto del Cliente</h3>
+                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     Il valore aggiunto della nostra azienda consiste nell'ascoltare attentamente il
                     cliente e proporre soluzioni personalizzate che ottimizzano costi, tempi e
                     impatto ambientale. Ogni progetto è studiato per rispondere alle esigenze
@@ -272,39 +287,45 @@ const ChiSiamo = () => {
                   </p>
                 </CardContent>
               </Card>
-              <Card className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+              <Card className={`hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
               animationDelay: '0.2s',
               animationFillMode: 'both'
             }}>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4 text-primary">Sostenibilità</h3>
-                  <p className="text-muted-foreground">
+                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-green/10 rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-700"></div>
+                <CardContent className="p-6 relative z-10">
+                  <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">Sostenibilità</h3>
+                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     Crediamo fortemente nell'importanza della sostenibilità ambientale. Ogni
                     soluzione che proponiamo è progettata per ridurre l'impatto ambientale e
                     promuovere l'utilizzo di energie rinnovabili, contribuendo a un futuro più verde.
                   </p>
                 </CardContent>
               </Card>
-              <Card className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+              <Card className={`hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
               animationDelay: '0.3s',
               animationFillMode: 'both'
             }}>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4 text-primary">Qualità e Affidabilità</h3>
-                  <p className="text-muted-foreground">
+                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-green/10 rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-700"></div>
+                <CardContent className="p-6 relative z-10">
+                  <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">Qualità e Affidabilità</h3>
+                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     Utilizziamo solo componenti e materiali di alta qualità forniti dai migliori
                     partner del settore. La nostra esperienza pluriennale e le certificazioni
                     conseguite garantiscono standard qualitativi elevati.
                   </p>
                 </CardContent>
               </Card>
-              <Card className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+              <Card className={`hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
               animationDelay: '0.4s',
               animationFillMode: 'both'
             }}>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4 text-primary">Innovazione Continua</h3>
-                  <p className="text-muted-foreground">
+                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-green/10 rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-700"></div>
+                <CardContent className="p-6 relative z-10">
+                  <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">Innovazione Continua</h3>
+                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     Ci impegniamo a rimanere sempre aggiornati sulle ultime tecnologie e innovazioni
                     nel settore delle energie rinnovabili, per offrire ai nostri clienti le
                     soluzioni più avanzate ed efficienti.
@@ -323,28 +344,46 @@ const ChiSiamo = () => {
     } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className={`flex items-center gap-3 mb-8 transition-all duration-700 ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              <Award className="h-12 w-12 text-secondary drop-shadow-lg" />
-              <h2 className="text-3xl font-bold text-primary">I Nostri Obiettivi</h2>
+            <div className={`flex items-center gap-3 mb-8 transition-all duration-700 group ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              <div className="relative">
+                <div className="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <Award className="h-12 w-12 text-secondary drop-shadow-lg relative z-10 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500" />
+              </div>
+              <h2 className="text-3xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300">I Nostri Obiettivi</h2>
             </div>
-            <Card className={`shadow-elevation hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${objectivesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+            <Card className={`shadow-elevation hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${objectivesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
             animationDelay: '0.2s',
             animationFillMode: 'both'
           }}>
-              <CardContent className="p-8">
-                <p className="text-lg text-muted-foreground mb-6">
+              <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute top-0 left-0 w-64 h-64 bg-lime-green/10 rounded-full blur-3xl -translate-y-32 -translate-x-32 group-hover:-translate-x-16 group-hover:-translate-y-16 transition-transform duration-700"></div>
+              <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl translate-y-32 translate-x-32 group-hover:translate-x-16 group-hover:translate-y-16 transition-transform duration-700"></div>
+              <CardContent className="p-8 relative z-10">
+                <p className={`text-lg text-muted-foreground group-hover:text-foreground mb-6 transition-all duration-300 ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+                  animationDelay: '0.3s',
+                  animationFillMode: 'both'
+                }}>
                   Il nostro obiettivo principale è diventare il partner di fiducia dei nostri
                   clienti, offrendo soluzioni affidabili nel tempo e un'assistenza post-vendita
                   puntuale e professionale.
                 </p>
-                <p className="text-lg text-muted-foreground mb-6">
+                <p className={`text-lg text-muted-foreground group-hover:text-foreground mb-6 transition-all duration-300 ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+                  animationDelay: '0.4s',
+                  animationFillMode: 'both'
+                }}>
                   Vogliamo che ogni cliente sia pienamente soddisfatto del proprio investimento in
                   energie rinnovabili, beneficiando di un risparmio economico concreto e di un
                   comfort abitativo ottimale.
                 </p>
-                <p className="text-lg font-semibold text-primary">
-                  La soddisfazione del cliente è la nostra più grande ricompensa.
-                </p>
+                <div className={`relative inline-block ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+                  animationDelay: '0.5s',
+                  animationFillMode: 'both'
+                }}>
+                  <div className="absolute inset-0 bg-lime-green/20 blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                  <p className="text-lg font-semibold text-primary group-hover:text-lime-green transition-colors duration-300 relative z-10">
+                    La soddisfazione del cliente è la nostra più grande ricompensa.
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
