@@ -18,7 +18,6 @@ const Footer = () => {
           <div>
             <img src={logo} alt="Lux Impianti S.R.L." className="h-16 w-auto mb-4" />
             <p className="text-sm mb-4">LUX IMPIANTI S.R.L.
-
 P.IVA: IT04633810983</p>
             <div className="space-y-2 text-sm">
               <p>​ </p>
