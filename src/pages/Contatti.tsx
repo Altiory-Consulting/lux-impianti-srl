@@ -200,14 +200,14 @@ const Contatti = () => {
               {stats.map((stat, index) => (
                 <div 
                   key={index}
-                  className={`bg-white/25 backdrop-blur-lg rounded-2xl px-6 sm:px-8 py-6 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 hover:border-lime-green shadow-2xl hover:shadow-glow-lime ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
+                  className={`bg-white/25 backdrop-blur-lg rounded-2xl px-4 sm:px-6 py-6 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 hover:border-lime-green shadow-2xl hover:shadow-glow-lime text-center min-h-[140px] flex flex-col items-center justify-center ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animationFillMode: 'both'
                   }}
                 >
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-lime-green drop-shadow-[0_0_25px_rgba(156,225,55,0.6)]">{stat.value}</div>
-                  <div className="text-sm sm:text-base text-white font-bold mt-2 uppercase tracking-wide">{stat.label}</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-lime-green drop-shadow-[0_0_25px_rgba(156,225,55,0.6)] mb-2">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-white font-bold uppercase tracking-wide leading-tight">{stat.label}</div>
                 </div>
               ))}
             </div>
