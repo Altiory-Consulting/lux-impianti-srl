@@ -80,14 +80,14 @@ P.IVA: IT04633810983</p>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold">Brescia</p>
+                  <p className="font-semibold">Sede Legale </p>
                   <p>Largo Ochi, 7 Capriolo (BS)</p>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold">Caserta </p>
+                  <p className="font-semibold">Sede Operativa                        </p>
                   <p>Via Mulini Militari, 40 Caserta (CE)                        </p>
                 </div>
               </li>
