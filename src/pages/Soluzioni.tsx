@@ -126,9 +126,9 @@ const Soluzioni = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/20 text-white px-6 py-3 rounded-full mb-8 backdrop-blur-md border-2 border-white/40 shadow-xl">
-              <Zap className="h-5 w-5 text-lime-green" />
-              <span className="text-sm font-bold uppercase tracking-wider">Tecnologie Rinnovabili</span>
+            <div className="inline-flex items-center gap-2 bg-lime-green/20 text-white px-6 py-3 rounded-full mb-8 backdrop-blur-md border-2 border-lime-green/40 shadow-xl">
+              <Zap className="h-5 w-5 text-lime-green drop-shadow-lg" />
+              <span className="text-sm font-bold uppercase tracking-wider drop-shadow-md">Tecnologie Rinnovabili</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
