@@ -6,10 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import projectResidential from "@/assets/project-residential-1.jpg";
-import projectIndustrial from "@/assets/project-industrial-1.jpg";
-import projectCommercial from "@/assets/project-commercial-1.jpg";
-import projectAgricultural from "@/assets/project-agricultural-1.jpg";
 import projectHeating from "@/assets/project-heating-1.jpg";
 import projectSolarRooftop from "@/assets/project-solar-rooftop-1.jpg";
 import projectSolarTiles from "@/assets/project-solar-tiles-1.jpg";
@@ -210,18 +206,11 @@ const Home = () => {
               <div className="flex gap-6 min-w-max px-4">
                 {[
                 {
-                  image: projectResidential,
-                  title: "Villa Residenziale - Capriolo",
-                  type: "Impianto Fotovoltaico Residenziale",
-                  power: "6 kW",
-                  description: "Installazione completa di pannelli solari di ultima generazione su abitazione privata con sistema di accumulo energetico."
-                },
-                {
-                  image: projectSolarTiles,
-                  title: "Impianto Residenziale su Tegole",
-                  type: "Fotovoltaico Residenziale",
-                  power: "8 kW",
-                  description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale."
+                  image: projectHeating,
+                  title: "Sistema Riscaldamento a Pavimento",
+                  type: "Climatizzazione",
+                  power: "12 kW",
+                  description: "Installazione di sistema di riscaldamento radiante a pavimento con pompa di calore per comfort ottimale ed efficienza energetica."
                 },
                 {
                   image: projectSolarRooftop,
@@ -231,40 +220,19 @@ const Home = () => {
                   description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica."
                 },
                 {
+                  image: projectSolarTiles,
+                  title: "Impianto Residenziale su Tegole",
+                  type: "Fotovoltaico Residenziale",
+                  power: "8 kW",
+                  description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale."
+                },
+                {
                   image: projectSolarSunset,
                   title: "Grande Impianto Fotovoltaico",
                   type: "Fotovoltaico Industriale",
                   power: "120 kW",
                   description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale."
-                },
-                {
-                  image: projectIndustrial,
-                  title: "Complesso Industriale - Caserta",
-                  type: "Impianto Fotovoltaico Industriale",
-                  power: "250 kW",
-                  description: "Grande installazione fotovoltaica su capannone industriale con copertura completa del tetto per massima produzione energetica."
-                },
-                {
-                  image: projectHeating,
-                  title: "Sistema Riscaldamento a Pavimento",
-                  type: "Climatizzazione",
-                  power: "12 kW",
-                  description: "Installazione di sistema di riscaldamento radiante a pavimento con pompa di calore per comfort ottimale ed efficienza energetica."
-                },
-                  {
-                    image: projectCommercial,
-                    title: "Centro Commerciale - Lombardia",
-                    type: "Sistema Ibrido Fotovoltaico + Eolico",
-                    power: "180 kW",
-                    description: "Soluzione energetica integrata che combina pannelli solari e turbine eoliche per massimizzare la produzione di energia rinnovabile."
-                  },
-                  {
-                    image: projectAgricultural,
-                    title: "Azienda Agricola - Campania",
-                    type: "Fotovoltaico Agricolo",
-                    power: "50 kW",
-                    description: "Impianto fotovoltaico a terra con sistema di storage per autoconsumo ottimizzato nelle attività agricole."
-                  }
+                }
                 ].map((project, index) => (
                   <div key={index} className="w-[400px] flex-shrink-0">
                     <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card h-full">
