@@ -17,11 +17,11 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <img src={logo} alt="Lux Impianti S.R.L." className="h-16 w-auto mb-4" />
-            <p className="text-sm mb-4">
-              Soluzioni energetiche innovative per un futuro sostenibile.
-            </p>
+            <p className="text-sm mb-4">LUX IMPIANTI S.R.L.
+
+P.IVA: IT04633810983</p>
             <div className="space-y-2 text-sm">
-              <p>P.IVA: 12345678901</p>
+              <p>P.IVA: IT04633810983 </p>
             </div>
           </div>
 
