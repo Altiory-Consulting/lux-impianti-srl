@@ -25,6 +25,10 @@ const Header = () => {
                 <MapPin className="h-4 w-4" />
                 <span>Via Dei Due Principati, 60 Avellino</span>
               </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                <span>Via Dei Due Principati, 60 Avellino</span>
+              </div>
             </div>
             <div className="flex gap-3">
               <a href="#" className="hover:text-lime-green transition-colors">
