@@ -200,7 +200,7 @@ const Contatti = () => {
               {stats.map((stat, index) => (
                 <div 
                   key={index}
-                  className={`bg-white/25 backdrop-blur-lg rounded-2xl px-3 sm:px-4 py-8 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 hover:border-lime-green shadow-2xl hover:shadow-glow-lime text-center min-h-[160px] flex flex-col items-center justify-center ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
+                  className={`bg-white/25 backdrop-blur-lg rounded-2xl px-3 sm:px-4 py-8 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 shadow-2xl hover:shadow-glow-lime text-center min-h-[160px] flex flex-col items-center justify-center ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animationFillMode: 'both'
