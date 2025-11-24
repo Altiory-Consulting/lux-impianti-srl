@@ -10,6 +10,7 @@ import projectHeating from "@/assets/project-heating-1.jpg";
 import projectSolarRooftop from "@/assets/project-solar-rooftop-1.jpg";
 import projectSolarTiles from "@/assets/project-solar-tiles-1.jpg";
 import projectSolarSunset from "@/assets/project-solar-sunset-1.jpg";
+import postSalesSupport from "@/assets/post-sales-support.jpg";
 const Home = () => {
   const servicesSection = useIntersectionObserver({
     threshold: 0.01,
@@ -349,8 +350,8 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className={`transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
               <img
-                src="/src/assets/geothermal.jpg"
-                alt="Assistenza tecnica"
+                src={postSalesSupport}
+                alt="Assistenza tecnica post-vendita"
                 className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
               />
             </div>
