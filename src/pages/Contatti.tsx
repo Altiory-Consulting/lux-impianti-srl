@@ -196,18 +196,18 @@ const Contatti = () => {
               La nostra esperienza al tuo servizio. Consulenza gratuita e supporto completo per ogni fase del progetto.
             </p>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto px-4">
               {stats.map((stat, index) => (
                 <div 
                   key={index}
-                  className={`bg-white/25 backdrop-blur-lg rounded-2xl px-4 sm:px-6 py-6 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 hover:border-lime-green shadow-2xl hover:shadow-glow-lime text-center min-h-[140px] flex flex-col items-center justify-center ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
+                  className={`bg-white/25 backdrop-blur-lg rounded-2xl px-3 sm:px-4 py-8 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 hover:border-lime-green shadow-2xl hover:shadow-glow-lime text-center min-h-[160px] flex flex-col items-center justify-center ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animationFillMode: 'both'
                   }}
                 >
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-lime-green drop-shadow-[0_0_25px_rgba(156,225,55,0.6)] mb-2">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-white font-bold uppercase tracking-wide leading-tight">{stat.label}</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-lime-green drop-shadow-[0_0_25px_rgba(156,225,55,0.6)] mb-3">{stat.value}</div>
+                  <div className="text-[10px] sm:text-xs lg:text-sm text-white font-bold uppercase tracking-wider leading-tight break-words max-w-full px-1">{stat.label}</div>
                 </div>
               ))}
             </div>
