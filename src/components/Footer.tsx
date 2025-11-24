@@ -67,7 +67,7 @@ P.IVA: IT04633810983</p>
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold">Numero Verde</p>
+                  
                   <a href="tel:800123456" className="hover:text-lime-green">0823 155 6627</a>
                 </div>
               </li>
