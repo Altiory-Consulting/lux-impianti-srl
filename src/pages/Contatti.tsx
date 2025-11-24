@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle, Send, MessageSquare, User, Building2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -11,259 +11,631 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { toast } from "sonner";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+
+// Schema di validazione con zod
+const contactFormSchema = z.object({
+  nome: z
+    .string()
+    .trim()
+    .min(2, { message: "Il nome deve contenere almeno 2 caratteri" })
+    .max(50, { message: "Il nome non può superare 50 caratteri" }),
+  cognome: z
+    .string()
+    .trim()
+    .min(2, { message: "Il cognome deve contenere almeno 2 caratteri" })
+    .max(50, { message: "Il cognome non può superare 50 caratteri" }),
+  email: z
+    .string()
+    .trim()
+    .email({ message: "Inserisci un indirizzo email valido" })
+    .max(255, { message: "L'email non può superare 255 caratteri" }),
+  telefono: z
+    .string()
+    .trim()
+    .min(8, { message: "Inserisci un numero di telefono valido" })
+    .max(15, { message: "Il numero di telefono non può superare 15 caratteri" })
+    .regex(/^[0-9+\s()-]+$/, { message: "Il numero può contenere solo numeri, +, -, (, ), e spazi" }),
+  tipologia: z.enum(["privato", "azienda"], {
+    required_error: "Seleziona una tipologia",
+  }),
+  interessato: z.string({
+    required_error: "Seleziona un'opzione",
+  }).min(1, { message: "Seleziona un'opzione" }),
+  oggetto: z
+    .string()
+    .trim()
+    .min(5, { message: "L'oggetto deve contenere almeno 5 caratteri" })
+    .max(100, { message: "L'oggetto non può superare 100 caratteri" }),
+  messaggio: z
+    .string()
+    .trim()
+    .min(10, { message: "Il messaggio deve contenere almeno 10 caratteri" })
+    .max(1000, { message: "Il messaggio non può superare 1000 caratteri" }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contatti = () => {
-  const [formData, setFormData] = useState({
-    nome: "",
-    cognome: "",
-    email: "",
-    interessato: "",
-    oggetto: "",
-    messaggio: "",
-  });
+  const heroSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
+  const infoSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
+  const formSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
+  const faqSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Messaggio inviato con successo! Ti contatteremo presto.");
-    setFormData({
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
       nome: "",
       cognome: "",
       email: "",
+      telefono: "",
+      tipologia: undefined,
       interessato: "",
       oggetto: "",
       messaggio: "",
+    },
+  });
+
+  const onSubmit = (data: ContactFormValues) => {
+    // Validazione input prima dell'invio
+    const message = `Nuovo contatto da ${data.nome} ${data.cognome}\nEmail: ${data.email}\nTelefono: ${data.telefono}\nTipologia: ${data.tipologia}\nInteressato a: ${data.interessato}\nOggetto: ${data.oggetto}\nMessaggio: ${data.messaggio}`;
+    
+    // Encoding sicuro per WhatsApp
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/393331234567?text=${encodedMessage}`;
+    
+    toast.success("Messaggio inviato! Ti contatteremo presto.", {
+      description: "Grazie per averci contattato",
     });
+    
+    // Apri WhatsApp in una nuova scheda
+    window.open(whatsappUrl, '_blank');
+    
+    form.reset();
   };
+
+  const contactMethods = [
+    {
+      icon: Phone,
+      title: "Chiamaci",
+      description: "Lun-Ven 9:00-18:00",
+      action: "0823 155 6627",
+      href: "tel:08231556627",
+      color: "text-lime-green",
+      bgColor: "bg-lime-green/10",
+    },
+    {
+      icon: Mail,
+      title: "Scrivici",
+      description: "Risposta entro 24h",
+      action: "info@luximpianti.it",
+      href: "mailto:info@luximpianti.it",
+      color: "text-blue-medium",
+      bgColor: "bg-blue-medium/10",
+    },
+    {
+      icon: MessageSquare,
+      title: "WhatsApp",
+      description: "Chat in tempo reale",
+      action: "+39 333 123 4567",
+      href: "https://wa.me/393331234567",
+      color: "text-green-500",
+      bgColor: "bg-green-500/10",
+    },
+  ];
+
+  const stats = [
+    { label: "Clienti Soddisfatti", value: "500+" },
+    { label: "Progetti Completati", value: "1000+" },
+    { label: "Tempo Risposta", value: "<24h" },
+    { label: "Consulenze Gratuite", value: "∞" },
+  ];
+
+  const faqs = [
+    {
+      question: "Quanto costa un impianto fotovoltaico?",
+      answer: "Il costo varia in base alla potenza e alle specifiche esigenze. Offriamo preventivi gratuiti personalizzati.",
+    },
+    {
+      question: "Ci sono incentivi statali disponibili?",
+      answer: "Sì, supportiamo i clienti nell'accesso a bonus fiscali, Conto Termico e Reddito Energetico.",
+    },
+    {
+      question: "Quanto tempo ci vuole per l'installazione?",
+      answer: "Generalmente 2-5 giorni lavorativi per impianti residenziali standard, più tempo per installazioni complesse.",
+    },
+    {
+      question: "Offrite assistenza post-vendita?",
+      answer: "Sì, forniamo manutenzione programmata e assistenza tecnica per tutta la vita utile dell'impianto.",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Breadcrumb */}
-      <div className="bg-muted py-4">
-        <div className="container mx-auto px-4">
-          <p className="text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-primary">
-              Home
-            </Link>{" "}
-            / Contatti
-          </p>
-        </div>
-      </div>
+      {/* Hero Section - Completamente rinnovata */}
+      <section 
+        ref={heroSection.ref}
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
+        style={{
+          background: 'var(--gradient-blue-elegant)',
+        }}
+      >
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${heroSection.isVisible ? 'animate-fade-in' : 'translate-y-8'}`}>
+            <div className="inline-flex items-center gap-2 bg-lime-green/20 text-lime-green px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4" />
+              <span className="text-sm font-semibold uppercase tracking-wide">Contatto Diretto</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              Parliamo del Tuo <br />
+              <span className="text-lime-green">Progetto Energetico</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+              La nostra esperienza al tuo servizio. Consulenza gratuita e supporto completo per ogni fase del progetto.
+            </p>
 
-      {/* Page Header */}
-      <section className="text-primary-foreground py-16" style={{ background: 'var(--gradient-header)', boxShadow: 'var(--shadow-header)' }}>
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contattaci</h1>
-          <p className="text-xl max-w-2xl mx-auto">
-            Siamo qui per rispondere a tutte le tue domande sulle energie rinnovabili
-          </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              {stats.map((stat, index) => (
+                <div 
+                  key={index}
+                  className={`bg-white/10 backdrop-blur-md rounded-lg px-6 py-4 transition-all duration-700 hover:scale-105 hover:bg-white/20 ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
+                    animationFillMode: 'both'
+                  }}
+                >
+                  <div className="text-2xl md:text-3xl font-bold text-lime-green">{stat.value}</div>
+                  <div className="text-sm text-white/80">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-16">
+      {/* Contact Methods - Cards Interattive */}
+      <section 
+        ref={infoSection.ref}
+        className="py-16 bg-background -mt-20 relative z-20"
+      >
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 text-center">
-                <Phone className="h-12 w-12 mx-auto mb-4 text-secondary" />
-                <h3 className="text-xl font-bold mb-2">Numero Verde</h3>
-                <a
-                  href="tel:08231556627"
-                  className="text-lg text-secondary hover:text-primary transition-colors"
-                >
-                  0823 155 6627
-                </a>
-                <p className="text-sm text-muted-foreground mt-2">Lun-Ven 9:00-18:00</p>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {contactMethods.map((method, index) => (
+              <a
+                key={index}
+                href={method.href}
+                target={method.href.startsWith('http') ? '_blank' : undefined}
+                rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className={`group transition-all duration-700 ${infoSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
+              >
+                <Card className="h-full hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-300 border-border hover:border-lime-green overflow-hidden">
+                  <CardContent className="p-6 text-center relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative z-10">
+                      <div className={`inline-flex p-4 rounded-full ${method.bgColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                        <method.icon className={`h-8 w-8 ${method.color}`} />
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-primary group-hover:text-lime-green transition-colors">
+                        {method.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">{method.description}</p>
+                      <p className="text-lg font-semibold text-secondary group-hover:text-lime-green transition-colors">
+                        {method.action}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 text-center">
-                <Mail className="h-12 w-12 mx-auto mb-4 text-secondary" />
-                <h3 className="text-xl font-bold mb-2">Email</h3>
-                <a
-                  href="mailto:info@luximpianti.it"
-                  className="text-lg text-secondary hover:text-primary transition-colors"
-                >
-                  info@luximpianti.it
-                </a>
-                <p className="text-sm text-muted-foreground mt-2">Risposta entro 24h</p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 text-center">
-                <MapPin className="h-12 w-12 mx-auto mb-4 text-secondary" />
-                <h3 className="text-xl font-bold mb-2">Sedi</h3>
-                <p className="text-sm">Milano - Via Roma 123</p>
-                <p className="text-sm">Avellino - C.so V. Emanuele 45</p>
-              </CardContent>
-            </Card>
+      {/* Form Section - Completamente Rinnovato */}
+      <section 
+        ref={formSection.ref}
+        className="py-16 bg-muted/30"
+      >
+        <div className="container mx-auto px-4">
+          <div className={`text-center mb-12 transition-all duration-700 ${formSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
+            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">Richiedi Informazioni</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Compila il Form di Contatto
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Tutti i campi sono obbligatori. Riceverai una risposta entro 24 ore.
+            </p>
           </div>
 
-          {/* Contact Form */}
-          <div className="max-w-3xl mx-auto">
-            <Card className="shadow-xl">
+          <div className={`max-w-4xl mx-auto transition-all duration-700 ${formSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}>
+            <Card className="shadow-elevation border-border hover:border-lime-green/50 transition-all duration-300">
+              <CardHeader className="bg-gradient-card border-b">
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <Send className="h-6 w-6 text-lime-green" />
+                  Inviaci una Richiesta
+                </CardTitle>
+                <CardDescription>
+                  Compila il modulo con i tuoi dati e ti ricontatteremo al più presto
+                </CardDescription>
+              </CardHeader>
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6 text-primary">Inviaci un Messaggio</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Nome *</label>
-                      <Input
-                        required
-                        value={formData.nome}
-                        onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                        placeholder="Il tuo nome"
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    {/* Tipologia Cliente */}
+                    <FormField
+                      control={form.control}
+                      name="tipologia"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base font-semibold flex items-center gap-2">
+                            <Building2 className="h-4 w-4 text-lime-green" />
+                            Tipologia Cliente *
+                          </FormLabel>
+                          <Select onValueChange={field.onChange} value={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="h-12">
+                                <SelectValue placeholder="Sei un privato o un'azienda?" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="privato">Privato</SelectItem>
+                              <SelectItem value="azienda">Azienda</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    {/* Nome e Cognome */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="nome"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-semibold">Nome *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Mario" 
+                                className="h-12"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="cognome"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-semibold">Cognome *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Rossi" 
+                                className="h-12"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Cognome *</label>
-                      <Input
-                        required
-                        value={formData.cognome}
-                        onChange={(e) => setFormData({ ...formData, cognome: e.target.value })}
-                        placeholder="Il tuo cognome"
+
+                    {/* Email e Telefono */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-semibold">Email *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                type="email"
+                                placeholder="mario.rossi@esempio.it" 
+                                className="h-12"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="telefono"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-semibold">Telefono *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                type="tel"
+                                placeholder="+39 333 1234567" 
+                                className="h-12"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormDescription className="text-xs">
+                              Inserisci un numero valido con prefisso
+                            </FormDescription>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email *</label>
-                    <Input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="la.tua.email@esempio.it"
+                    {/* Interessato a */}
+                    <FormField
+                      control={form.control}
+                      name="interessato"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base font-semibold">Interessato a *</FormLabel>
+                          <Select onValueChange={field.onChange} value={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="h-12">
+                                <SelectValue placeholder="Seleziona la soluzione che ti interessa" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="fotovoltaico">Impianto Fotovoltaico</SelectItem>
+                              <SelectItem value="solare">Solare Termico</SelectItem>
+                              <SelectItem value="pompa-calore">Pompa di Calore</SelectItem>
+                              <SelectItem value="climatizzazione">Climatizzazione</SelectItem>
+                              <SelectItem value="geotermico">Geotermico</SelectItem>
+                              <SelectItem value="biomasse">Biomasse</SelectItem>
+                              <SelectItem value="reddito-energetico">Reddito Energetico</SelectItem>
+                              <SelectItem value="manutenzione">Manutenzione Impianti</SelectItem>
+                              <SelectItem value="consulenza">Consulenza Energetica</SelectItem>
+                              <SelectItem value="altro">Altro</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Interessato a *</label>
-                    <Select
-                      value={formData.interessato}
-                      onValueChange={(value) => setFormData({ ...formData, interessato: value })}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Seleziona un'opzione" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="fotovoltaico">Fotovoltaico</SelectItem>
-                        <SelectItem value="solare">Solare Termico</SelectItem>
-                        <SelectItem value="eolico">Eolico</SelectItem>
-                        <SelectItem value="idroelettrico">Idroelettrico</SelectItem>
-                        <SelectItem value="geotermico">Geotermico</SelectItem>
-                        <SelectItem value="biomasse">Biomasse</SelectItem>
-                        <SelectItem value="altro">Altro</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Oggetto *</label>
-                    <Input
-                      required
-                      value={formData.oggetto}
-                      onChange={(e) => setFormData({ ...formData, oggetto: e.target.value })}
-                      placeholder="Oggetto della richiesta"
+                    {/* Oggetto */}
+                    <FormField
+                      control={form.control}
+                      name="oggetto"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base font-semibold">Oggetto *</FormLabel>
+                          <FormControl>
+                            <Input 
+                              placeholder="Es: Richiesta preventivo impianto fotovoltaico 6kW" 
+                              className="h-12"
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Messaggio *</label>
-                    <Textarea
-                      required
-                      value={formData.messaggio}
-                      onChange={(e) => setFormData({ ...formData, messaggio: e.target.value })}
-                      placeholder="Descrivi la tua richiesta..."
-                      rows={6}
+                    {/* Messaggio */}
+                    <FormField
+                      control={form.control}
+                      name="messaggio"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base font-semibold">Messaggio *</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Descrivi la tua richiesta in dettaglio. Più informazioni fornisci, più preciso sarà il nostro preventivo..."
+                              className="min-h-[150px] resize-none"
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormDescription className="text-xs">
+                            {field.value.length}/1000 caratteri
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime">
-                    Invia Messaggio
-                  </Button>
-                </form>
+                    {/* Submit Button */}
+                    <div className="pt-4">
+                      <Button 
+                        type="submit" 
+                        size="lg" 
+                        className="w-full bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime h-14"
+                      >
+                        <Send className="mr-2 h-5 w-5" />
+                        Invia Richiesta
+                      </Button>
+                    </div>
+                  </form>
+                </Form>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Office Locations */}
-      <section className="py-16 bg-blue-light/20">
+      {/* FAQ Section - Nuova */}
+      <section 
+        ref={faqSection.ref}
+        className="py-16 bg-background"
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center text-primary">Le Nostre Sedi</h2>
+          <div className={`text-center mb-12 transition-all duration-700 ${faqSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
+            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">Domande Frequenti</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Hai Domande? Abbiamo le Risposte
+            </h2>
+          </div>
+
+          <div className="max-w-3xl mx-auto grid gap-4">
+            {faqs.map((faq, index) => (
+              <Card 
+                key={index}
+                className={`group hover:shadow-card-hover hover:border-lime-green transition-all duration-700 ${faqSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
+              >
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-start gap-3 group-hover:text-lime-green transition-colors">
+                    <CheckCircle className="h-5 w-5 text-lime-green flex-shrink-0 mt-0.5" />
+                    {faq.question}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{faq.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className={`text-center mt-12 transition-all duration-700 ${faqSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
+            <p className="text-lg text-muted-foreground mb-4">
+              Non hai trovato la risposta che cercavi?
+            </p>
+            <Button 
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-lime-green text-lime-green hover:bg-lime-green hover:text-foreground"
+            >
+              <a href="tel:08231556627">
+                <Phone className="mr-2 h-5 w-5" />
+                Chiamaci Ora
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Office Locations - Migliorata */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">Dove Siamo</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Le Nostre Sedi</h2>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-primary">Milano</h3>
-                <div className="space-y-3">
+            <Card className="group hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 hover:border-lime-green">
+              <CardHeader className="bg-gradient-card border-b">
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <MapPin className="h-6 w-6 text-lime-green" />
+                  Milano
+                </CardTitle>
+                <CardDescription>Sede operativa Nord Italia</CardDescription>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-secondary mt-1 flex-shrink-0" />
+                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold">Indirizzo</p>
+                      <p className="font-semibold text-primary">Indirizzo</p>
                       <p className="text-muted-foreground">Via Roma 123, 20100 Milano (MI)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-secondary mt-1 flex-shrink-0" />
+                    <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold">Telefono</p>
-                      <a href="tel:+390212345678" className="text-secondary hover:text-primary">
+                      <p className="font-semibold text-primary">Telefono</p>
+                      <a href="tel:+390212345678" className="text-secondary hover:text-lime-green transition-colors">
                         +39 02 1234 5678
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Mail className="h-5 w-5 text-secondary mt-1 flex-shrink-0" />
+                    <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold">Email</p>
-                      <a href="mailto:milano@luximpianti.it" className="text-secondary hover:text-primary">
+                      <p className="font-semibold text-primary">Email</p>
+                      <a href="mailto:milano@luximpianti.it" className="text-secondary hover:text-lime-green transition-colors">
                         milano@luximpianti.it
                       </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Clock className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-primary">Orari</p>
+                      <p className="text-muted-foreground">Lun-Ven: 9:00-18:00</p>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-primary">Avellino</h3>
-                <div className="space-y-3">
+            <Card className="group hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 hover:border-lime-green">
+              <CardHeader className="bg-gradient-card border-b">
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <MapPin className="h-6 w-6 text-lime-green" />
+                  Avellino
+                </CardTitle>
+                <CardDescription>Sede operativa Centro-Sud Italia</CardDescription>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-secondary mt-1 flex-shrink-0" />
+                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold">Indirizzo</p>
-                      <p className="text-muted-foreground">
-                        Corso Vittorio Emanuele 45, 83100 Avellino (AV)
-                      </p>
+                      <p className="font-semibold text-primary">Indirizzo</p>
+                      <p className="text-muted-foreground">Corso Vittorio Emanuele 45, 83100 Avellino (AV)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-secondary mt-1 flex-shrink-0" />
+                    <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold">Telefono</p>
-                      <a href="tel:+390825123456" className="text-secondary hover:text-primary">
+                      <p className="font-semibold text-primary">Telefono</p>
+                      <a href="tel:+390825123456" className="text-secondary hover:text-lime-green transition-colors">
                         +39 0825 123456
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Mail className="h-5 w-5 text-secondary mt-1 flex-shrink-0" />
+                    <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold">Email</p>
-                      <a href="mailto:avellino@luximpianti.it" className="text-secondary hover:text-primary">
+                      <p className="font-semibold text-primary">Email</p>
+                      <a href="mailto:avellino@luximpianti.it" className="text-secondary hover:text-lime-green transition-colors">
                         avellino@luximpianti.it
                       </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Clock className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-primary">Orari</p>
+                      <p className="text-muted-foreground">Lun-Ven: 9:00-18:00</p>
                     </div>
                   </div>
                 </div>
