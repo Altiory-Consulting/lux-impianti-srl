@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Sun, Wind, Zap, Leaf, Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
@@ -162,15 +162,9 @@ const Home = () => {
             </p>
           </div>
 
-          <div className={`max-w-5xl mx-auto transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
+          <div className={`transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
+            <div className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-lime-green scrollbar-track-muted">
+              <div className="flex gap-6 min-w-max px-4">
                 {[
                   {
                     image: projectResidential,
@@ -201,8 +195,8 @@ const Home = () => {
                     description: "Impianto fotovoltaico a terra con sistema di storage per autoconsumo ottimizzato nelle attività agricole."
                   }
                 ].map((project, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
-                    <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card">
+                  <div key={index} className="w-[400px] flex-shrink-0">
+                    <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card h-full">
                       <div className="relative h-64 overflow-hidden">
                         <img 
                           src={project.image} 
@@ -221,12 +215,10 @@ const Home = () => {
                         <p className="text-muted-foreground text-sm">{project.description}</p>
                       </CardContent>
                     </Card>
-                  </CarouselItem>
+                  </div>
                 ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden md:flex -left-12 hover:bg-lime-green hover:text-foreground hover:border-lime-green transition-all" />
-              <CarouselNext className="hidden md:flex -right-12 hover:bg-lime-green hover:text-foreground hover:border-lime-green transition-all" />
-            </Carousel>
+              </div>
+            </div>
           </div>
         </div>
       </section>
