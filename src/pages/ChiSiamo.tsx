@@ -4,8 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const ChiSiamo = () => {
+  const missionSection = useIntersectionObserver({ threshold: 0.2 });
+  const valuesSection = useIntersectionObserver({ threshold: 0.2 });
+  const objectivesSection = useIntersectionObserver({ threshold: 0.2 });
+  const certificationsSection = useIntersectionObserver({ threshold: 0.2 });
+  const ctaSection = useIntersectionObserver({ threshold: 0.2 });
   const certifications = [
     "ISO 14001 - Gestione Ambientale",
     "ISO 18001 - Sicurezza sul Lavoro",
@@ -40,12 +46,15 @@ const ChiSiamo = () => {
       </section>
 
       {/* Mission */}
-      <section className="py-16">
+      <section ref={missionSection.ref} className="py-16 section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(0 0% 100% / 0.5)',
+        '--transition-to': 'hsl(211 40% 70% / 0.2)'
+      } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div>
+            <div className={`transition-all duration-700 ${missionSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
               <div className="flex items-center gap-3 mb-6">
-                <Target className="h-12 w-12 text-secondary" />
+                <Target className="h-12 w-12 text-secondary group-hover:scale-125 transition-all duration-300 drop-shadow-lg" />
                 <h2 className="text-3xl font-bold text-primary">La Nostra Mission</h2>
               </div>
               <p className="text-lg text-muted-foreground mb-4">
@@ -62,7 +71,7 @@ const ChiSiamo = () => {
                 l'affidabilità e la competenza tecnica.
               </p>
             </div>
-            <Card className="shadow-lg">
+            <Card className={`shadow-elevation hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card border-border hover:border-lime-green ${missionSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               <CardContent className="p-8">
                 <ul className="space-y-4">
                   {[
@@ -86,15 +95,18 @@ const ChiSiamo = () => {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-blue-light/20">
+      <section ref={valuesSection.ref} className="py-16 bg-blue-light/20 section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(211 40% 70% / 0.2)',
+        '--transition-to': 'hsl(214 50% 98% / 0.5)'
+      } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Heart className="h-12 w-12 text-secondary" />
+            <div className={`flex items-center gap-3 mb-8 transition-all duration-700 ${valuesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              <Heart className="h-12 w-12 text-secondary drop-shadow-lg" />
               <h2 className="text-3xl font-bold text-primary">I Nostri Valori</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
-              <Card>
+              <Card className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4 text-primary">Ascolto del Cliente</h3>
                   <p className="text-muted-foreground">
@@ -105,7 +117,7 @@ const ChiSiamo = () => {
                   </p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4 text-primary">Sostenibilità</h3>
                   <p className="text-muted-foreground">
@@ -115,7 +127,7 @@ const ChiSiamo = () => {
                   </p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4 text-primary">Qualità e Affidabilità</h3>
                   <p className="text-muted-foreground">
@@ -125,7 +137,7 @@ const ChiSiamo = () => {
                   </p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4 text-primary">Innovazione Continua</h3>
                   <p className="text-muted-foreground">
@@ -141,14 +153,17 @@ const ChiSiamo = () => {
       </section>
 
       {/* Objectives */}
-      <section className="py-16">
+      <section ref={objectivesSection.ref} className="py-16 section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(214 50% 98% / 0.5)',
+        '--transition-to': 'hsl(211 100% 22% / 0.3)'
+      } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Award className="h-12 w-12 text-secondary" />
+            <div className={`flex items-center gap-3 mb-8 transition-all duration-700 ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              <Award className="h-12 w-12 text-secondary drop-shadow-lg" />
               <h2 className="text-3xl font-bold text-primary">I Nostri Obiettivi</h2>
             </div>
-            <Card className="shadow-lg">
+            <Card className={`shadow-elevation hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 bg-gradient-card hover:border-lime-green ${objectivesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               <CardContent className="p-8">
                 <p className="text-lg text-muted-foreground mb-6">
                   Il nostro obiettivo principale è diventare il partner di fiducia dei nostri
@@ -170,19 +185,25 @@ const ChiSiamo = () => {
       </section>
 
       {/* Certifications */}
-      <section className="py-16 bg-secondary text-primary-foreground">
-        <div className="container mx-auto px-4">
+      <section ref={certificationsSection.ref} className="py-16 text-primary-foreground relative overflow-hidden section-transition-top section-transition-bottom" style={{
+        background: 'var(--gradient-header)',
+        boxShadow: 'var(--shadow-header)',
+        '--transition-from': 'hsl(211 100% 22% / 0.3)',
+        '--transition-to': 'hsl(211 40% 70% / 0.2)'
+      } as React.CSSProperties}>
+        <div className="absolute inset-0 bg-gradient-primary-soft opacity-40"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Le Nostre Certificazioni</h2>
-            <p className="text-lg mb-8">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-8 transition-all duration-700 ${certificationsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>Le Nostre Certificazioni</h2>
+            <p className={`text-lg mb-8 transition-all duration-700 ${certificationsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               La qualità del nostro lavoro è certificata dai principali enti di controllo
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
-                <Card key={index} className="bg-primary-foreground/10 border-primary-foreground/20">
+                <Card key={index} className={`bg-primary-foreground/10 border-primary-foreground/20 hover:bg-primary-foreground/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-lime ${certificationsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'both' }}>
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3">
-                      <Award className="h-8 w-8 text-gold" />
+                      <Award className="h-8 w-8 text-lime-green drop-shadow-lg" />
                       <p className="text-lg font-semibold">{cert}</p>
                     </div>
                   </CardContent>
@@ -194,12 +215,14 @@ const ChiSiamo = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16">
+      <section ref={ctaSection.ref} className="py-16 section-transition-top relative" style={{
+        '--transition-from': 'hsl(211 40% 70% / 0.2)'
+      } as React.CSSProperties}>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 text-primary transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             Scegli un Futuro più Green
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-muted-foreground">
+          <p className={`text-xl mb-8 max-w-2xl mx-auto text-muted-foreground transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             Scopri come possiamo aiutarti a risparmiare energia e ridurre i costi
           </p>
           <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
