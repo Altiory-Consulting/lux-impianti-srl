@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sun, Wind, Zap, Leaf, Phone, CheckCircle, ArrowRight } from "lucide-react";
+import { Sun, Wind, Zap, Leaf, Phone, CheckCircle, ArrowRight, Droplets, Thermometer, CircleDollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -55,21 +55,33 @@ const Home = () => {
     desc: "Gratuita e professionale"
   }];
   const solutions = [{
+    icon: Sun,
     title: "Impianti Fotovoltaici",
     desc: "Cattura l'energia del sole e riduci le bollette",
-    link: "/soluzione/fotovoltaico"
+    link: "/soluzione/fotovoltaico",
+    color: "text-amber-500",
+    bgColor: "bg-amber-500/10 group-hover:bg-amber-500/20"
   }, {
+    icon: Droplets,
     title: "Solare Termico",
     desc: "Acqua calda naturale dal sole",
-    link: "/soluzione/solare-termico"
+    link: "/soluzione/solare-termico",
+    color: "text-orange-500",
+    bgColor: "bg-orange-500/10 group-hover:bg-orange-500/20"
   }, {
+    icon: Thermometer,
     title: "Pompa di Calore",
     desc: "Comfort in ogni stagione con massima efficienza",
-    link: "/soluzione/climatizzazione"
+    link: "/soluzione/climatizzazione",
+    color: "text-cyan-500",
+    bgColor: "bg-cyan-500/10 group-hover:bg-cyan-500/20"
   }, {
+    icon: CircleDollarSign,
     title: "Reddito Energetico",
     desc: "Accedi ai contributi statali per il fotovoltaico",
-    link: "/soluzione/reddito-energetico"
+    link: "/soluzione/reddito-energetico",
+    color: "text-green-500",
+    bgColor: "bg-green-500/10 group-hover:bg-green-500/20"
   }];
   return <div className="min-h-screen bg-background">
       <Header />
@@ -415,10 +427,15 @@ const Home = () => {
                 <CardContent className="p-6 h-full flex flex-col relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold mb-3 text-primary group-hover:text-lime-green transition-colors duration-300">
+                    <div className="mb-4 flex justify-center">
+                      <div className={`p-4 rounded-full transition-all duration-300 group-hover:scale-110 ${solution.bgColor}`}>
+                        <solution.icon className={`h-12 w-12 ${solution.color} group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`} />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-center text-primary group-hover:text-lime-green transition-colors duration-300">
                       {solution.title}
                     </h3>
-                    <p className="text-muted-foreground mb-6 flex-1 group-hover:text-foreground transition-colors duration-300">
+                    <p className="text-muted-foreground text-center mb-6 flex-1 group-hover:text-foreground transition-colors duration-300">
                       {solution.desc}
                     </p>
                     <Button 
