@@ -137,7 +137,7 @@ const Home = () => {
         '--transition-to': 'hsl(214 50% 98% / 0.5)'
       } as React.CSSProperties}>
         <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${servicesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div className={`text-center mb-12 transition-all duration-700 ${servicesSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI SERVIZI</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Innovazione al servizio dell'ambiente
@@ -154,7 +154,7 @@ const Home = () => {
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2 ${servicesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2 ${servicesSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   animationFillMode: 'both'
@@ -191,7 +191,7 @@ const Home = () => {
         '--transition-to': 'hsl(211 100% 22% / 0.3)'
       } as React.CSSProperties}>
         <div className="container mx-auto px-4">
-          <div className={`max-w-4xl mx-auto text-center mb-12 transition-all duration-700 ${communitySection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div className={`max-w-4xl mx-auto text-center mb-12 transition-all duration-700 ${communitySection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2">PORTFOLIO</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               I Nostri Lavori
@@ -201,7 +201,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className={`transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
+          <div className={`transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'scale-95'}`}>
             <div className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-lime-green scrollbar-track-muted">
               <div className="flex gap-6 min-w-max px-4">
                 {[
@@ -269,14 +269,14 @@ const Home = () => {
       } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={`transition-all duration-1000 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div className={`transition-all duration-1000 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
               <img
                 src="/src/assets/hero-solar-sunset.jpg"
                 alt="Installazione pannelli solari"
                 className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
               />
             </div>
-            <div className={`transition-all duration-1000 delay-300 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className={`transition-all duration-1000 delay-300 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">LA NOSTRA ESPERIENZA</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Oltre 15 Anni di Eccellenza
@@ -308,7 +308,7 @@ const Home = () => {
       } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={`order-2 md:order-1 transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div className={`order-2 md:order-1 transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">INNOVAZIONE CONTINUA</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Tecnologia all'Avanguardia
@@ -329,7 +329,7 @@ const Home = () => {
                 <Link to="/soluzioni">Esplora le Soluzioni</Link>
               </Button>
             </div>
-            <div className={`order-1 md:order-2 transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className={`order-1 md:order-2 transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <img
                 src="/src/assets/heat-pump.jpg"
                 alt="Tecnologia pompe di calore"
@@ -347,14 +347,14 @@ const Home = () => {
       } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={`transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div className={`transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
               <img
                 src="/src/assets/geothermal.jpg"
                 alt="Assistenza tecnica"
                 className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
               />
             </div>
-            <div className={`transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className={`transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">SEMPRE AL TUO FIANCO</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Assistenza Post-Vendita Garantita
@@ -387,7 +387,7 @@ const Home = () => {
       } as React.CSSProperties}>
         <div className="absolute inset-0 bg-gradient-primary-soft opacity-50"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${redditoSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${redditoSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">Fotovoltaico<br />Reddito Energetico</h2>
             <p className="text-lg mb-4">
               Il Reddito Energetico Nazionale finanzia impianti fotovoltaici domestici (2-6 kW) 
@@ -413,7 +413,7 @@ const Home = () => {
         '--transition-to': 'hsl(211 40% 70% / 0.2)'
       } as React.CSSProperties}>
         <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div className={`text-center mb-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI SERVIZI</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Soluzioni Energetiche
@@ -424,7 +424,7 @@ const Home = () => {
             {solutions.map((solution, index) => (
               <Card 
                 key={index} 
-                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${solutionsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   animationFillMode: 'both'
@@ -460,7 +460,7 @@ const Home = () => {
             ))}
           </div>
 
-          <div className={`text-center mt-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+          <div className={`text-center mt-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`} style={{
           animationDelay: '0.5s',
           animationFillMode: 'both'
         }}>
@@ -482,7 +482,7 @@ const Home = () => {
         '--transition-to': 'hsl(211 100% 22% / 0.3)'
       } as React.CSSProperties}>
         <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${partnersSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div className={`text-center mb-12 transition-all duration-700 ${partnersSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Partnership con Leader del Settore
             </h2>
@@ -504,7 +504,7 @@ const Home = () => {
           }, {
             label: "Anni di Esperienza",
             value: "15+"
-          }].map((stat, index) => <div key={index} className={`text-center transition-all duration-700 hover:scale-110 cursor-default group ${partnersSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+          }].map((stat, index) => <div key={index} className={`text-center transition-all duration-700 hover:scale-110 cursor-default group ${partnersSection.isVisible ? 'animate-scale-in' : 'scale-95'}`} style={{
             animationDelay: `${index * 0.1}s`,
             animationFillMode: 'both'
           }}>
@@ -523,17 +523,17 @@ const Home = () => {
       } as React.CSSProperties}>
         <div className="absolute inset-0 bg-gradient-primary-soft opacity-40"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             Scegli un Futuro più Green
           </h2>
-          <p className={`text-xl mb-8 max-w-2xl mx-auto transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+          <p className={`text-xl mb-8 max-w-2xl mx-auto transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`} style={{
           animationDelay: '0.2s',
           animationFillMode: 'both'
         }}>
             Contattaci per una consulenza energetica gratuita e scopri come risparmiare con le
             energie rinnovabili
           </p>
-          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 ${ctaSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 ${ctaSection.isVisible ? 'animate-scale-in' : 'scale-95'}`} style={{
           animationDelay: '0.4s',
           animationFillMode: 'both'
         }}>
