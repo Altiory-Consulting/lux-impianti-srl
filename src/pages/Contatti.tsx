@@ -172,41 +172,42 @@ const Contatti = () => {
       {/* Hero Section - Completamente rinnovata */}
       <section 
         ref={heroSection.ref}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden py-20"
         style={{
-          background: 'var(--gradient-blue-elegant)',
+          background: 'linear-gradient(135deg, hsl(211 100% 18%) 0%, hsl(211 95% 25%) 35%, hsl(211 85% 32%) 70%, hsl(211 75% 38%) 100%)',
         }}
       >
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${heroSection.isVisible ? 'animate-fade-in' : 'translate-y-8'}`}>
-            <div className="inline-flex items-center gap-2 bg-lime-green/20 text-lime-green px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4" />
-              <span className="text-sm font-semibold uppercase tracking-wide">Contatto Diretto</span>
+          <div className={`text-center max-w-5xl mx-auto transition-all duration-1000 ${heroSection.isVisible ? 'animate-fade-in' : 'translate-y-8'}`}>
+            <div className="inline-flex items-center gap-2 bg-lime-green/30 text-lime-green px-6 py-3 rounded-full mb-8 backdrop-blur-md border border-lime-green/30 shadow-glow-lime">
+              <Sparkles className="h-5 w-5" />
+              <span className="text-sm font-bold uppercase tracking-wider">Contatto Diretto</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
               Parliamo del Tuo <br />
-              <span className="text-lime-green">Progetto Energetico</span>
+              <span className="text-lime-green drop-shadow-[0_0_30px_rgba(156,225,55,0.5)]">Progetto Energetico</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
               La nostra esperienza al tuo servizio. Consulenza gratuita e supporto completo per ogni fase del progetto.
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
               {stats.map((stat, index) => (
                 <div 
                   key={index}
-                  className={`bg-white/10 backdrop-blur-md rounded-lg px-6 py-4 transition-all duration-700 hover:scale-105 hover:bg-white/20 ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
+                  className={`bg-white/15 backdrop-blur-md rounded-xl px-6 sm:px-8 py-5 transition-all duration-700 hover:scale-105 hover:bg-white/25 border border-white/10 hover:border-lime-green/50 shadow-xl hover:shadow-glow-lime ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animationFillMode: 'both'
                   }}
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-lime-green">{stat.value}</div>
-                  <div className="text-sm text-white/80">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-lime-green drop-shadow-[0_0_20px_rgba(156,225,55,0.5)]">{stat.value}</div>
+                  <div className="text-sm sm:text-base text-white font-medium mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
