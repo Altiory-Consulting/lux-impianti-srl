@@ -89,7 +89,7 @@ const Footer = () => {
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Caserta </p>
-                  <p>Corso Vittorio Emanuele 45, 83100</p>
+                  <p>ia Mulini Militari, 40 Caserta (CE)            </p>
                 </div>
               </li>
             </ul>
