@@ -26,11 +26,11 @@ const Header = () => {
               
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Largo Ochi n.7 Capriolo (BS)</span>
+                <span>Largo Ochi, 7 Capriolo (BS)</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Via Dei Due Principati, 60 Avellino</span>
+                <span>Via Mulini Militari, 40 Caserta (CE)             </span>
               </div>
             </div>
             <div className="flex gap-3">
