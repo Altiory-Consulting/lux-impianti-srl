@@ -19,7 +19,7 @@ const Header = () => {
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
               <a href="tel:08231556627" className="hover:text-lime-green transition-colors font-semibold">
-                0823 1556627
+                0823 155 6627
               </a>
             </div>
             <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-center md:text-left">
