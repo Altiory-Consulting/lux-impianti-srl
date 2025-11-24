@@ -6,16 +6,24 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 const ChiSiamo = () => {
-  const heroSection = useIntersectionObserver({ threshold: 0.2 });
-  const statsSection = useIntersectionObserver({ threshold: 0.2 });
-  const whyUsSection = useIntersectionObserver({ threshold: 0.2 });
+  const heroSection = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const statsSection = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const whyUsSection = useIntersectionObserver({
+    threshold: 0.2
+  });
   const missionSection = useIntersectionObserver({
     threshold: 0.2
   });
   const valuesSection = useIntersectionObserver({
     threshold: 0.2
   });
-  const teamSection = useIntersectionObserver({ threshold: 0.2 });
+  const teamSection = useIntersectionObserver({
+    threshold: 0.2
+  });
   const objectivesSection = useIntersectionObserver({
     threshold: 0.2
   });
@@ -25,52 +33,65 @@ const ChiSiamo = () => {
   const ctaSection = useIntersectionObserver({
     threshold: 0.2
   });
-  
-  const stats = [
-    { value: "100+", label: "Progetti Completati", icon: Award },
-    { value: "98%", label: "Clienti Soddisfatti", icon: Users },
-    { value: "15+", label: "Anni di Esperienza", icon: Calendar },
-    { value: "50+", label: "Partner Attivi", icon: TrendingUp }
-  ];
-
-  const whyChooseUs = [
-    { 
-      icon: Lightbulb, 
-      title: "Soluzioni Innovative", 
-      desc: "Utilizziamo tecnologie all'avanguardia per garantire massima efficienza energetica e risparmio",
-      color: "text-amber-500",
-      bgColor: "bg-amber-500/10"
-    },
-    { 
-      icon: Shield, 
-      title: "Garanzia di Qualità", 
-      desc: "Materiali certificati e installazioni a norma con garanzie estese su tutti i componenti",
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10"
-    },
-    { 
-      icon: Users, 
-      title: "Team Qualificato", 
-      desc: "Tecnici specializzati e certificati seguono ogni progetto dalla A alla Z",
-      color: "text-green-500",
-      bgColor: "bg-green-500/10"
-    },
-    { 
-      icon: TrendingUp, 
-      title: "Risparmio Garantito", 
-      desc: "Riduci i costi energetici fino al 70% con i nostri impianti ad alta efficienza",
-      color: "text-purple-500",
-      bgColor: "bg-purple-500/10"
-    }
-  ];
-
-  const team = [
-    { name: "Marco Rossi", role: "CEO & Founder", icon: Lightbulb },
-    { name: "Laura Bianchi", role: "Technical Director", icon: Shield },
-    { name: "Giuseppe Verdi", role: "Project Manager", icon: Target },
-    { name: "Sofia Russo", role: "Customer Success", icon: Heart }
-  ];
-
+  const stats = [{
+    value: "100+",
+    label: "Progetti Completati",
+    icon: Award
+  }, {
+    value: "98%",
+    label: "Clienti Soddisfatti",
+    icon: Users
+  }, {
+    value: "15+",
+    label: "Anni di Esperienza",
+    icon: Calendar
+  }, {
+    value: "50+",
+    label: "Partner Attivi",
+    icon: TrendingUp
+  }];
+  const whyChooseUs = [{
+    icon: Lightbulb,
+    title: "Soluzioni Innovative",
+    desc: "Utilizziamo tecnologie all'avanguardia per garantire massima efficienza energetica e risparmio",
+    color: "text-amber-500",
+    bgColor: "bg-amber-500/10"
+  }, {
+    icon: Shield,
+    title: "Garanzia di Qualità",
+    desc: "Materiali certificati e installazioni a norma con garanzie estese su tutti i componenti",
+    color: "text-blue-500",
+    bgColor: "bg-blue-500/10"
+  }, {
+    icon: Users,
+    title: "Team Qualificato",
+    desc: "Tecnici specializzati e certificati seguono ogni progetto dalla A alla Z",
+    color: "text-green-500",
+    bgColor: "bg-green-500/10"
+  }, {
+    icon: TrendingUp,
+    title: "Risparmio Garantito",
+    desc: "Riduci i costi energetici fino al 70% con i nostri impianti ad alta efficienza",
+    color: "text-purple-500",
+    bgColor: "bg-purple-500/10"
+  }];
+  const team = [{
+    name: "Marco Rossi",
+    role: "CEO & Founder",
+    icon: Lightbulb
+  }, {
+    name: "Laura Bianchi",
+    role: "Technical Director",
+    icon: Shield
+  }, {
+    name: "Giuseppe Verdi",
+    role: "Project Manager",
+    icon: Target
+  }, {
+    name: "Sofia Russo",
+    role: "Customer Success",
+    icon: Heart
+  }];
   const certifications = ["ISO 14001 - Gestione Ambientale", "ISO 18001 - Sicurezza sul Lavoro", "UNI EN ISO 9001 - Qualità", "UNI CEI 11352 - Energy Service Company"];
   return <div className="min-h-screen bg-background">
       <Header />
@@ -96,15 +117,15 @@ const ChiSiamo = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Chi Siamo</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-fade-in" style={{
-            animationDelay: '0.2s',
-            animationFillMode: 'both'
-          }}>
+          animationDelay: '0.2s',
+          animationFillMode: 'both'
+        }}>
             Partner di fiducia per soluzioni energetiche sostenibili e innovative
           </p>
           <div className="flex items-center justify-center gap-2 mt-6 animate-fade-in" style={{
-            animationDelay: '0.4s',
-            animationFillMode: 'both'
-          }}>
+          animationDelay: '0.4s',
+          animationFillMode: 'both'
+        }}>
             <MapPin className="h-5 w-5" />
             <span className="text-lg">Caserta, Campania</span>
           </div>
@@ -113,16 +134,15 @@ const ChiSiamo = () => {
 
       {/* Stats Section */}
       <section ref={statsSection.ref} className="py-16 bg-background section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(210 35% 42% / 0.3)',
-        '--transition-to': 'hsl(214 50% 98% / 0.5)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(210 35% 42% / 0.3)',
+      '--transition-to': 'hsl(214 50% 98% / 0.5)'
+    } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {stats.map((stat, index) => (
-              <Card key={index} className={`text-center group cursor-default overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${statsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: 'both'
-              }}>
+            {stats.map((stat, index) => <Card key={index} className={`text-center group cursor-default overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${statsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+            animationDelay: `${index * 0.1}s`,
+            animationFillMode: 'both'
+          }}>
                 <CardContent className="p-6 relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
@@ -139,17 +159,16 @@ const ChiSiamo = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
 
       {/* Why Choose Us Section */}
       <section ref={whyUsSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(214 50% 98% / 0.5)',
-        '--transition-to': 'hsl(211 40% 70% / 0.2)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(214 50% 98% / 0.5)',
+      '--transition-to': 'hsl(211 40% 70% / 0.2)'
+    } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${whyUsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI PUNTI DI FORZA</p>
@@ -159,11 +178,10 @@ const ChiSiamo = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {whyChooseUs.map((item, index) => (
-              <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${whyUsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: 'both'
-              }}>
+            {whyChooseUs.map((item, index) => <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${whyUsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+            animationDelay: `${index * 0.1}s`,
+            animationFillMode: 'both'
+          }}>
                 <CardContent className="p-6 text-center relative h-full flex flex-col">
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10 flex-1 flex flex-col">
@@ -180,8 +198,7 @@ const ChiSiamo = () => {
                     </p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -335,77 +352,10 @@ const ChiSiamo = () => {
       </section>
 
       {/* Certifications */}
-      <section ref={certificationsSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(211 100% 22% / 0.3)',
-        '--transition-to': 'hsl(211 40% 70% / 0.2)'
-      } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${certificationsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">CERTIFICAZIONI</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Qualità Certificata</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {certifications.map((cert, index) => (
-              <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${certificationsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: 'both'
-              }}>
-                <CardContent className="p-6 text-center relative h-full flex items-center justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative z-10">
-                    <div className="mb-4 flex justify-center">
-                      <div className="p-4 rounded-full bg-lime-green/10 group-hover:bg-lime-green/20 transition-all duration-300">
-                        <Award className="h-10 w-10 text-lime-green group-hover:scale-110 group-hover:rotate-12 transition-all duration-500" />
-                      </div>
-                    </div>
-                    <p className="text-sm font-semibold text-primary group-hover:text-lime-green transition-colors duration-300">
-                      {cert}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Team Section */}
-      <section ref={teamSection.ref} className="py-16 section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(211 40% 70% / 0.2)',
-        '--transition-to': 'hsl(214 50% 98% / 0.5)'
-      } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${teamSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">IL NOSTRO TEAM</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Chi Lavora Con Te</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {team.map((member, index) => (
-              <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${teamSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-                animationDelay: `${index * 0.1}s`,
-                animationFillMode: 'both'
-              }}>
-                <CardContent className="p-6 text-center relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative z-10">
-                    <div className="mb-4 flex justify-center">
-                      <div className="p-6 rounded-full bg-lime-green/10 group-hover:bg-lime-green/20 transition-all duration-300 group-hover:scale-110">
-                        <member.icon className="h-12 w-12 text-lime-green group-hover:rotate-12 transition-all duration-500" />
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300 mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                      {member.role}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
 
       {/* CTA */}
