@@ -223,11 +223,127 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Feature Section 1 - Esperienza */}
+      <section className="py-20 px-4 bg-background section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(211 100% 22% / 0.3)',
+        '--transition-to': 'hsl(214 50% 98% / 0.5)'
+      } as React.CSSProperties}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className={`transition-all duration-1000 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <img
+                src="/src/assets/hero-solar-sunset.jpg"
+                alt="Installazione pannelli solari"
+                className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
+              />
+            </div>
+            <div className={`transition-all duration-1000 delay-300 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">LA NOSTRA ESPERIENZA</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+                Oltre 15 Anni di Eccellenza
+              </h2>
+              <p className="text-lg text-muted-foreground mb-4">
+                Megasun srl è il punto di riferimento in Campania per soluzioni energetiche
+                rinnovabili. La nostra esperienza ci permette di garantire installazioni
+                di altissima qualità e un servizio clienti impeccabile.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                Ogni progetto è seguito da tecnici specializzati, dalla progettazione alla messa in opera,
+                con materiali certificati e garanzie estese.
+              </p>
+              <Button
+                className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow"
+                asChild
+              >
+                <Link to="/chi-siamo">Scopri la Nostra Storia</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Section 2 - Tecnologia */}
+      <section className="py-20 px-4 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(214 50% 98% / 0.5)',
+        '--transition-to': 'hsl(211 100% 22% / 0.3)'
+      } as React.CSSProperties}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className={`order-2 md:order-1 transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">INNOVAZIONE CONTINUA</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+                Tecnologia all'Avanguardia
+              </h2>
+              <p className="text-lg text-muted-foreground mb-4">
+                Utilizziamo solo i migliori componenti sul mercato: pannelli solari ad alta efficienza,
+                inverter di ultima generazione e sistemi di accumulo intelligenti per massimizzare
+                il tuo risparmio energetico.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                Sistemi di monitoraggio smart ti permettono di controllare la tua produzione energetica
+                in tempo reale, direttamente dal tuo smartphone.
+              </p>
+              <Button
+                className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow"
+                asChild
+              >
+                <Link to="/soluzioni">Esplora le Soluzioni</Link>
+              </Button>
+            </div>
+            <div className={`order-1 md:order-2 transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <img
+                src="/src/assets/heat-pump.jpg"
+                alt="Tecnologia pompe di calore"
+                className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Section 3 - Assistenza */}
+      <section className="py-20 px-4 bg-background section-transition-top section-transition-bottom relative" style={{
+        '--transition-from': 'hsl(211 100% 22% / 0.3)',
+        '--transition-to': 'hsl(211 100% 22% / 0.3)'
+      } as React.CSSProperties}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className={`transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <img
+                src="/src/assets/geothermal.jpg"
+                alt="Assistenza tecnica"
+                className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
+              />
+            </div>
+            <div className={`transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">SEMPRE AL TUO FIANCO</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+                Assistenza Post-Vendita Garantita
+              </h2>
+              <p className="text-lg text-muted-foreground mb-4">
+                Il nostro impegno non finisce con l'installazione. Offriamo assistenza tecnica
+                continuativa, manutenzione programmata e interventi rapidi in caso di necessità.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                Un team dedicato è sempre a tua disposizione per garantire che il tuo impianto
+                funzioni al massimo delle prestazioni per tutta la sua vita utile.
+              </p>
+              <Button
+                className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow"
+                asChild
+              >
+                <Link to="/contatti">Contattaci</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Reddito Energetico */}
       <section ref={redditoSection.ref} className="py-16 text-primary-foreground relative overflow-hidden section-transition-top section-transition-bottom" style={{
         background: 'var(--gradient-header)',
         boxShadow: 'var(--shadow-header)',
-        '--transition-from': 'hsl(214 50% 98% / 0.5)',
+        '--transition-from': 'hsl(211 100% 22% / 0.3)',
         '--transition-to': 'hsl(211 100% 22% / 0.3)'
       } as React.CSSProperties}>
         <div className="absolute inset-0 bg-gradient-primary-soft opacity-50"></div>
