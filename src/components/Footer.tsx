@@ -17,9 +17,9 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h4 className="font-semibold mb-4" style={{
-              color: 'hsl(211, 100%, 22%)'
-            }}>Informazioni Aziendali</h4>
-            <img src={logo} alt="Lux Impianti S.R.L." className="h-16 w-auto mb-4" />
+            color: 'hsl(211, 100%, 22%)'
+          }}>Informazioni Aziendali</h4>
+            
             <div className="space-y-3 text-sm">
               <div>
                 <p className="font-semibold text-base mb-1">LUX IMPIANTI S.R.L.</p>
