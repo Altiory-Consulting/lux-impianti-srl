@@ -389,41 +389,64 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Soluzioni Energetiche */}
+      {/* Soluzioni Energetiche - Interactive Cards */}
       <section ref={solutionsSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
         '--transition-from': 'hsl(211 100% 22% / 0.3)',
         '--transition-to': 'hsl(211 40% 70% / 0.2)'
       } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2">I NOSTRI SERVIZI</p>
+            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI SERVIZI</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
               Soluzioni Energetiche
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {solutions.map((solution, index) => <Card key={index} className={`hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 hover:border-lime-green group cursor-pointer overflow-hidden bg-gradient-card ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-            animationDelay: `${index * 0.1}s`,
-            animationFillMode: 'both'
-          }}>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-primary group-hover:text-lime-green transition-colors">{solution.title}</h3>
-                  <p className="text-muted-foreground mb-4">{solution.desc}</p>
-                  <Button asChild variant="outline" className="w-full group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green group-hover:shadow-glow-lime transition-all">
-                    <Link to={solution.link}>
-                      Leggi di più <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+            {solutions.map((solution, index) => (
+              <Card 
+                key={index} 
+                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
+              >
+                <CardContent className="p-6 h-full flex flex-col relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 flex-1 flex flex-col">
+                    <h3 className="text-xl font-bold mb-3 text-primary group-hover:text-lime-green transition-colors duration-300">
+                      {solution.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 flex-1 group-hover:text-foreground transition-colors duration-300">
+                      {solution.desc}
+                    </p>
+                    <Button 
+                      asChild 
+                      variant="outline" 
+                      className="w-full border-border group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green group-hover:shadow-glow-lime transition-all duration-300"
+                    >
+                      <Link to={solution.link}>
+                        Leggi di più 
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
 
           <div className={`text-center mt-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
           animationDelay: '0.5s',
           animationFillMode: 'both'
         }}>
-            <Button asChild size="lg" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-all">
+            <Button 
+              asChild 
+              size="lg" 
+              variant="outline" 
+              className="border-lime-green text-lime-green hover:bg-lime-green hover:text-foreground hover:shadow-glow-lime transition-all duration-300"
+            >
               <Link to="/soluzioni">Vedi Tutte le Soluzioni</Link>
             </Button>
           </div>
