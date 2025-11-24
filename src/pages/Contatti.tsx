@@ -140,10 +140,10 @@ const Contatti = () => {
   ];
 
   const stats = [
-    { label: "Clienti Soddisfatti", value: "500+" },
-    { label: "Progetti Completati", value: "1000+" },
-    { label: "Tempo Risposta", value: "<24h" },
-    { label: "Consulenze Gratuite", value: "∞" },
+    { label: "Clienti Felici", value: "500+" },
+    { label: "Progetti Fatti", value: "1000+" },
+    { label: "Risposta", value: "<24h" },
+    { label: "Consulenze", value: "∞" },
   ];
 
   const faqs = [
