@@ -80,7 +80,7 @@ P.IVA: IT04633810983</p>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold">Brescia</p>
+                  <p className="font-semibold">SEDE LEGALE:</p>
                   <p>Largo Ochi, 7 Capriolo (BS)</p>
                 </div>
               </li>
