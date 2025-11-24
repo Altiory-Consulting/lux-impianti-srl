@@ -8,7 +8,7 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 const ChiSiamo = () => {
   const heroSection = useIntersectionObserver({ threshold: 0.2 });
   const statsSection = useIntersectionObserver({ threshold: 0.2 });
-  const timelineSection = useIntersectionObserver({ threshold: 0.2 });
+  const whyUsSection = useIntersectionObserver({ threshold: 0.2 });
   const missionSection = useIntersectionObserver({
     threshold: 0.2
   });
@@ -33,11 +33,35 @@ const ChiSiamo = () => {
     { value: "50+", label: "Partner Attivi", icon: TrendingUp }
   ];
 
-  const timeline = [
-    { year: "2009", title: "Fondazione", desc: "Nasce Megasun con l'obiettivo di promuovere energie rinnovabili" },
-    { year: "2013", title: "Espansione", desc: "Apertura di nuove sedi in tutta la Campania" },
-    { year: "2018", title: "Certificazioni", desc: "Ottenimento delle principali certificazioni ISO" },
-    { year: "2025", title: "Oggi", desc: "Leader regionale nelle soluzioni energetiche sostenibili" }
+  const whyChooseUs = [
+    { 
+      icon: Lightbulb, 
+      title: "Soluzioni Innovative", 
+      desc: "Utilizziamo tecnologie all'avanguardia per garantire massima efficienza energetica e risparmio",
+      color: "text-amber-500",
+      bgColor: "bg-amber-500/10"
+    },
+    { 
+      icon: Shield, 
+      title: "Garanzia di Qualità", 
+      desc: "Materiali certificati e installazioni a norma con garanzie estese su tutti i componenti",
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/10"
+    },
+    { 
+      icon: Users, 
+      title: "Team Qualificato", 
+      desc: "Tecnici specializzati e certificati seguono ogni progetto dalla A alla Z",
+      color: "text-green-500",
+      bgColor: "bg-green-500/10"
+    },
+    { 
+      icon: TrendingUp, 
+      title: "Risparmio Garantito", 
+      desc: "Riduci i costi energetici fino al 70% con i nostri impianti ad alta efficienza",
+      color: "text-purple-500",
+      bgColor: "bg-purple-500/10"
+    }
   ];
 
   const team = [
@@ -121,46 +145,43 @@ const ChiSiamo = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section ref={timelineSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
+      {/* Why Choose Us Section */}
+      <section ref={whyUsSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
         '--transition-from': 'hsl(214 50% 98% / 0.5)',
         '--transition-to': 'hsl(211 40% 70% / 0.2)'
       } as React.CSSProperties}>
         <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${timelineSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">LA NOSTRA STORIA</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Il Nostro Percorso</h2>
+          <div className={`text-center mb-12 transition-all duration-700 ${whyUsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI PUNTI DI FORZA</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Perché Sceglierci</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Scopri cosa ci rende il partner ideale per le tue esigenze energetiche
+            </p>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-lime-green to-secondary hidden md:block"></div>
-              
-              {timeline.map((item, index) => (
-                <div key={index} className={`relative mb-12 transition-all duration-700 ${timelineSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
-                  animationDelay: `${index * 0.2}s`,
-                  animationFillMode: 'both'
-                }}>
-                  <div className={`flex items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                    <div className="flex-1 md:text-right">
-                      <Card className="group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2">
-                        <CardContent className="p-6 relative">
-                          <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                          <div className="relative z-10">
-                            <h3 className="text-2xl font-bold text-lime-green mb-2">{item.title}</h3>
-                            <p className="text-muted-foreground group-hover:text-foreground transition-colors">{item.desc}</p>
-                          </div>
-                        </CardContent>
-                      </Card>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {whyChooseUs.map((item, index) => (
+              <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${whyUsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
+                animationDelay: `${index * 0.1}s`,
+                animationFillMode: 'both'
+              }}>
+                <CardContent className="p-6 text-center relative h-full flex flex-col">
+                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 flex-1 flex flex-col">
+                    <div className="mb-4 flex justify-center">
+                      <div className={`p-4 rounded-full transition-all duration-300 group-hover:scale-110 ${item.bgColor}`}>
+                        <item.icon className={`h-12 w-12 ${item.color} group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`} />
+                      </div>
                     </div>
-                    <div className="flex-shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-lime-green to-secondary flex items-center justify-center font-bold text-xl text-foreground shadow-glow-lime z-10 hover:scale-125 transition-transform duration-300">
-                      {item.year}
-                    </div>
-                    <div className="flex-1 hidden md:block"></div>
+                    <h3 className="text-xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300 mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 flex-1">
+                      {item.desc}
+                    </p>
                   </div>
-                </div>
-              ))}
-            </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
