@@ -182,8 +182,8 @@ const Contatti = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center max-w-5xl mx-auto transition-all duration-1000 ${heroSection.isVisible ? 'animate-fade-in' : 'translate-y-8'}`}>
-            <div className="inline-flex items-center gap-2 bg-lime-green/30 text-lime-green px-6 py-3 rounded-full mb-8 backdrop-blur-md border border-lime-green/30 shadow-glow-lime">
-              <Sparkles className="h-5 w-5" />
+            <div className="inline-flex items-center gap-2 bg-white/20 text-white px-6 py-3 rounded-full mb-8 backdrop-blur-md border-2 border-white/40 shadow-xl">
+              <Sparkles className="h-5 w-5 text-lime-green" />
               <span className="text-sm font-bold uppercase tracking-wider">Contatto Diretto</span>
             </div>
             
@@ -200,14 +200,14 @@ const Contatti = () => {
               {stats.map((stat, index) => (
                 <div 
                   key={index}
-                  className={`bg-white/15 backdrop-blur-md rounded-xl px-6 sm:px-8 py-5 transition-all duration-700 hover:scale-105 hover:bg-white/25 border border-white/10 hover:border-lime-green/50 shadow-xl hover:shadow-glow-lime ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
+                  className={`bg-white/25 backdrop-blur-lg rounded-2xl px-6 sm:px-8 py-6 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 hover:border-lime-green shadow-2xl hover:shadow-glow-lime ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animationFillMode: 'both'
                   }}
                 >
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-lime-green drop-shadow-[0_0_20px_rgba(156,225,55,0.5)]">{stat.value}</div>
-                  <div className="text-sm sm:text-base text-white font-medium mt-1">{stat.label}</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-lime-green drop-shadow-[0_0_25px_rgba(156,225,55,0.6)]">{stat.value}</div>
+                  <div className="text-sm sm:text-base text-white font-bold mt-2 uppercase tracking-wide">{stat.label}</div>
                 </div>
               ))}
             </div>
