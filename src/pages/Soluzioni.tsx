@@ -51,50 +51,50 @@ const Soluzioni = () => {
     {
       icon: Sun,
       title: "Impianti Fotovoltaici",
-      description:
-        "Cattura l'energia del sole e trasformala in elettricità pulita. Riduci le bollette e aumenta l'indipendenza energetica della tua casa o azienda.",
+      desc: "Cattura l'energia del sole e trasformala in elettricità pulita. Riduci le bollette e aumenta l'indipendenza energetica della tua casa o azienda.",
       link: "/soluzione/fotovoltaico",
-      color: "text-secondary",
+      color: "text-amber-500",
+      bgColor: "bg-amber-500/10 group-hover:bg-amber-500/20"
     },
     {
       icon: Droplets,
       title: "Solare Termico",
-      description:
-        "Sfrutta il calore del sole per riscaldare l'acqua sanitaria. Un sistema efficiente che riduce drasticamente i costi per l'acqua calda.",
+      desc: "Sfrutta il calore del sole per riscaldare l'acqua sanitaria. Un sistema efficiente che riduce drasticamente i costi per l'acqua calda.",
       link: "/soluzione/solare-termico",
-      color: "text-blue-medium",
+      color: "text-orange-500",
+      bgColor: "bg-orange-500/10 group-hover:bg-orange-500/20"
     },
     {
       icon: Battery,
       title: "Climatizzazione a Pompa di Calore",
-      description:
-        "Tecnologia che sfrutta energia termica dall'aria, dall'acqua o dal terreno per riscaldare e raffrescare gli ambienti con massima efficienza.",
+      desc: "Tecnologia che sfrutta energia termica dall'aria, dall'acqua o dal terreno per riscaldare e raffrescare gli ambienti con massima efficienza.",
       link: "/soluzione/climatizzazione",
-      color: "text-accent",
+      color: "text-cyan-500",
+      bgColor: "bg-cyan-500/10 group-hover:bg-cyan-500/20"
     },
     {
       icon: Flame,
       title: "Biomasse",
-      description:
-        "Riscaldamento ecologico con legno e pellet. Una fonte rinnovabile che crea un'atmosfera accogliente e riduce i costi energetici.",
+      desc: "Riscaldamento ecologico con legno e pellet. Una fonte rinnovabile che crea un'atmosfera accogliente e riduce i costi energetici.",
       link: "/soluzione/biomasse",
-      color: "text-primary",
+      color: "text-red-500",
+      bgColor: "bg-red-500/10 group-hover:bg-red-500/20"
     },
     {
       icon: Wind,
       title: "Eolico",
-      description:
-        "Il vento come fonte di energia rinnovabile. Un investimento sostenibile che riduce la dipendenza dai combustibili fossili.",
+      desc: "Il vento come fonte di energia rinnovabile. Un investimento sostenibile che riduce la dipendenza dai combustibili fossili.",
       link: "/soluzione/eolico",
-      color: "text-secondary",
+      color: "text-sky-500",
+      bgColor: "bg-sky-500/10 group-hover:bg-sky-500/20"
     },
     {
       icon: Mountain,
       title: "Geotermico",
-      description:
-        "Sfrutta il calore del sottosuolo per riscaldare e raffrescare la tua casa. Comfort e risparmio energetico tutto l'anno.",
+      desc: "Sfrutta il calore del sottosuolo per riscaldare e raffrescare la tua casa. Comfort e risparmio energetico tutto l'anno.",
       link: "/soluzione/geotermico",
-      color: "text-blue-medium",
+      color: "text-emerald-500",
+      bgColor: "bg-emerald-500/10 group-hover:bg-emerald-500/20"
     },
   ];
 
@@ -181,34 +181,38 @@ const Soluzioni = () => {
       {/* Solutions Grid */}
       <section ref={solutionsSection.ref} className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {solutions.map((solution, index) => (
               <Card
                 key={index}
-                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2 ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${solutionsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`}
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   animationFillMode: 'both'
                 }}
               >
-                <CardContent className="p-8 relative">
+                <CardContent className="p-6 h-full flex flex-col relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative z-10">
-                    <div className="mb-6 flex justify-start">
-                      <div className="p-4 rounded-full bg-lime-green/10 group-hover:bg-lime-green/20 transition-all duration-300 group-hover:scale-110">
-                        <solution.icon className="h-16 w-16 text-lime-green group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 drop-shadow-lg group-hover:drop-shadow-[0_0_20px_hsl(var(--lime-green))]" />
+                  <div className="relative z-10 flex-1 flex flex-col">
+                    <div className="mb-4 flex justify-center">
+                      <div className={`p-4 rounded-full transition-all duration-300 group-hover:scale-110 ${solution.bgColor}`}>
+                        <solution.icon className={`h-12 w-12 ${solution.color} group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`} />
                       </div>
                     </div>
-                    <h2 className="text-2xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">
+                    <h3 className="text-xl font-bold mb-3 text-center text-primary group-hover:text-lime-green transition-colors duration-300">
                       {solution.title}
-                    </h2>
-                    <p className="text-muted-foreground mb-6 group-hover:text-foreground transition-colors duration-300">
-                      {solution.description}
+                    </h3>
+                    <p className="text-muted-foreground text-center mb-6 flex-1 group-hover:text-foreground transition-colors duration-300">
+                      {solution.desc}
                     </p>
-                    <Button asChild variant="outline" className="w-full border-lime-green/30 hover:bg-lime-green hover:text-foreground hover:border-lime-green transition-all duration-300 group-hover:shadow-glow-lime">
-                      <Link to={solution.link} className="flex items-center justify-center gap-2">
-                        Scopri di più
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                    <Button 
+                      asChild 
+                      variant="outline" 
+                      className="w-full border-border group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green group-hover:shadow-glow-lime transition-all duration-300"
+                    >
+                      <Link to={solution.link}>
+                        Scopri di più 
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
                       </Link>
                     </Button>
                   </div>
