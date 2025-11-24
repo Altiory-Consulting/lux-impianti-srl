@@ -21,7 +21,7 @@ const Footer = () => {
 
 P.IVA: IT04633810983</p>
             <div className="space-y-2 text-sm">
-              <p>P.IVA: IT04633810983 </p>
+              <p>​ </p>
             </div>
           </div>
 
