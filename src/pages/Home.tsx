@@ -93,26 +93,26 @@ const Home = () => {
       <Header />
 
       {/* Hero Section - Full Screen */}
-      <section className="relative min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl animate-fade-in">
-            <p className="text-lime-green uppercase tracking-wider text-sm md:text-base mb-4 font-semibold animate-fade-in-left" style={{
+            <p className="text-lime-green uppercase tracking-wider text-xs sm:text-sm md:text-base mb-3 md:mb-4 font-semibold animate-fade-in-left leading-relaxed" style={{
             animationDelay: '0.2s',
             animationFillMode: 'both'
           }}>
-              LA TUA VISIONE,TU LO IMMAGINI,NOI LO REALIZZIAMO                                             
+              LA TUA VISIONE, TU LO IMMAGINI, NOI LO REALIZZIAMO
             </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight animate-fade-in-left" style={{
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6 leading-tight animate-fade-in-left" style={{
             animationDelay: '0.4s',
             animationFillMode: 'both'
           }}>
               Un futuro green, creato insieme.
             </h1>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg px-8 py-6 transition-all duration-300 animate-fade-in-left shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow" style={{
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 transition-all duration-300 animate-fade-in-left shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow" style={{
             animationDelay: '0.6s',
             animationFillMode: 'both'
           }}>
@@ -189,8 +189,8 @@ const Home = () => {
           </div>
 
           <div className={`transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'scale-95'}`}>
-            <div className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-lime-green scrollbar-track-muted">
-              <div className="flex gap-6 min-w-max px-4">
+            <div className="overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0">
+              <div className="flex gap-4 md:gap-6 min-w-max">
                 {[{
                 image: projectHeating,
                 title: "Sistema Riscaldamento a Pavimento",
@@ -215,20 +215,20 @@ const Home = () => {
                 type: "Fotovoltaico Industriale",
                 power: "120 kW",
                 description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale."
-              }].map((project, index) => <div key={index} className="w-[400px] flex-shrink-0">
+              }].map((project, index) => <div key={index} className="w-[280px] sm:w-[350px] md:w-[400px] flex-shrink-0">
                     <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card h-full">
-                      <div className="relative h-64 overflow-hidden">
+                      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                         <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-                        <div className="absolute top-4 right-4 bg-lime-green text-foreground px-3 py-1 rounded-full text-sm font-semibold shadow-glow-lime">
+                        <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-lime-green text-foreground px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold shadow-glow-lime">
                           {project.power}
                         </div>
                       </div>
-                      <CardContent className="p-6">
+                      <CardContent className="p-4 md:p-6">
                         <div className="mb-2">
                           <span className="text-xs text-lime-green font-semibold uppercase tracking-wider">{project.type}</span>
                         </div>
-                        <h3 className="text-xl font-bold mb-3 text-primary">{project.title}</h3>
-                        <p className="text-muted-foreground text-sm">{project.description}</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-primary">{project.title}</h3>
+                        <p className="text-muted-foreground text-xs md:text-sm">{project.description}</p>
                       </CardContent>
                     </Card>
                   </div>)}
