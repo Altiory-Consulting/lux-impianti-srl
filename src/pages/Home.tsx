@@ -110,52 +110,7 @@ const Home = () => {
             animationDelay: '0.4s',
             animationFillMode: 'both'
           }}>
-              Un futuro green,creato insieme.                
-                
-                
-                
-                
-                 
-                 
-                  
-                  
-                   
-                    
-                     
-                      
-                       
-                        
-                         
-                          
-                           
-                            
-                             
-                              
-                               
-                                
-  
-   
-    
-     
-      
-       
-        
-         
-          
-           
-            
-             
-              
-               
-                
-                 
-   
-   
-   
-
-   
-
-   <br />
+              Un futuro green, creato insieme.   <br />
               Insieme lo stiamo costruendo
             </h1>
             <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg px-8 py-6 transition-all duration-300 animate-fade-in-left shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow" style={{
