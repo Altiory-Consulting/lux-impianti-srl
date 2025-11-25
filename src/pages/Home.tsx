@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Sun, Wind, Zap, Leaf, Phone, CheckCircle, ArrowRight, Droplets, Thermometer, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
@@ -95,13 +94,7 @@ const Home = () => {
 
       {/* Hero Section - Full Screen */}
       <section className="relative min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
+        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
@@ -134,9 +127,9 @@ const Home = () => {
 
       {/* Services Section - Interactive Cards */}
       <section ref={servicesSection.ref} className="py-16 bg-background section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(0 0% 0% / 0.3)',
-        '--transition-to': 'hsl(214 50% 98% / 0.5)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(0 0% 0% / 0.3)',
+      '--transition-to': 'hsl(214 50% 98% / 0.5)'
+    } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${servicesSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI SERVIZI</p>
@@ -152,15 +145,10 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <Card 
-                key={index} 
-                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2 ${servicesSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  animationFillMode: 'both'
-                }}
-              >
+            {services.map((service, index) => <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2 ${servicesSection.isVisible ? 'animate-scale-in' : 'scale-95'}`} style={{
+            animationDelay: `${index * 0.1}s`,
+            animationFillMode: 'both'
+          }}>
                 <CardContent className="p-6 text-center relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
@@ -180,17 +168,16 @@ const Home = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
 
       {/* I Nostri Lavori - Projects Carousel */}
       <section ref={communitySection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(0 0% 100% / 0.5)',
-        '--transition-to': 'hsl(211 100% 22% / 0.3)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(0 0% 100% / 0.5)',
+      '--transition-to': 'hsl(211 100% 22% / 0.3)'
+    } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`max-w-4xl mx-auto text-center mb-12 transition-all duration-700 ${communitySection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2">PORTFOLIO</p>
@@ -205,44 +192,34 @@ const Home = () => {
           <div className={`transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'scale-95'}`}>
             <div className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-lime-green scrollbar-track-muted">
               <div className="flex gap-6 min-w-max px-4">
-                {[
-                {
-                  image: projectHeating,
-                  title: "Sistema Riscaldamento a Pavimento",
-                  type: "Climatizzazione",
-                  power: "12 kW",
-                  description: "Installazione di sistema di riscaldamento radiante a pavimento con pompa di calore per comfort ottimale ed efficienza energetica."
-                },
-                {
-                  image: projectSolarRooftop,
-                  title: "Impianto Fotovoltaico su Tetto Piano",
-                  type: "Fotovoltaico Commerciale",
-                  power: "45 kW",
-                  description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica."
-                },
-                {
-                  image: projectSolarTiles,
-                  title: "Impianto Residenziale su Tegole",
-                  type: "Fotovoltaico Residenziale",
-                  power: "8 kW",
-                  description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale."
-                },
-                {
-                  image: projectSolarSunset,
-                  title: "Grande Impianto Fotovoltaico",
-                  type: "Fotovoltaico Industriale",
-                  power: "120 kW",
-                  description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale."
-                }
-                ].map((project, index) => (
-                  <div key={index} className="w-[400px] flex-shrink-0">
+                {[{
+                image: projectHeating,
+                title: "Sistema Riscaldamento a Pavimento",
+                type: "Climatizzazione",
+                power: "12 kW",
+                description: "Installazione di sistema di riscaldamento radiante a pavimento con pompa di calore per comfort ottimale ed efficienza energetica."
+              }, {
+                image: projectSolarRooftop,
+                title: "Impianto Fotovoltaico su Tetto Piano",
+                type: "Fotovoltaico Commerciale",
+                power: "45 kW",
+                description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica."
+              }, {
+                image: projectSolarTiles,
+                title: "Impianto Residenziale su Tegole",
+                type: "Fotovoltaico Residenziale",
+                power: "8 kW",
+                description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale."
+              }, {
+                image: projectSolarSunset,
+                title: "Grande Impianto Fotovoltaico",
+                type: "Fotovoltaico Industriale",
+                power: "120 kW",
+                description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale."
+              }].map((project, index) => <div key={index} className="w-[400px] flex-shrink-0">
                     <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card h-full">
                       <div className="relative h-64 overflow-hidden">
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                        />
+                        <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                         <div className="absolute top-4 right-4 bg-lime-green text-foreground px-3 py-1 rounded-full text-sm font-semibold shadow-glow-lime">
                           {project.power}
                         </div>
@@ -255,8 +232,7 @@ const Home = () => {
                         <p className="text-muted-foreground text-sm">{project.description}</p>
                       </CardContent>
                     </Card>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -265,17 +241,13 @@ const Home = () => {
 
       {/* Feature Section 1 - Esperienza */}
       <section className="py-20 px-4 bg-background section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(211 100% 22% / 0.3)',
-        '--transition-to': 'hsl(214 50% 98% / 0.5)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(211 100% 22% / 0.3)',
+      '--transition-to': 'hsl(214 50% 98% / 0.5)'
+    } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className={`transition-all duration-1000 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
-              <img
-                src="/src/assets/hero-solar-sunset.jpg"
-                alt="Installazione pannelli solari"
-                className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
-              />
+              <img alt="Installazione pannelli solari" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/73d574f0-46cc-4c33-a759-ea56e6eb39d1.png" />
             </div>
             <div className={`transition-all duration-1000 delay-300 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">LA NOSTRA ESPERIENZA</p>
@@ -291,10 +263,7 @@ const Home = () => {
                 Ogni progetto è seguito da tecnici specializzati, dalla progettazione alla messa in opera,
                 con materiali certificati e garanzie estese.
               </p>
-              <Button
-                className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow"
-                asChild
-              >
+              <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
                 <Link to="/chi-siamo">Scopri la Nostra Storia</Link>
               </Button>
             </div>
@@ -304,9 +273,9 @@ const Home = () => {
 
       {/* Feature Section 2 - Tecnologia */}
       <section className="py-20 px-4 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(214 50% 98% / 0.5)',
-        '--transition-to': 'hsl(211 100% 22% / 0.3)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(214 50% 98% / 0.5)',
+      '--transition-to': 'hsl(211 100% 22% / 0.3)'
+    } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className={`order-2 md:order-1 transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
@@ -323,19 +292,12 @@ const Home = () => {
                 Sistemi di monitoraggio smart ti permettono di controllare la tua produzione energetica
                 in tempo reale, direttamente dal tuo smartphone.
               </p>
-              <Button
-                className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow"
-                asChild
-              >
+              <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
                 <Link to="/soluzioni">Esplora le Soluzioni</Link>
               </Button>
             </div>
             <div className={`order-1 md:order-2 transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
-              <img
-                src="/src/assets/heat-pump.jpg"
-                alt="Tecnologia pompe di calore"
-                className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
-              />
+              <img src="/src/assets/heat-pump.jpg" alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" />
             </div>
           </div>
         </div>
@@ -343,17 +305,13 @@ const Home = () => {
 
       {/* Feature Section 3 - Assistenza */}
       <section className="py-20 px-4 bg-background section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(211 100% 22% / 0.3)',
-        '--transition-to': 'hsl(211 100% 22% / 0.3)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(211 100% 22% / 0.3)',
+      '--transition-to': 'hsl(211 100% 22% / 0.3)'
+    } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className={`transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
-              <img
-                src={postSalesSupport}
-                alt="Assistenza tecnica post-vendita"
-                className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105"
-              />
+              <img src={postSalesSupport} alt="Assistenza tecnica post-vendita" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" />
             </div>
             <div className={`transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">SEMPRE AL TUO FIANCO</p>
@@ -368,10 +326,7 @@ const Home = () => {
                 Un team dedicato è sempre a tua disposizione per garantire che il tuo impianto
                 funzioni al massimo delle prestazioni per tutta la sua vita utile.
               </p>
-              <Button
-                className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow"
-                asChild
-              >
+              <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
                 <Link to="/contatti">Contattaci</Link>
               </Button>
             </div>
@@ -381,11 +336,11 @@ const Home = () => {
 
       {/* Reddito Energetico */}
       <section ref={redditoSection.ref} className="py-16 text-primary-foreground relative overflow-hidden section-transition-top section-transition-bottom" style={{
-        background: 'var(--gradient-header)',
-        boxShadow: 'var(--shadow-header)',
-        '--transition-from': 'hsl(211 100% 22% / 0.3)',
-        '--transition-to': 'hsl(211 100% 22% / 0.3)'
-      } as React.CSSProperties}>
+      background: 'var(--gradient-header)',
+      boxShadow: 'var(--shadow-header)',
+      '--transition-from': 'hsl(211 100% 22% / 0.3)',
+      '--transition-to': 'hsl(211 100% 22% / 0.3)'
+    } as React.CSSProperties}>
         <div className="absolute inset-0 bg-gradient-primary-soft opacity-50"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${redditoSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
@@ -410,9 +365,9 @@ const Home = () => {
 
       {/* Soluzioni Energetiche - Interactive Cards */}
       <section ref={solutionsSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(211 100% 22% / 0.3)',
-        '--transition-to': 'hsl(211 40% 70% / 0.2)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(211 100% 22% / 0.3)',
+      '--transition-to': 'hsl(211 40% 70% / 0.2)'
+    } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI SERVIZI</p>
@@ -422,15 +377,10 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {solutions.map((solution, index) => (
-              <Card 
-                key={index} 
-                className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${solutionsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  animationFillMode: 'both'
-                }}
-              >
+            {solutions.map((solution, index) => <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${solutionsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`} style={{
+            animationDelay: `${index * 0.1}s`,
+            animationFillMode: 'both'
+          }}>
                 <CardContent className="p-6 h-full flex flex-col relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10 flex-1 flex flex-col">
@@ -445,11 +395,7 @@ const Home = () => {
                     <p className="text-muted-foreground text-center mb-6 flex-1 group-hover:text-foreground transition-colors duration-300">
                       {solution.desc}
                     </p>
-                    <Button 
-                      asChild 
-                      variant="outline" 
-                      className="w-full border-border group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green group-hover:shadow-glow-lime transition-all duration-300"
-                    >
+                    <Button asChild variant="outline" className="w-full border-border group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green group-hover:shadow-glow-lime transition-all duration-300">
                       <Link to={solution.link}>
                         Leggi di più 
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
@@ -457,20 +403,14 @@ const Home = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className={`text-center mt-12 transition-all duration-700 ${solutionsSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`} style={{
           animationDelay: '0.5s',
           animationFillMode: 'both'
         }}>
-            <Button 
-              asChild 
-              size="lg" 
-              variant="outline" 
-              className="border-lime-green text-lime-green hover:bg-lime-green hover:text-foreground hover:shadow-glow-lime transition-all duration-300"
-            >
+            <Button asChild size="lg" variant="outline" className="border-lime-green text-lime-green hover:bg-lime-green hover:text-foreground hover:shadow-glow-lime transition-all duration-300">
               <Link to="/soluzioni">Vedi Tutte le Soluzioni</Link>
             </Button>
           </div>
@@ -479,9 +419,9 @@ const Home = () => {
 
       {/* Partnership & Stats */}
       <section ref={partnersSection.ref} className="py-16 bg-blue-light/20 section-transition-top section-transition-bottom relative" style={{
-        '--transition-from': 'hsl(214 50% 98% / 0.5)',
-        '--transition-to': 'hsl(211 100% 22% / 0.3)'
-      } as React.CSSProperties}>
+      '--transition-from': 'hsl(214 50% 98% / 0.5)',
+      '--transition-to': 'hsl(211 100% 22% / 0.3)'
+    } as React.CSSProperties}>
         <div className="container mx-auto px-4">
           <div className={`text-center mb-12 transition-all duration-700 ${partnersSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
@@ -518,10 +458,10 @@ const Home = () => {
 
       {/* CTA Section */}
       <section ref={ctaSection.ref} className="py-16 text-primary-foreground relative overflow-hidden section-transition-top" style={{
-        background: 'var(--gradient-header)',
-        boxShadow: 'var(--shadow-header)',
-        '--transition-from': 'hsl(211 40% 70% / 0.2)'
-      } as React.CSSProperties}>
+      background: 'var(--gradient-header)',
+      boxShadow: 'var(--shadow-header)',
+      '--transition-from': 'hsl(211 40% 70% / 0.2)'
+    } as React.CSSProperties}>
         <div className="absolute inset-0 bg-gradient-primary-soft opacity-40"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className={`text-3xl md:text-4xl font-bold mb-6 transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
