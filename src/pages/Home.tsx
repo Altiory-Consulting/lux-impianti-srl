@@ -19,8 +19,8 @@ const Home = () => {
   const heroSlides = [
     {
       video: "/videos/hero-video.mp4",
-      tagline: "Un futuro green, creato insieme.",
-      headline: ""
+      tagline: "IL TUO COMFORT, TU LO SOGNI, NOI LO COSTRUIAMO",
+      headline: "Una casa intelligente, pronta per il domani."
     },
     {
       video: "/videos/hero-video-2.mp4",
