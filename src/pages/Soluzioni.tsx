@@ -118,7 +118,7 @@ const Soluzioni = () => {
       <section 
         className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden py-12 md:py-20"
         style={{
-          background: 'linear-gradient(135deg, hsl(211 100% 18%) 0%, hsl(211 95% 25%) 35%, hsl(211 85% 32%) 70%, hsl(211 75% 38%) 100%)',
+          background: 'linear-gradient(135deg, hsl(189 95% 28%) 0%, hsl(189 85% 38%) 35%, hsl(189 75% 48%) 70%, hsl(189 65% 58%) 100%)',
         }}
       >
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+DQo8L2c+PC9zdmc+')] opacity-40"></div>
@@ -126,8 +126,8 @@ const Soluzioni = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-lime-green/20 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-md border-2 border-lime-green/40 shadow-xl">
-              <Zap className="h-4 w-4 md:h-5 md:w-5 text-lime-green drop-shadow-lg" />
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-lg border-2 border-lime-green/60 shadow-xl hover:bg-white/15 hover:border-lime-green hover:scale-105 transition-all duration-300 group">
+              <Zap className="h-4 w-4 md:h-5 md:w-5 text-lime-green drop-shadow-lg group-hover:rotate-12 transition-transform duration-300" />
               <span className="text-xs md:text-sm font-bold uppercase tracking-wider drop-shadow-md">Tecnologie Rinnovabili</span>
             </div>
             

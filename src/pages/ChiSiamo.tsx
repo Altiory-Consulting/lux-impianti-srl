@@ -112,7 +112,7 @@ const ChiSiamo = () => {
       <section 
         className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden py-12 md:py-20"
         style={{
-          background: 'linear-gradient(135deg, hsl(211 100% 18%) 0%, hsl(211 95% 25%) 35%, hsl(211 85% 32%) 70%, hsl(211 75% 38%) 100%)',
+          background: 'linear-gradient(135deg, hsl(189 95% 28%) 0%, hsl(189 85% 38%) 35%, hsl(189 75% 48%) 70%, hsl(189 65% 58%) 100%)',
         }}
       >
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+DQo8L2c+PC9zdmc+')] opacity-40"></div>
@@ -120,8 +120,8 @@ const ChiSiamo = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-md border-2 border-white/40 shadow-xl">
-              <Users className="h-4 w-4 md:h-5 md:w-5 text-lime-green" />
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-lg border-2 border-lime-green/60 shadow-xl hover:bg-white/15 hover:border-lime-green hover:scale-105 transition-all duration-300 group">
+              <Users className="h-4 w-4 md:h-5 md:w-5 text-lime-green group-hover:scale-110 transition-transform duration-300" />
               <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Il Nostro Team</span>
             </div>
             
@@ -134,13 +134,15 @@ const ChiSiamo = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center px-4">
-              <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-4 md:px-6 py-3 md:py-4 border-2 border-white/30 shadow-2xl hover:scale-105 hover:bg-white/35 transition-all duration-300">
-                <MapPin className="h-5 w-5 md:h-6 md:w-6 text-lime-green flex-shrink-0" />
-                <span className="text-sm md:text-lg font-bold text-white">Capriolo (BS)</span>
+              <div className="group relative inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-xl rounded-2xl px-4 md:px-6 py-3 md:py-4 border-2 border-white/20 hover:border-lime-green/60 shadow-2xl hover:scale-110 hover:bg-white/20 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-lime-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <MapPin className="h-5 w-5 md:h-6 md:w-6 text-lime-green flex-shrink-0 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-sm md:text-lg font-bold text-white relative z-10">Capriolo (BS)</span>
               </div>
-              <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-4 md:px-6 py-3 md:py-4 border-2 border-white/30 shadow-2xl hover:scale-105 hover:bg-white/35 transition-all duration-300">
-                <MapPin className="h-5 w-5 md:h-6 md:w-6 text-lime-green flex-shrink-0" />
-                <span className="text-sm md:text-lg font-bold text-white">Caserta (CE)</span>
+              <div className="group relative inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-xl rounded-2xl px-4 md:px-6 py-3 md:py-4 border-2 border-white/20 hover:border-lime-green/60 shadow-2xl hover:scale-110 hover:bg-white/20 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-lime-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <MapPin className="h-5 w-5 md:h-6 md:w-6 text-lime-green flex-shrink-0 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                <span className="text-sm md:text-lg font-bold text-white relative z-10">Caserta (CE)</span>
               </div>
             </div>
           </div>
