@@ -25,14 +25,14 @@ const Header = () => {
                 0823 155 6627
               </a>
             </div>
-            <div className="hidden md:flex flex-col md:flex-row gap-2 md:gap-4 text-center md:text-left">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>Largo Ochi, 7 Capriolo (BS)</span>
+            <div className="flex flex-col md:flex-row gap-1 md:gap-4 text-center text-[10px] md:text-sm">
+              <div className="flex items-center justify-center gap-1 md:gap-2">
+                <MapPin className="h-3 w-3 md:h-4 md:w-4" />
+                <span>Capriolo (BS)</span>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>Via Mulini Militari, 40 Caserta (CE)</span>
+              <div className="flex items-center justify-center gap-1 md:gap-2">
+                <MapPin className="h-3 w-3 md:h-4 md:w-4" />
+                <span>Caserta (CE)</span>
               </div>
             </div>
             <div className="flex gap-3">
