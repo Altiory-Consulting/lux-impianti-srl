@@ -16,31 +16,55 @@ const Header = () => {
       boxShadow: 'var(--shadow-header)'
     }}>
       {/* Top Bar - Dark with contacts */}
-      <div className="bg-foreground text-background">
-        <div className="container mx-auto px-4 py-2 md:py-3">
+      <div className="bg-foreground text-background relative overflow-hidden">
+        {/* Animated background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/95 to-foreground opacity-50 animate-pulse"></div>
+        
+        <div className="container mx-auto px-4 py-2 md:py-3 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-xs md:text-sm">
-            <div className="flex items-center gap-2">
-              <Phone className="h-3 w-3 md:h-4 md:w-4" />
-              <a href="tel:08231556627" className="hover:text-lime-green transition-colors font-semibold">
+            {/* Phone number with pulse animation */}
+            <a 
+              href="tel:08231556627" 
+              className="flex items-center gap-2 group hover:text-lime-green transition-all duration-300 hover:scale-105"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-lime-green/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+                <Phone className="h-3 w-3 md:h-4 md:w-4 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+              </div>
+              <span className="font-semibold group-hover:tracking-wide transition-all duration-300">
                 0823 155 6627
-              </a>
-            </div>
+              </span>
+            </a>
+            
+            {/* Locations with hover effects */}
             <div className="flex flex-col md:flex-row gap-1 md:gap-4 text-center text-[10px] md:text-sm">
-              <div className="flex items-center justify-center gap-1 md:gap-2">
-                <MapPin className="h-3 w-3 md:h-4 md:w-4" />
-                <span>Capriolo (BS)</span>
+              <div className="flex items-center justify-center gap-1 md:gap-2 group hover:text-lime-green transition-all duration-300 cursor-default hover:scale-105">
+                <MapPin className="h-3 w-3 md:h-4 md:w-4 group-hover:animate-bounce" />
+                <span className="group-hover:font-semibold transition-all duration-300">Capriolo (BS)</span>
               </div>
-              <div className="flex items-center justify-center gap-1 md:gap-2">
-                <MapPin className="h-3 w-3 md:h-4 md:w-4" />
-                <span>Caserta (CE)</span>
+              <div className="flex items-center justify-center gap-1 md:gap-2 group hover:text-lime-green transition-all duration-300 cursor-default hover:scale-105">
+                <MapPin className="h-3 w-3 md:h-4 md:w-4 group-hover:animate-bounce" />
+                <span className="group-hover:font-semibold transition-all duration-300">Caserta (CE)</span>
               </div>
             </div>
+            
+            {/* Social media with interactive effects */}
             <div className="flex gap-3">
-              <a href="#" className="hover:text-lime-green transition-colors" aria-label="Facebook">
-                <Facebook className="h-4 w-4 md:h-5 md:w-5" />
+              <a 
+                href="#" 
+                className="group relative hover:text-lime-green transition-all duration-300 hover:scale-110" 
+                aria-label="Facebook"
+              >
+                <div className="absolute inset-0 bg-lime-green/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
+                <Facebook className="h-4 w-4 md:h-5 md:w-5 relative z-10 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" />
               </a>
-              <a href="#" className="hover:text-lime-green transition-colors" aria-label="Instagram">
-                <Instagram className="h-4 w-4 md:h-5 md:w-5" />
+              <a 
+                href="#" 
+                className="group relative hover:text-lime-green transition-all duration-300 hover:scale-110" 
+                aria-label="Instagram"
+              >
+                <div className="absolute inset-0 bg-lime-green/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
+                <Instagram className="h-4 w-4 md:h-5 md:w-5 relative z-10 group-hover:-rotate-12 group-hover:scale-110 transition-all duration-300" />
               </a>
             </div>
           </div>
