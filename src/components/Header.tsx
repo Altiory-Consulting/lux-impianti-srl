@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Phone, MapPin, Menu, X, Facebook, Instagram } from "lucide-react";
+import { Phone, MapPin, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
@@ -18,8 +18,14 @@ const Header = () => {
       {/* Top Bar - Dark with contacts */}
       <div className="bg-foreground text-background">
         <div className="container mx-auto px-4 py-2 md:py-3">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-xs md:text-sm">
-            {/* Phone number */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4 text-xs md:text-sm">
+            {/* Capriolo location - Left */}
+            <div className="flex items-center gap-1 md:gap-2">
+              <MapPin className="h-3 w-3 md:h-4 md:w-4" />
+              <span>Capriolo (BS)</span>
+            </div>
+            
+            {/* Phone number - Center */}
             <a 
               href="tel:08231556627" 
               className="flex items-center gap-2 hover:text-lime-green transition-colors duration-300 font-semibold"
@@ -28,34 +34,10 @@ const Header = () => {
               <span>0823 155 6627</span>
             </a>
             
-            {/* Locations */}
-            <div className="flex flex-col md:flex-row gap-1 md:gap-4 text-center text-[10px] md:text-sm">
-              <div className="flex items-center justify-center gap-1 md:gap-2">
-                <MapPin className="h-3 w-3 md:h-4 md:w-4" />
-                <span>Capriolo (BS)</span>
-              </div>
-              <div className="flex items-center justify-center gap-1 md:gap-2">
-                <MapPin className="h-3 w-3 md:h-4 md:w-4" />
-                <span>Caserta (CE)</span>
-              </div>
-            </div>
-            
-            {/* Social media */}
-            <div className="flex gap-3">
-              <a 
-                href="#" 
-                className="hover:text-lime-green transition-colors duration-300" 
-                aria-label="Facebook"
-              >
-                <Facebook className="h-4 w-4 md:h-5 md:w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="hover:text-lime-green transition-colors duration-300" 
-                aria-label="Instagram"
-              >
-                <Instagram className="h-4 w-4 md:h-5 md:w-5" />
-              </a>
+            {/* Caserta location - Right */}
+            <div className="flex items-center gap-1 md:gap-2">
+              <MapPin className="h-3 w-3 md:h-4 md:w-4" />
+              <span>Caserta (CE)</span>
             </div>
           </div>
         </div>
