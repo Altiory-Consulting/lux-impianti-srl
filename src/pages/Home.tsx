@@ -311,7 +311,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className={`transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
-              <img src={postSalesSupport} alt="Assistenza tecnica post-vendita" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" />
+              <img alt="Assistenza tecnica post-vendita" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/e5db803a-f239-4f7b-a37a-b259639cd3c2.png" />
             </div>
             <div className={`transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">SEMPRE AL TUO FIANCO</p>
