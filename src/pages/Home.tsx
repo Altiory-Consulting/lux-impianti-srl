@@ -28,7 +28,7 @@ const Home = () => {
       headline: "Tecnologia pulita che rende la tua energia più intelligente."
     },
     {
-      video: "/videos/hero-video.mp4",
+      video: "/videos/hero-video-3.mp4",
       tagline: "IL TUO DOMANI, TU LO SCEGLI, NOI LO ILLUMINIAMO",
       headline: "Efficienza energetica al servizio di un futuro migliore."
     }
