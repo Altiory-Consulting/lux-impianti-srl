@@ -49,16 +49,16 @@ const Header = () => {
 
       {/* Main Navigation */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4 md:py-10">
-          {/* Mobile Logo */}
-          <Link to="/" className="md:hidden">
-            <img src={logoTrasparente} alt="Lux Impianti" className="h-12 w-auto" />
-          </Link>
-
-          {/* Center Logo - Desktop */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
-            <img src={logoTrasparente} alt="Lux Impianti" className="h-20 w-auto" />
+        <div className="flex items-center justify-between py-4 md:py-10 relative">
+          {/* Center Logo - Mobile & Desktop */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 z-0">
+            <Link to="/">
+              <img src={logoTrasparente} alt="Lux Impianti" className="h-16 md:h-20 w-auto" />
+            </Link>
           </div>
+          
+          {/* Spacer for mobile to maintain layout */}
+          <div className="md:hidden w-10"></div>
 
           <nav className="hidden md:flex items-center gap-8 relative z-10 ml-auto">
             <Link
