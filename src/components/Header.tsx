@@ -17,27 +17,27 @@ const Header = () => {
     }}>
       {/* Top Bar - Dark with contacts */}
       <div className="bg-foreground text-background">
-        <div className="container mx-auto px-4 py-2 md:py-3">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4 text-xs md:text-sm">
+        <div className="container mx-auto px-2 md:px-4 py-2 md:py-3">
+          <div className="flex flex-row justify-between items-center gap-1 md:gap-4 text-[10px] md:text-sm">
             {/* Capriolo location - Left */}
-            <div className="flex items-center gap-1 md:gap-2">
-              <MapPin className="h-3 w-3 md:h-4 md:w-4" />
-              <span>Capriolo (BS)</span>
+            <div className="flex items-center gap-1">
+              <MapPin className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="whitespace-nowrap">Capriolo (BS)</span>
             </div>
             
             {/* Phone number - Center */}
             <a 
               href="tel:08231556627" 
-              className="flex items-center gap-2 hover:text-lime-green transition-colors duration-300 font-semibold"
+              className="flex items-center gap-1 md:gap-2 hover:text-lime-green transition-colors duration-300 font-semibold whitespace-nowrap"
             >
-              <Phone className="h-3 w-3 md:h-4 md:w-4" />
+              <Phone className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
               <span>0823 155 6627</span>
             </a>
             
             {/* Caserta location - Right */}
-            <div className="flex items-center gap-1 md:gap-2">
-              <MapPin className="h-3 w-3 md:h-4 md:w-4" />
-              <span>Caserta (CE)</span>
+            <div className="flex items-center gap-1">
+              <MapPin className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="whitespace-nowrap">Caserta (CE)</span>
             </div>
           </div>
         </div>
