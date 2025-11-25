@@ -6,7 +6,7 @@ import logo from "@/assets/logo-footer.png";
 const Footer = () => {
   return <footer className="text-primary-foreground relative" style={{
     background: 'var(--gradient-header)',
-    boxShadow: '0 -4px 20px -2px hsla(210 35% 42% / 0.25)'
+    boxShadow: '0 -4px 20px -2px hsla(189 85% 40% / 0.15)'
   }}>
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
