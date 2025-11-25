@@ -110,7 +110,7 @@ const ChiSiamo = () => {
 
       {/* Page Header */}
       <section 
-        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden py-20"
+        className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden py-12 md:py-20"
         style={{
           background: 'linear-gradient(135deg, hsl(211 100% 18%) 0%, hsl(211 95% 25%) 35%, hsl(211 85% 32%) 70%, hsl(211 75% 38%) 100%)',
         }}
@@ -120,27 +120,27 @@ const ChiSiamo = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/20 text-white px-6 py-3 rounded-full mb-8 backdrop-blur-md border-2 border-white/40 shadow-xl">
-              <Users className="h-5 w-5 text-lime-green" />
-              <span className="text-sm font-bold uppercase tracking-wider">Il Nostro Team</span>
+            <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-md border-2 border-white/40 shadow-xl">
+              <Users className="h-4 w-4 md:h-5 md:w-5 text-lime-green" />
+              <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Il Nostro Team</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
               Chi <span className="text-lime-green drop-shadow-[0_0_30px_rgba(156,225,55,0.5)]">Siamo</span>
             </h1>
             
-            <p className="text-lg sm:text-xl md:text-2xl text-white mb-6 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 md:mb-8 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] px-4">
               Partner di fiducia per soluzioni energetiche sostenibili e innovative
             </p>
             
-            <div className="flex flex-wrap gap-4 justify-center">
-              <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-6 py-4 border-2 border-white/30 shadow-2xl hover:scale-105 hover:bg-white/35 transition-all duration-300">
-                <MapPin className="h-6 w-6 text-lime-green" />
-                <span className="text-lg font-bold text-white">Capriolo (BS)</span>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center px-4">
+              <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-4 md:px-6 py-3 md:py-4 border-2 border-white/30 shadow-2xl hover:scale-105 hover:bg-white/35 transition-all duration-300">
+                <MapPin className="h-5 w-5 md:h-6 md:w-6 text-lime-green flex-shrink-0" />
+                <span className="text-sm md:text-lg font-bold text-white">Capriolo (BS)</span>
               </div>
-              <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-6 py-4 border-2 border-white/30 shadow-2xl hover:scale-105 hover:bg-white/35 transition-all duration-300">
-                <MapPin className="h-6 w-6 text-lime-green" />
-                <span className="text-lg font-bold text-white">Caserta (CE)</span>
+              <div className="inline-flex items-center justify-center gap-2 bg-white/25 backdrop-blur-lg rounded-2xl px-4 md:px-6 py-3 md:py-4 border-2 border-white/30 shadow-2xl hover:scale-105 hover:bg-white/35 transition-all duration-300">
+                <MapPin className="h-5 w-5 md:h-6 md:w-6 text-lime-green flex-shrink-0" />
+                <span className="text-sm md:text-lg font-bold text-white">Caserta (CE)</span>
               </div>
             </div>
           </div>

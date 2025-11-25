@@ -184,7 +184,7 @@ const Contatti = () => {
       {/* Hero Section - Completamente rinnovata */}
       <section
         ref={heroSection.ref}
-        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-24"
+        className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden py-16 md:py-24"
         style={{
           background: 'linear-gradient(135deg, hsl(211 100% 18%) 0%, hsl(211 95% 25%) 35%, hsl(211 85% 32%) 70%, hsl(211 75% 38%) 100%)',
         }}
@@ -194,32 +194,32 @@ const Contatti = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center max-w-5xl mx-auto transition-all duration-1000 ${heroSection.isVisible ? 'animate-fade-in' : 'translate-y-8'}`}>
-            <div className="inline-flex items-center gap-2 bg-white/20 text-white px-6 py-3 rounded-full mb-8 backdrop-blur-md border-2 border-white/40 shadow-xl">
-              <Sparkles className="h-5 w-5 text-lime-green" />
-              <span className="text-sm font-bold uppercase tracking-wider">Contatto Diretto</span>
+            <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-md border-2 border-white/40 shadow-xl">
+              <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-lime-green" />
+              <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Contatto Diretto</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] px-4">
               Parliamo del Tuo <br />
               <span className="text-lime-green drop-shadow-[0_0_30px_rgba(156,225,55,0.5)]">Progetto Energetico</span>
             </h1>
             
-            <p className="text-lg sm:text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-8 md:mb-10 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] px-4">
               La nostra esperienza al tuo servizio. Consulenza gratuita e supporto completo per ogni fase del progetto.
             </p>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6 max-w-6xl mx-auto px-4">
               {stats.map((stat, index) => (
                 <div 
                   key={index}
-                  className={`bg-white/25 backdrop-blur-lg rounded-2xl px-3 sm:px-4 py-8 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 shadow-2xl hover:shadow-glow-lime text-center min-h-[160px] flex flex-col items-center justify-center ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
+                  className={`bg-white/25 backdrop-blur-lg rounded-xl md:rounded-2xl px-2 sm:px-3 md:px-4 py-6 md:py-8 transition-all duration-700 hover:scale-105 hover:bg-white/35 border-2 border-white/30 shadow-2xl hover:shadow-glow-lime text-center min-h-[120px] md:min-h-[160px] flex flex-col items-center justify-center ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animationFillMode: 'both'
                   }}
                 >
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-lime-green drop-shadow-[0_0_25px_rgba(156,225,55,0.6)] mb-3">{stat.value}</div>
-                  <div className="text-[10px] sm:text-xs lg:text-sm text-white font-bold uppercase tracking-wider leading-tight break-words max-w-full px-1">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-lime-green drop-shadow-[0_0_25px_rgba(156,225,55,0.6)] mb-2 md:mb-3">{stat.value}</div>
+                  <div className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-white font-bold uppercase tracking-wider leading-tight break-words max-w-full px-1">{stat.label}</div>
                 </div>
               ))}
             </div>
