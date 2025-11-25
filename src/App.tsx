@@ -8,6 +8,9 @@ import ChiSiamo from "./pages/ChiSiamo";
 import Soluzioni from "./pages/Soluzioni";
 import Contatti from "./pages/Contatti";
 import Privacy from "./pages/Privacy";
+import CookiePolicy from "./pages/CookiePolicy";
+import TerminiCondizioni from "./pages/TerminiCondizioni";
+import NoteLegali from "./pages/NoteLegali";
 import Fotovoltaico from "./pages/solutions/Fotovoltaico";
 import SolareTermico from "./pages/solutions/SolareTermico";
 import Climatizzazione from "./pages/solutions/Climatizzazione";
@@ -31,6 +34,9 @@ const App = () => (
           <Route path="/soluzioni" element={<Soluzioni />} />
           <Route path="/contatti" element={<Contatti />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/termini-condizioni" element={<TerminiCondizioni />} />
+          <Route path="/note-legali" element={<NoteLegali />} />
           <Route path="/soluzione/fotovoltaico" element={<Fotovoltaico />} />
           <Route path="/soluzione/solare-termico" element={<SolareTermico />} />
           <Route path="/soluzione/climatizzazione" element={<Climatizzazione />} />
