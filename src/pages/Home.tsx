@@ -110,7 +110,23 @@ const Home = () => {
             animationDelay: '0.4s',
             animationFillMode: 'both'
           }}>
-              Un futuro green, creato insieme.   
+              Un futuro green, creato insieme.  
+   
+    
+     
+      
+       
+        
+         
+          
+           
+            
+             
+              
+               
+                
+                 
+   
    
    
 
