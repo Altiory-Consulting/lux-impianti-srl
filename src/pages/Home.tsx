@@ -104,14 +104,13 @@ const Home = () => {
             animationDelay: '0.2s',
             animationFillMode: 'both'
           }}>
-              LA TUA VISIONE,TU LO IMMAGINI,NOI LO REALIZZIAMO                                             
+              LA TUA VISIONE,TU LO IMMAGINI,NOI LO REALIZZIAMO                                             
             </p>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight animate-fade-in-left" style={{
             animationDelay: '0.4s',
             animationFillMode: 'both'
           }}>
-              Un futuro green, creato insieme.   <br />
-              Insieme lo stiamo costruendo
+              Un futuro green, creato insieme.
             </h1>
             <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg px-8 py-6 transition-all duration-300 animate-fade-in-left shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow" style={{
             animationDelay: '0.6s',
