@@ -297,7 +297,7 @@ const Home = () => {
               </Button>
             </div>
             <div className={`order-1 md:order-2 transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
-              <img alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/82c45895-3441-4ec0-a145-b88683f46f4c.png" />
+              <img alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/fffeab52-7bd4-4694-91fc-a098ed4b6967.png" />
             </div>
           </div>
         </div>
