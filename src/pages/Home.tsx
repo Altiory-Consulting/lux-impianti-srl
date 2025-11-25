@@ -19,18 +19,18 @@ const Home = () => {
   const heroSlides = [
     {
       video: "/videos/hero-video.mp4",
-      tagline: "LA TUA VISIONE, TU LO IMMAGINI, NOI LO REALIZZIAMO",
-      headline: "Un futuro green, creato insieme."
+      tagline: "Un futuro green, creato insieme.",
+      headline: ""
     },
     {
-      video: "/videos/hero-video.mp4", // Sostituire con il secondo video
-      tagline: "INNOVAZIONE E SOSTENIBILITÀ",
-      headline: "Energia pulita per un domani migliore."
+      video: "/videos/hero-video-2.mp4",
+      tagline: "LE TUE SCELTE, TU LE GUIDI, NOI LE TRASFORMIAMO",
+      headline: "Tecnologia pulita che rende la tua energia più intelligente."
     },
     {
-      video: "/videos/hero-video.mp4", // Sostituire con il terzo video
-      tagline: "SOLUZIONI SU MISURA",
-      headline: "Trasformiamo la tua energia in risparmio."
+      video: "/videos/hero-video.mp4",
+      tagline: "IL TUO DOMANI, TU LO SCEGLI, NOI LO ILLUMINIAMO",
+      headline: "Efficienza energetica al servizio di un futuro migliore."
     }
   ];
 
