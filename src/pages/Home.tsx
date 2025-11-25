@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import { Sun, Wind, Zap, Leaf, Phone, CheckCircle, ArrowRight, Droplets, Thermometer, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,6 +12,43 @@ import projectSolarTiles from "@/assets/project-solar-tiles-1.jpg";
 import projectSolarSunset from "@/assets/project-solar-sunset-1.jpg";
 import postSalesSupport from "@/assets/post-sales-support.jpg";
 const Home = () => {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const heroSlides = [
+    {
+      video: "/videos/hero-video.mp4",
+      tagline: "LA TUA VISIONE, TU LO IMMAGINI, NOI LO REALIZZIAMO",
+      headline: "Un futuro green, creato insieme."
+    },
+    {
+      video: "/videos/hero-video.mp4", // Sostituire con il secondo video
+      tagline: "INNOVAZIONE E SOSTENIBILITÀ",
+      headline: "Energia pulita per un domani migliore."
+    },
+    {
+      video: "/videos/hero-video.mp4", // Sostituire con il terzo video
+      tagline: "SOLUZIONI SU MISURA",
+      headline: "Trasformiamo la tua energia in risparmio."
+    }
+  ];
+
+  const handleVideoEnd = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % heroSlides.length);
+      setIsTransitioning(false);
+    }, 500);
+  };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+      videoRef.current.play();
+    }
+  }, [currentVideoIndex]);
+
   const servicesSection = useIntersectionObserver({
     threshold: 0.01,
     rootMargin: '300px'
@@ -92,35 +130,55 @@ const Home = () => {
   return <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section - Full Screen */}
+      {/* Hero Section - Full Screen with Video Carousel */}
       <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        <video 
+          ref={videoRef}
+          autoPlay 
+          muted 
+          playsInline 
+          onEnded={handleVideoEnd}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
+        >
+          <source src={heroSlides[currentVideoIndex].video} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl animate-fade-in">
-            <p className="text-lime-green uppercase tracking-wider text-xs sm:text-sm md:text-base mb-3 md:mb-4 font-semibold animate-fade-in-left leading-relaxed" style={{
-            animationDelay: '0.2s',
-            animationFillMode: 'both'
-          }}>
-              LA TUA VISIONE, TU LO IMMAGINI, NOI LO REALIZZIAMO
+          <div className={`max-w-4xl transition-all duration-500 ${isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+            <p className="text-lime-green uppercase tracking-wider text-xs sm:text-sm md:text-base mb-3 md:mb-4 font-semibold leading-relaxed">
+              {heroSlides[currentVideoIndex].tagline}
             </p>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6 leading-tight animate-fade-in-left" style={{
-            animationDelay: '0.4s',
-            animationFillMode: 'both'
-          }}>
-              Un futuro green, creato insieme.
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6 leading-tight">
+              {heroSlides[currentVideoIndex].headline}
             </h1>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 transition-all duration-300 animate-fade-in-left shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow" style={{
-            animationDelay: '0.6s',
-            animationFillMode: 'both'
-          }}>
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
               <Link to="/contatti">
                 RICHIEDI INFO
               </Link>
             </Button>
           </div>
+        </div>
+        
+        {/* Video Navigation Dots */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  setCurrentVideoIndex(index);
+                  setIsTransitioning(false);
+                }, 500);
+              }}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentVideoIndex 
+                  ? 'bg-lime-green w-8' 
+                  : 'bg-white/50 hover:bg-white/80'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 
