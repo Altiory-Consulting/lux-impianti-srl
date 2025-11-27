@@ -586,13 +586,12 @@ const Contatti = () => {
               {/* Google Maps Embed */}
               <div className="relative h-64 overflow-hidden">
                 <iframe
-                  src="https://maps.google.com/maps?q=Largo+Ochi+7+Capriolo+BS+Italia&output=embed"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=9.95%2C45.65%2C10.05%2C45.75&layer=mapnik&marker=45.7%2C10.0"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
                   className="group-hover:scale-105 transition-transform duration-500"
                 ></iframe>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
@@ -671,13 +670,12 @@ const Contatti = () => {
               {/* Google Maps Embed */}
               <div className="relative h-64 overflow-hidden">
                 <iframe
-                  src="https://maps.google.com/maps?q=Via+Mulini+Militari+40+Caserta+CE+Italia&output=embed"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=14.31%2C41.05%2C14.36%2C41.10&layer=mapnik&marker=41.074%2C14.333"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
                   className="group-hover:scale-105 transition-transform duration-500"
                 ></iframe>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
