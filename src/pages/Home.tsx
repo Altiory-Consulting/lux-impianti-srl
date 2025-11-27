@@ -282,6 +282,9 @@ const Home = () => {
                         </div>
                       </div>
                       <CardContent className="p-4 md:p-6">
+                        <div className="mb-2">
+                          <span className="text-xs text-lime-green font-semibold uppercase tracking-wider">{project.type}</span>
+                        </div>
                         <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-primary">{project.title}</h3>
                         <p className="text-muted-foreground text-xs md:text-sm">{project.description}</p>
                       </CardContent>
