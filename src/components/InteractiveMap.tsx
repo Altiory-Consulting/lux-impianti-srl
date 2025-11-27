@@ -19,9 +19,10 @@ interface InteractiveMapProps {
   title: string;
   address: string;
   zoom?: number;
+  googleMapsUrl?: string;
 }
 
-const InteractiveMap = ({ latitude, longitude, title, address, zoom = 15 }: InteractiveMapProps) => {
+const InteractiveMap = ({ latitude, longitude, title, address, zoom = 15, googleMapsUrl }: InteractiveMapProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
 
@@ -56,9 +57,23 @@ const InteractiveMap = ({ latitude, longitude, title, address, zoom = 15 }: Inte
         marker.bindPopup(`
           <div style="text-align: center; padding: 8px;">
             <p style="font-weight: bold; margin-bottom: 4px; font-size: 14px;">${title}</p>
-            <p style="font-size: 12px; color: #666;">${address}</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 8px;">${address}</p>
+            ${googleMapsUrl ? `<a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #9CE137; color: #000; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 12px;">Apri in Google Maps</a>` : ''}
           </div>
         `).openPopup();
+
+        // Make entire map clickable to open Google Maps
+        if (googleMapsUrl) {
+          map.on('click', () => {
+            window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
+          });
+          
+          // Also make marker clickable
+          marker.on('click', (e) => {
+            L.DomEvent.stopPropagation(e);
+            window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
+          });
+        }
 
         mapInstanceRef.current = map;
 
@@ -85,7 +100,7 @@ const InteractiveMap = ({ latitude, longitude, title, address, zoom = 15 }: Inte
         mapInstanceRef.current = null;
       }
     };
-  }, [latitude, longitude, title, address, zoom]);
+  }, [latitude, longitude, title, address, zoom, googleMapsUrl]);
 
   return (
     <div
