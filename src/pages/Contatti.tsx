@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, CheckCircle, Send, MessageSquare, User, Building2, Sparkles } from "lucide-react";
+import { Suspense, lazy } from "react";
+
+const InteractiveMap = lazy(() => import("@/components/InteractiveMap"));
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -589,19 +592,24 @@ const Contatti = () => {
                   animationFillMode: 'both'
                 }}
               >
-                {/* Map Preview Placeholder */}
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
-                  <div className="relative z-10 text-center space-y-4">
-                    <div className="inline-flex p-6 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 group-hover:border-lime-green group-hover:bg-lime-green/20 transition-all duration-300">
-                      <MapPin className="h-12 w-12 text-white group-hover:text-lime-green group-hover:animate-bounce transition-colors" />
+                {/* Interactive Map */}
+                <div className="relative h-64 overflow-hidden border-2 border-white/20 group-hover:border-lime-green/50 transition-all duration-300">
+                  <Suspense fallback={
+                    <div className="h-full w-full bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
+                      <div className="text-white text-center">
+                        <MapPin className="h-12 w-12 mx-auto mb-2 animate-pulse" />
+                        <p className="text-sm">Caricamento mappa...</p>
+                      </div>
                     </div>
-                    <div className="px-4">
-                      <p className="text-white text-lg font-bold mb-1">Clicca per aprire in Google Maps</p>
-                      <p className="text-white/80 text-sm">Ottieni indicazioni stradali</p>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                  }>
+                    <InteractiveMap
+                      latitude={45.6947}
+                      longitude={9.9997}
+                      title="Capriolo (BS)"
+                      address="Largo Ochi, 7 Capriolo (BS)"
+                      zoom={15}
+                    />
+                  </Suspense>
                 </div>
 
               <CardHeader className="bg-gradient-card border-b relative">
@@ -666,19 +674,24 @@ const Contatti = () => {
                   animationFillMode: 'both'
                 }}
               >
-                {/* Map Preview Placeholder */}
-                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
-                  <div className="relative z-10 text-center space-y-4">
-                    <div className="inline-flex p-6 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 group-hover:border-lime-green group-hover:bg-lime-green/20 transition-all duration-300">
-                      <MapPin className="h-12 w-12 text-white group-hover:text-lime-green group-hover:animate-bounce transition-colors" />
+                {/* Interactive Map */}
+                <div className="relative h-64 overflow-hidden border-2 border-white/20 group-hover:border-lime-green/50 transition-all duration-300">
+                  <Suspense fallback={
+                    <div className="h-full w-full bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
+                      <div className="text-white text-center">
+                        <MapPin className="h-12 w-12 mx-auto mb-2 animate-pulse" />
+                        <p className="text-sm">Caricamento mappa...</p>
+                      </div>
                     </div>
-                    <div className="px-4">
-                      <p className="text-white text-lg font-bold mb-1">Clicca per aprire in Google Maps</p>
-                      <p className="text-white/80 text-sm">Ottieni indicazioni stradali</p>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                  }>
+                    <InteractiveMap
+                      latitude={41.0742}
+                      longitude={14.3333}
+                      title="Caserta (CE)"
+                      address="Via Mulini Militari, 40 Caserta (CE)"
+                      zoom={15}
+                    />
+                  </Suspense>
                 </div>
 
               <CardHeader className="bg-gradient-card border-b relative">
