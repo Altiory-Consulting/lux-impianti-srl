@@ -116,20 +116,20 @@ const Home = () => {
       <Header />
 
       {/* Hero Section - Full Screen with Video Carousel */}
-      <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
         <video ref={videoRef} autoPlay muted playsInline onEnded={handleVideoEnd} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <source src={heroSlides[currentVideoIndex].video} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className={`max-w-4xl transition-all duration-500 ${isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-xs sm:text-sm md:text-base mb-3 md:mb-4 font-semibold leading-relaxed">
+            <p className="text-lime-green uppercase tracking-wider text-[10px] xs:text-xs sm:text-sm lg:text-base mb-2 sm:mb-3 lg:mb-4 font-semibold leading-relaxed">
               {heroSlides[currentVideoIndex].tagline}
             </p>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6 leading-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white mb-4 sm:mb-5 lg:mb-6 leading-[1.1] sm:leading-tight">
               {heroSlides[currentVideoIndex].headline}
             </h1>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 md:py-6 transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
+            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-sm sm:text-base lg:text-lg px-5 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6 h-auto transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
               <Link to="/contatti">
                 RICHIEDI INFO
               </Link>
@@ -138,37 +138,37 @@ const Home = () => {
         </div>
         
         {/* Video Navigation Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+        <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2 sm:gap-3">
           {heroSlides.map((_, index) => <button key={index} onClick={() => {
           setIsTransitioning(true);
           setTimeout(() => {
             setCurrentVideoIndex(index);
             setIsTransitioning(false);
           }, 500);
-        }} className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentVideoIndex ? 'bg-lime-green w-8' : 'bg-white/50 hover:bg-white/80'}`} aria-label={`Go to slide ${index + 1}`} />)}
+        }} className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentVideoIndex ? 'bg-lime-green w-6 sm:w-8' : 'bg-white/50 hover:bg-white/80'}`} aria-label={`Go to slide ${index + 1}`} />)}
         </div>
       </section>
 
       {/* Services Section - Interactive Cards */}
-      <section ref={servicesSection.ref} className="py-16 bg-background section-transition-top section-transition-bottom relative" style={{
+      <section ref={servicesSection.ref} className="py-12 sm:py-16 lg:py-20 bg-background section-transition-top section-transition-bottom relative" style={{
       '--transition-from': 'hsl(0 0% 0% / 0.3)',
       '--transition-to': 'hsl(214 50% 98% / 0.5)'
     } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${servicesSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI SERVIZI</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`text-center mb-8 sm:mb-10 lg:mb-12 transition-all duration-700 ${servicesSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
+            <p className="text-lime-green uppercase tracking-wider text-xs sm:text-sm mb-2 font-semibold">I NOSTRI SERVIZI</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-primary px-4">
               Innovazione al servizio dell'ambiente
             </h2>
-            <p className="text-xl text-primary mb-2">Energia green per privati & aziende</p>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-primary mb-2 px-4">Energia green per privati & aziende</p>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto px-4">
               In Lux Impianti, offriamo una gamma di servizi completa che copre ogni fase del progetto, 
               dalla prima consulenza fino alla manutenzione nel tempo. Ogni soluzione è progettata per 
               essere efficiente, duratura e beneficiare delle agevolazioni economiche più adeguate.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
             {services.map((service, index) => <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-2 ${servicesSection.isVisible ? 'animate-scale-in' : 'scale-95'}`} style={{
             animationDelay: `${index * 0.1}s`,
             animationFillMode: 'both'
@@ -198,24 +198,24 @@ const Home = () => {
       </section>
 
       {/* I Nostri Lavori - Projects Carousel */}
-      <section ref={communitySection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
+      <section ref={communitySection.ref} className="py-12 sm:py-16 lg:py-20 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
       '--transition-from': 'hsl(0 0% 100% / 0.5)',
       '--transition-to': 'hsl(211 100% 22% / 0.3)'
     } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className={`max-w-4xl mx-auto text-center mb-12 transition-all duration-700 ${communitySection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2">PORTFOLIO</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`max-w-4xl mx-auto text-center mb-8 sm:mb-10 lg:mb-12 transition-all duration-700 ${communitySection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
+            <p className="text-lime-green uppercase tracking-wider text-xs sm:text-sm mb-2">PORTFOLIO</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-primary px-4">
               I Nostri Lavori
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base sm:text-lg text-muted-foreground px-4">
               Scopri alcuni dei progetti energetici che abbiamo realizzato con successo
             </p>
           </div>
 
           <div className={`transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'scale-95'}`}>
-            <div className="overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0">
-              <div className="flex gap-4 md:gap-6 min-w-max">
+            <div className="overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+              <div className="flex gap-3 sm:gap-4 lg:gap-6 min-w-max">
               {[{
                 image: projectHeating,
                 title: "Sistema Riscaldamento a Pavimento",
@@ -240,20 +240,20 @@ const Home = () => {
                 type: "Fotovoltaico Commerciale",
                 power: "4 kW",
                 description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica. Angri (SA)."
-              }].map((project, index) => <div key={index} className="w-[280px] sm:w-[350px] md:w-[400px] flex-shrink-0">
+              }].map((project, index) => <div key={index} className="w-[260px] xs:w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] flex-shrink-0">
                     <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card h-full">
-                      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                      <div className="relative h-44 xs:h-48 sm:h-52 md:h-56 lg:h-64 overflow-hidden">
                         <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-                        <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-lime-green text-foreground px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold shadow-glow-lime">
+                        <div className="absolute top-2 right-2 xs:top-3 xs:right-3 sm:top-4 sm:right-4 bg-lime-green text-foreground px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-[10px] xs:text-xs sm:text-sm font-semibold shadow-glow-lime">
                           {project.power}
                         </div>
                       </div>
-                      <CardContent className="p-4 md:p-6">
-                        <div className="mb-2">
-                          <span className="text-xs text-lime-green font-semibold uppercase tracking-wider">{project.type}</span>
+                      <CardContent className="p-3 xs:p-4 sm:p-5 lg:p-6">
+                        <div className="mb-1.5 sm:mb-2">
+                          <span className="text-[10px] xs:text-xs text-lime-green font-semibold uppercase tracking-wider">{project.type}</span>
                         </div>
-                        <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-primary">{project.title}</h3>
-                        <p className="text-muted-foreground text-xs md:text-sm">{project.description}</p>
+                        <h3 className="text-base xs:text-lg sm:text-xl font-bold mb-1.5 sm:mb-2 lg:mb-3 text-primary">{project.title}</h3>
+                        <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{project.description}</p>
                       </CardContent>
                     </Card>
                   </div>)}
@@ -264,28 +264,28 @@ const Home = () => {
       </section>
 
       {/* Feature Section 1 - Esperienza */}
-      <section className="py-20 px-4 bg-background section-transition-top section-transition-bottom relative" style={{
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-background section-transition-top section-transition-bottom relative" style={{
       '--transition-from': 'hsl(211 100% 22% / 0.3)',
       '--transition-to': 'hsl(214 50% 98% / 0.5)'
     } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             <div className={`transition-all duration-1000 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
-              <img alt="Installazione pannelli solari" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/73d574f0-46cc-4c33-a759-ea56e6eb39d1.png" />
+              <img alt="Installazione pannelli solari" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 w-full" src="/lovable-uploads/73d574f0-46cc-4c33-a759-ea56e6eb39d1.png" />
             </div>
             <div className={`transition-all duration-1000 delay-300 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
-              <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">LA NOSTRA ESPERIENZA</p>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+              <p className="text-lime-green uppercase tracking-wider text-xs sm:text-sm mb-3 sm:mb-4 font-semibold">LA NOSTRA ESPERIENZA</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-5 lg:mb-6 text-primary">
                 Oltre 15 Anni di Eccellenza
               </h2>
-              <p className="text-lg text-muted-foreground mb-4">
+              <p className="text-base sm:text-lg text-muted-foreground mb-3 sm:mb-4">
                  LUX IMPIANTI SRL è il punto di riferimento in Campania per soluzioni energetiche rinnovabili. La nostra esperienza ci permette di garantire installazioni di altissima qualità e un servizio clienti impeccabile.
               </p>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-base sm:text-lg text-muted-foreground mb-5 sm:mb-6">
                 Ogni progetto è seguito da tecnici specializzati, dalla progettazione alla messa in opera,
                 con materiali certificati e garanzie estese.
               </p>
-              <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
+              <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 h-auto" asChild>
                 <Link to="/chi-siamo">Scopri la Nostra Storia</Link>
               </Button>
             </div>
