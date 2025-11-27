@@ -576,19 +576,14 @@ const Contatti = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Sede Legale - Capriolo */}
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Largo+Ochi+7+Capriolo+BS+Italia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
+            <Card 
+              onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Largo+Ochi+7+Capriolo+BS+Italia', '_blank')}
+              className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
+              style={{
+                animationDelay: '0s',
+                animationFillMode: 'both'
+              }}
             >
-              <Card 
-                className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-                style={{
-                  animationDelay: '0s',
-                  animationFillMode: 'both'
-                }}
-              >
                 {/* Map Preview Placeholder */}
                 <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
@@ -616,21 +611,17 @@ const Contatti = () => {
               <CardContent className="p-6 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="space-y-4 relative z-10">
-                  <a 
-                    href="https://www.google.com/maps/search/?api=1&query=Largo+Ochi+7+Capriolo+BS"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
-                  >
-                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-bounce" />
+                  <div className="flex items-start gap-3 p-2">
+                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-primary group-hover/item:text-lime-green transition-colors">Indirizzo</p>
+                      <p className="font-semibold text-primary">Indirizzo</p>
                       <p className="text-muted-foreground">Largo Ochi, 7 Capriolo (BS)</p>
                     </div>
-                  </a>
+                  </div>
                   
                   <a 
                     href="tel:08231556627"
+                    onClick={(e) => e.stopPropagation()}
                     className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
                   >
                     <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-pulse" />
@@ -644,6 +635,7 @@ const Contatti = () => {
                   
                   <a 
                     href="mailto:info@luximpiantisrl.com"
+                    onClick={(e) => e.stopPropagation()}
                     className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
                   >
                     <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-pulse" />
@@ -665,22 +657,16 @@ const Contatti = () => {
                 </div>
               </CardContent>
             </Card>
-            </a>
 
             {/* Sede Operativa - Caserta */}
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Via+Mulini+Militari+40+Caserta+CE+Italia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
+            <Card 
+              onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Via+Mulini+Militari+40+Caserta+CE+Italia', '_blank')}
+              className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
+              style={{
+                animationDelay: '0.1s',
+                animationFillMode: 'both'
+              }}
             >
-              <Card 
-                className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-                style={{
-                  animationDelay: '0.1s',
-                  animationFillMode: 'both'
-                }}
-              >
                 {/* Map Preview Placeholder */}
                 <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
@@ -708,21 +694,17 @@ const Contatti = () => {
               <CardContent className="p-6 relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="space-y-4 relative z-10">
-                  <a 
-                    href="https://www.google.com/maps/search/?api=1&query=Via+Mulini+Militari+40+Caserta+CE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
-                  >
-                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-bounce" />
+                  <div className="flex items-start gap-3 p-2">
+                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-primary group-hover/item:text-lime-green transition-colors">Indirizzo</p>
+                      <p className="font-semibold text-primary">Indirizzo</p>
                       <p className="text-muted-foreground">Via Mulini Militari, 40 Caserta (CE)</p>
                     </div>
-                  </a>
+                  </div>
                   
                   <a 
                     href="tel:08231556627"
+                    onClick={(e) => e.stopPropagation()}
                     className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
                   >
                     <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-pulse" />
@@ -736,6 +718,7 @@ const Contatti = () => {
                   
                   <a 
                     href="mailto:info@luximpiantisrl.com"
+                    onClick={(e) => e.stopPropagation()}
                     className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
                   >
                     <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-pulse" />
@@ -757,7 +740,6 @@ const Contatti = () => {
                 </div>
               </CardContent>
             </Card>
-            </a>
           </div>
         </div>
       </section>
