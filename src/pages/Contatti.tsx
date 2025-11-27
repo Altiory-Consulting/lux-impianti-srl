@@ -650,6 +650,17 @@ const Contatti = () => {
                       <p className="text-muted-foreground">Lun-Ven: 9:00-18:00</p>
                     </div>
                   </div>
+                  
+                  {/* Google Maps Button */}
+                  <a
+                    href="https://maps.google.com/?q=45.6947,9.9997"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center justify-center gap-2 bg-gradient-to-r from-lime-green to-lime-green/80 hover:from-lime-green/90 hover:to-lime-green/70 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-glow-lime hover:scale-105"
+                  >
+                    <MapPin className="h-5 w-5" />
+                    Apri in Google Maps
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -726,6 +737,17 @@ const Contatti = () => {
                       <p className="text-muted-foreground">Lun-Ven: 9:00-18:00</p>
                     </div>
                   </div>
+                  
+                  {/* Google Maps Button */}
+                  <a
+                    href="https://maps.google.com/?q=41.0742,14.3333"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex items-center justify-center gap-2 bg-gradient-to-r from-lime-green to-lime-green/80 hover:from-lime-green/90 hover:to-lime-green/70 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-glow-lime hover:scale-105"
+                  >
+                    <MapPin className="h-5 w-5" />
+                    Apri in Google Maps
+                  </a>
                 </div>
               </CardContent>
             </Card>
