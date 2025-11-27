@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import projectHeating from "@/assets/project-heating-1.jpg";
 import projectSolarRooftop from "@/assets/project-solar-rooftop-1.jpg";
-import projectSolarTiles from "@/assets/project-solar-tiles-1.jpg";
+import projectSanFelice from "@/assets/project-san-felice-cancello.jpg";
 import projectMunicipalPolice from "@/assets/project-municipal-police-caserta.jpg";
 import postSalesSupport from "@/assets/post-sales-support.jpg";
 const Home = () => {
@@ -262,11 +262,11 @@ const Home = () => {
                 power: "45 kW",
                 description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica."
               }, {
-                image: projectSolarTiles,
+                image: projectSanFelice,
                 title: "Impianto Residenziale su Tegole",
                 type: "Fotovoltaico Residenziale",
-                power: "8 kW",
-                description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale."
+                power: "12 kW",
+                description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale. San Felice a Cancello (CE)."
               }, {
                 image: projectMunicipalPolice,
                 title: "Grande Impianto Fotovoltaico",
