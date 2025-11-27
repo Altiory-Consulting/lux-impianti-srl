@@ -299,8 +299,8 @@ const Home = () => {
       '--transition-to': 'hsl(211 100% 22% / 0.3)'
     } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className={`order-2 md:order-1 text-center md:text-left transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className={`order-2 md:order-1 transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">INNOVAZIONE CONTINUA</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Tecnologia all'Avanguardia
@@ -314,14 +314,12 @@ const Home = () => {
                 Sistemi di monitoraggio smart ti permettono di controllare la tua produzione energetica
                 in tempo reale, direttamente dal tuo smartphone.
               </p>
-              <div className="flex justify-center md:justify-start">
-                <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
-                  <Link to="/soluzioni">Esplora le Soluzioni</Link>
-                </Button>
-              </div>
+              <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
+                <Link to="/soluzioni">Esplora le Soluzioni</Link>
+              </Button>
             </div>
-            <div className={`order-1 md:order-2 flex justify-center transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
-              <img alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 w-full max-w-md md:max-w-none" src="/lovable-uploads/fffeab52-7bd4-4694-91fc-a098ed4b6967.png" />
+            <div className={`order-1 md:order-2 transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
+              <img alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/fffeab52-7bd4-4694-91fc-a098ed4b6967.png" />
             </div>
           </div>
         </div>
