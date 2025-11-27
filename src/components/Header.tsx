@@ -1,13 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import { Phone, MapPin, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, MapPin, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import logo from "@/assets/logo.jpg";
 import logoTrasparente from "@/assets/logo-trasparente.png";
 
@@ -79,61 +73,16 @@ const Header = () => {
             >
               CHI SIAMO
             </Link>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  className={`flex items-center gap-1 text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                    isActive("/soluzioni") || location.pathname.startsWith("/soluzione/")
-                      ? "text-lime-green"
-                      : ""
-                  }`}
-                >
-                  SOLUZIONI
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                className="w-56 bg-background/95 backdrop-blur-sm border-border"
-                align="center"
-              >
-                <DropdownMenuItem 
-                  asChild 
-                  className="cursor-pointer group focus:bg-transparent focus:text-foreground hover:bg-transparent hover:text-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-foreground"
-                >
-                  <Link 
-                    to="/soluzione/fotovoltaico"
-                    className="flex items-center gap-2 w-full"
-                  >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
-                    <span>Fotovoltaico</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  asChild 
-                  className="cursor-pointer group focus:bg-transparent focus:text-foreground hover:bg-transparent hover:text-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-foreground"
-                >
-                  <Link 
-                    to="/soluzione/solare-termico"
-                    className="flex items-center gap-2 w-full"
-                  >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
-                    <span>Solare Termico</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  asChild 
-                  className="cursor-pointer group focus:bg-transparent focus:text-foreground hover:bg-transparent hover:text-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-foreground"
-                >
-                  <Link 
-                    to="/soluzione/climatizzazione"
-                    className="flex items-center gap-2 w-full"
-                  >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
-                    <span>Climatizzazione</span>
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Link
+              to="/soluzioni"
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+                isActive("/soluzioni") || location.pathname.startsWith("/soluzione/")
+                  ? "text-lime-green"
+                  : ""
+              }`}
+            >
+              SOLUZIONI
+            </Link>
             <Link
               to="/contatti"
               className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
