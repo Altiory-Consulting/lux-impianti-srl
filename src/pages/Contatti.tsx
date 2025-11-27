@@ -608,6 +608,7 @@ const Contatti = () => {
                       title="Capriolo (BS)"
                       address="Largo Ochi, 7 Capriolo (BS)"
                       zoom={15}
+                      googleMapsUrl="https://www.google.com/maps/search/?api=1&query=Largo+Ochi+7+Capriolo+BS+Italia"
                     />
                   </Suspense>
                 </div>
@@ -690,6 +691,7 @@ const Contatti = () => {
                       title="Caserta (CE)"
                       address="Via Mulini Militari, 40 Caserta (CE)"
                       zoom={15}
+                      googleMapsUrl="https://www.google.com/maps/search/?api=1&query=Via+Mulini+Militari+40+Caserta+CE+Italia"
                     />
                   </Suspense>
                 </div>
