@@ -576,26 +576,33 @@ const Contatti = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Sede Legale - Capriolo */}
-            <Card 
-              className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-              style={{
-                animationDelay: '0s',
-                animationFillMode: 'both'
-              }}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Largo+Ochi+7+Capriolo+BS+Italia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
             >
-              {/* Google Maps Embed */}
-              <div className="relative h-64 overflow-hidden">
-                <iframe
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=9.95%2C45.65%2C10.05%2C45.75&layer=mapnik&marker=45.7%2C10.0"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  className="group-hover:scale-105 transition-transform duration-500"
-                ></iframe>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
-              </div>
+              <Card 
+                className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
+                style={{
+                  animationDelay: '0s',
+                  animationFillMode: 'both'
+                }}
+              >
+                {/* Map Preview Placeholder */}
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+                  <div className="relative z-10 text-center space-y-4">
+                    <div className="inline-flex p-6 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 group-hover:border-lime-green group-hover:bg-lime-green/20 transition-all duration-300">
+                      <MapPin className="h-12 w-12 text-white group-hover:text-lime-green group-hover:animate-bounce transition-colors" />
+                    </div>
+                    <div className="px-4">
+                      <p className="text-white text-lg font-bold mb-1">Clicca per aprire in Google Maps</p>
+                      <p className="text-white/80 text-sm">Ottieni indicazioni stradali</p>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                </div>
 
               <CardHeader className="bg-gradient-card border-b relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -658,28 +665,36 @@ const Contatti = () => {
                 </div>
               </CardContent>
             </Card>
+            </a>
 
             {/* Sede Operativa - Caserta */}
-            <Card 
-              className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-              style={{
-                animationDelay: '0.1s',
-                animationFillMode: 'both'
-              }}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Via+Mulini+Militari+40+Caserta+CE+Italia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
             >
-              {/* Google Maps Embed */}
-              <div className="relative h-64 overflow-hidden">
-                <iframe
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=14.31%2C41.05%2C14.36%2C41.10&layer=mapnik&marker=41.074%2C14.333"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  className="group-hover:scale-105 transition-transform duration-500"
-                ></iframe>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
-              </div>
+              <Card 
+                className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
+                style={{
+                  animationDelay: '0.1s',
+                  animationFillMode: 'both'
+                }}
+              >
+                {/* Map Preview Placeholder */}
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+                  <div className="relative z-10 text-center space-y-4">
+                    <div className="inline-flex p-6 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 group-hover:border-lime-green group-hover:bg-lime-green/20 transition-all duration-300">
+                      <MapPin className="h-12 w-12 text-white group-hover:text-lime-green group-hover:animate-bounce transition-colors" />
+                    </div>
+                    <div className="px-4">
+                      <p className="text-white text-lg font-bold mb-1">Clicca per aprire in Google Maps</p>
+                      <p className="text-white/80 text-sm">Ottieni indicazioni stradali</p>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                </div>
 
               <CardHeader className="bg-gradient-card border-b relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -742,6 +757,7 @@ const Contatti = () => {
                 </div>
               </CardContent>
             </Card>
+            </a>
           </div>
         </div>
       </section>
