@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { Sun, Battery, TrendingDown, Leaf, CheckCircle, Phone } from "lucide-react";
+import { Sun, Battery, TrendingDown, Leaf, CheckCircle, Phone, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-solar.jpg";
 
 const Fotovoltaico = () => {
   const benefits = [
@@ -40,20 +39,28 @@ const Fotovoltaico = () => {
       </div>
 
       {/* Hero */}
-      <section
-        className="relative h-[400px] bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
+      <section 
+        className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden py-12 md:py-20"
+        style={{
+          background: 'linear-gradient(135deg, hsl(189 95% 28%) 0%, hsl(189 85% 38%) 35%, hsl(189 75% 48%) 70%, hsl(189 65% 58%) 100%)',
+        }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70"></div>
-        <div className="container mx-auto px-4 h-full flex items-center relative z-10">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-              <Sun className="h-12 w-12 text-gold" />
-              <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground">
-                Impianti Fotovoltaici
-              </h1>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+DQo8L2c+PC9zdmc+')] opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-5xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-lg border-2 border-lime-green/60 shadow-xl hover:bg-white/15 hover:border-lime-green hover:scale-105 transition-all duration-300 group">
+              <Sun className="h-4 w-4 md:h-5 md:w-5 text-lime-green drop-shadow-lg group-hover:rotate-12 transition-transform duration-300" />
+              <span className="text-xs md:text-sm font-bold uppercase tracking-wider drop-shadow-md">Fotovoltaico</span>
             </div>
-            <p className="text-xl text-primary-foreground">
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] px-4">
+              Impianti <br />
+              <span className="text-lime-green drop-shadow-[0_0_30px_rgba(156,225,55,0.5)]">Fotovoltaici</span>
+            </h1>
+            
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-8 md:mb-10 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] px-4">
               Cattura l'energia del sole e trasformala in risparmio concreto
             </p>
           </div>
