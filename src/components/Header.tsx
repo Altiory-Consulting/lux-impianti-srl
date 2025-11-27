@@ -96,28 +96,37 @@ const Header = () => {
                 className="w-56 bg-background/95 backdrop-blur-sm border-border"
                 align="center"
               >
-                <DropdownMenuItem asChild className="cursor-pointer group focus:bg-transparent hover:bg-transparent">
+                <DropdownMenuItem 
+                  asChild 
+                  className="cursor-pointer group focus:bg-transparent focus:text-foreground hover:bg-transparent hover:text-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-foreground"
+                >
                   <Link 
                     to="/soluzione/fotovoltaico"
-                    className="flex items-center gap-2 w-full hover:text-foreground"
+                    className="flex items-center gap-2 w-full"
                   >
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
                     <span>Fotovoltaico</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer group focus:bg-transparent hover:bg-transparent">
+                <DropdownMenuItem 
+                  asChild 
+                  className="cursor-pointer group focus:bg-transparent focus:text-foreground hover:bg-transparent hover:text-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-foreground"
+                >
                   <Link 
                     to="/soluzione/solare-termico"
-                    className="flex items-center gap-2 w-full hover:text-foreground"
+                    className="flex items-center gap-2 w-full"
                   >
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
                     <span>Solare Termico</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer group focus:bg-transparent hover:bg-transparent">
+                <DropdownMenuItem 
+                  asChild 
+                  className="cursor-pointer group focus:bg-transparent focus:text-foreground hover:bg-transparent hover:text-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-foreground"
+                >
                   <Link 
                     to="/soluzione/climatizzazione"
-                    className="flex items-center gap-2 w-full hover:text-foreground"
+                    className="flex items-center gap-2 w-full"
                   >
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
                     <span>Climatizzazione</span>
