@@ -15,40 +15,32 @@ const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const heroSlides = [
-    {
-      video: "/videos/hero-video-3.mp4",
-      tagline: "IL TUO DOMANI, TU LO SCEGLI, NOI LO ILLUMINIAMO",
-      headline: "Efficienza energetica al servizio di un futuro migliore."
-    },
-    {
-      video: "/videos/hero-video-2.mp4",
-      tagline: "LE TUE SCELTE, TU LE GUIDI, NOI LE TRASFORMIAMO",
-      headline: "Tecnologia pulita che rende la tua energia più intelligente."
-    },
-    {
-      video: "/videos/hero-video.mp4",
-      tagline: "IL TUO COMFORT, TU LO SOGNI, NOI LO COSTRUIAMO",
-      headline: "Una casa intelligente, pronta per il domani."
-    }
-  ];
-
+  const heroSlides = [{
+    video: "/videos/hero-video-3.mp4",
+    tagline: "IL TUO DOMANI, TU LO SCEGLI, NOI LO ILLUMINIAMO",
+    headline: "Efficienza energetica al servizio di un futuro migliore."
+  }, {
+    video: "/videos/hero-video-2.mp4",
+    tagline: "LE TUE SCELTE, TU LE GUIDI, NOI LE TRASFORMIAMO",
+    headline: "Tecnologia pulita che rende la tua energia più intelligente."
+  }, {
+    video: "/videos/hero-video.mp4",
+    tagline: "IL TUO COMFORT, TU LO SOGNI, NOI LO COSTRUIAMO",
+    headline: "Una casa intelligente, pronta per il domani."
+  }];
   const handleVideoEnd = () => {
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % heroSlides.length);
+      setCurrentVideoIndex(prev => (prev + 1) % heroSlides.length);
       setIsTransitioning(false);
     }, 500);
   };
-
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.load();
       videoRef.current.play();
     }
   }, [currentVideoIndex]);
-
   const servicesSection = useIntersectionObserver({
     threshold: 0.01,
     rootMargin: '300px'
@@ -132,14 +124,7 @@ const Home = () => {
 
       {/* Hero Section - Full Screen with Video Carousel */}
       <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
-        <video 
-          ref={videoRef}
-          autoPlay 
-          muted 
-          playsInline 
-          onEnded={handleVideoEnd}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
-        >
+        <video ref={videoRef} autoPlay muted playsInline onEnded={handleVideoEnd} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
           <source src={heroSlides[currentVideoIndex].video} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
@@ -161,24 +146,13 @@ const Home = () => {
         
         {/* Video Navigation Dots */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  setCurrentVideoIndex(index);
-                  setIsTransitioning(false);
-                }, 500);
-              }}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentVideoIndex 
-                  ? 'bg-lime-green w-8' 
-                  : 'bg-white/50 hover:bg-white/80'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+          {heroSlides.map((_, index) => <button key={index} onClick={() => {
+          setIsTransitioning(true);
+          setTimeout(() => {
+            setCurrentVideoIndex(index);
+            setIsTransitioning(false);
+          }, 500);
+        }} className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentVideoIndex ? 'bg-lime-green w-8' : 'bg-white/50 hover:bg-white/80'}`} aria-label={`Go to slide ${index + 1}`} />)}
         </div>
       </section>
 
@@ -312,9 +286,7 @@ const Home = () => {
                 Oltre 15 Anni di Eccellenza
               </h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Megasun srl è il punto di riferimento in Campania per soluzioni energetiche
-                rinnovabili. La nostra esperienza ci permette di garantire installazioni
-                di altissima qualità e un servizio clienti impeccabile.
+                 LUX IMPIANTI SRL è il punto di riferimento in Campania per soluzioni energetiche rinnovabili. La nostra esperienza ci permette di garantire installazioni di altissima qualità e un servizio clienti impeccabile.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
                 Ogni progetto è seguito da tecnici specializzati, dalla progettazione alla messa in opera,
