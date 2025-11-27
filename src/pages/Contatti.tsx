@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, CheckCircle, Send, MessageSquare, User, Building2, Sparkles } from "lucide-react";
-import { Suspense, lazy } from "react";
-
-const InteractiveMap = lazy(() => import("@/components/InteractiveMap"));
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -79,7 +76,6 @@ const Contatti = () => {
   const infoSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
   const formSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
   const faqSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
-  const locationsSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -459,176 +455,6 @@ const Contatti = () => {
                 Chiamaci Ora
               </a>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Locations - Interattiva con Mappe */}
-      <section 
-        ref={locationsSection.ref}
-        className="py-16 bg-muted/30"
-      >
-        <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${locationsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">Dove Siamo</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Le Nostre Sedi</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Visita i nostri uffici oppure contattaci per una consulenza. Siamo a tua disposizione!
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* Sede Legale - Capriolo */}
-              <Card
-                className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-                style={{
-                  animationDelay: '0s',
-                  animationFillMode: 'both'
-                }}
-              >
-                {/* Interactive Map */}
-                <div className="relative h-64 overflow-hidden rounded-t-xl border-2 border-lime-green/30 group-hover:border-lime-green transition-all duration-500 shadow-lg group-hover:shadow-glow-lime">
-                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
-                  <Suspense fallback={
-                    <div className="h-full w-full bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
-                      <div className="text-white text-center">
-                        <MapPin className="h-12 w-12 mx-auto mb-2 animate-pulse text-lime-green" />
-                        <p className="text-sm font-semibold">Caricamento mappa...</p>
-                      </div>
-                    </div>
-                  }>
-                    <InteractiveMap
-                      latitude={45.6947}
-                      longitude={9.9997}
-                      title="Capriolo (BS)"
-                      address="Largo Ochi, 7 Capriolo (BS)"
-                      zoom={15}
-                    />
-                  </Suspense>
-                </div>
-
-              <CardHeader className="bg-gradient-card border-b relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <CardTitle className="text-2xl flex items-center gap-2 relative z-10">
-                  <MapPin className="h-6 w-6 text-lime-green group-hover:animate-bounce" />
-                  <span className="group-hover:text-lime-green transition-colors">Capriolo (BS)</span>
-                </CardTitle>
-                <CardDescription>Sede Legale</CardDescription>
-              </CardHeader>
-              
-              <CardContent className="p-6 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="space-y-4 relative z-10">
-                  <div className="flex items-start gap-3 p-2">
-                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-primary">Indirizzo</p>
-                      <p className="text-muted-foreground">Largo Ochi, 7 Capriolo (BS)</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-2">
-                    <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-primary">Telefono</p>
-                      <p className="text-secondary font-semibold">0823 155 6627</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-2">
-                    <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-primary">Email</p>
-                      <p className="text-secondary">info@luximpiantisrl.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-2">
-                    <Clock className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-primary">Orari</p>
-                      <p className="text-muted-foreground">Lun-Ven: 9:00-18:00</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Sede Operativa - Caserta */}
-              <Card 
-                className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-                style={{
-                  animationDelay: '0.1s',
-                  animationFillMode: 'both'
-                }}
-              >
-                {/* Interactive Map */}
-                <div className="relative h-64 overflow-hidden rounded-t-xl border-2 border-lime-green/30 group-hover:border-lime-green transition-all duration-500 shadow-lg group-hover:shadow-glow-lime">
-                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
-                  <Suspense fallback={
-                    <div className="h-full w-full bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
-                      <div className="text-white text-center">
-                        <MapPin className="h-12 w-12 mx-auto mb-2 animate-pulse text-lime-green" />
-                        <p className="text-sm font-semibold">Caricamento mappa...</p>
-                      </div>
-                    </div>
-                  }>
-                    <InteractiveMap
-                      latitude={41.0742}
-                      longitude={14.3333}
-                      title="Caserta (CE)"
-                      address="Via Mulini Militari, 40 Caserta (CE)"
-                      zoom={15}
-                    />
-                  </Suspense>
-                </div>
-
-              <CardHeader className="bg-gradient-card border-b relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <CardTitle className="text-2xl flex items-center gap-2 relative z-10">
-                  <MapPin className="h-6 w-6 text-lime-green group-hover:animate-bounce" />
-                  <span className="group-hover:text-lime-green transition-colors">Caserta (CE)</span>
-                </CardTitle>
-                <CardDescription>Sede Operativa</CardDescription>
-              </CardHeader>
-              
-              <CardContent className="p-6 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="space-y-4 relative z-10">
-                  <div className="flex items-start gap-3 p-2">
-                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-primary">Indirizzo</p>
-                      <p className="text-muted-foreground">Via Mulini Militari, 40 Caserta (CE)</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-2">
-                    <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-primary">Telefono</p>
-                      <p className="text-secondary font-semibold">0823 155 6627</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-2">
-                    <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-primary">Email</p>
-                      <p className="text-secondary">info@luximpiantisrl.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-2">
-                    <Clock className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-primary">Orari</p>
-                      <p className="text-muted-foreground">Lun-Ven: 9:00-18:00</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
