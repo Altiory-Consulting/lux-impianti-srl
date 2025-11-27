@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import projectHeating from "@/assets/project-heating-1.jpg";
-import projectSolarRooftop from "@/assets/project-solar-rooftop-1.jpg";
+import projectAngri from "@/assets/project-angri-sa.jpg";
 import projectSanFelice from "@/assets/project-san-felice-cancello.jpg";
 import projectMunicipalPolice from "@/assets/project-municipal-police-caserta.jpg";
 import postSalesSupport from "@/assets/post-sales-support.jpg";
@@ -256,11 +256,11 @@ const Home = () => {
                 power: "12 kW",
                 description: "Installazione di sistema di riscaldamento radiante a pavimento con pompa di calore per comfort ottimale ed efficienza energetica."
               }, {
-                image: projectSolarRooftop,
+                image: projectAngri,
                 title: "Impianto Fotovoltaico su Tetto Piano",
                 type: "Fotovoltaico Commerciale",
-                power: "45 kW",
-                description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica."
+                power: "4 kW",
+                description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica. Angri (SA)."
               }, {
                 image: projectSanFelice,
                 title: "Impianto Residenziale su Tegole",
