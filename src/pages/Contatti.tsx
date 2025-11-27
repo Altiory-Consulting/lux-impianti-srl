@@ -650,28 +650,6 @@ const Contatti = () => {
                       <p className="text-muted-foreground">Lun-Ven: 9:00-18:00</p>
                     </div>
                   </div>
-                  
-                  {/* Maps Buttons */}
-                  <div className="mt-4 flex flex-col gap-2">
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=45.6947,9.9997"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-gradient-to-r from-lime-green to-lime-green/80 hover:from-lime-green/90 hover:to-lime-green/70 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-glow-lime hover:scale-105"
-                    >
-                      <MapPin className="h-5 w-5" />
-                      Apri in Google Maps
-                    </a>
-                    <a
-                      href="https://www.openstreetmap.org/?mlat=45.6947&mlon=9.9997#map=16/45.6947/9.9997"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:scale-105 border border-primary/30"
-                    >
-                      <MapPin className="h-4 w-4" />
-                      Apri in OpenStreetMap
-                    </a>
-                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -747,28 +725,6 @@ const Contatti = () => {
                       <p className="font-semibold text-primary">Orari</p>
                       <p className="text-muted-foreground">Lun-Ven: 9:00-18:00</p>
                     </div>
-                  </div>
-                  
-                  {/* Maps Buttons */}
-                  <div className="mt-4 flex flex-col gap-2">
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=41.0742,14.3333"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-gradient-to-r from-lime-green to-lime-green/80 hover:from-lime-green/90 hover:to-lime-green/70 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-glow-lime hover:scale-105"
-                    >
-                      <MapPin className="h-5 w-5" />
-                      Apri in Google Maps
-                    </a>
-                    <a
-                      href="https://www.openstreetmap.org/?mlat=41.0742&mlon=14.3333#map=16/41.0742/14.3333"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:scale-105 border border-primary/30"
-                    >
-                      <MapPin className="h-4 w-4" />
-                      Apri in OpenStreetMap
-                    </a>
                   </div>
                 </div>
               </CardContent>
