@@ -579,13 +579,7 @@ const Contatti = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Sede Legale - Capriolo */}
-            <a
-              href="https://maps.google.com/?q=45.6947,9.9997"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block no-underline"
-            >
-              <Card 
+              <Card
                 className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
                 style={{
                   animationDelay: '0s',
@@ -609,7 +603,6 @@ const Contatti = () => {
                       title="Capriolo (BS)"
                       address="Largo Ochi, 7 Capriolo (BS)"
                       zoom={15}
-                      googleMapsUrl="https://maps.google.com/?q=45.6947,9.9997"
                     />
                   </Suspense>
                 </div>
@@ -660,15 +653,8 @@ const Contatti = () => {
                 </div>
               </CardContent>
             </Card>
-            </a>
 
             {/* Sede Operativa - Caserta */}
-            <a
-              href="https://maps.google.com/?q=41.0742,14.3333"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block no-underline"
-            >
               <Card 
                 className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green cursor-pointer ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
                 style={{
@@ -693,7 +679,6 @@ const Contatti = () => {
                       title="Caserta (CE)"
                       address="Via Mulini Militari, 40 Caserta (CE)"
                       zoom={15}
-                      googleMapsUrl="https://maps.google.com/?q=41.0742,14.3333"
                     />
                   </Suspense>
                 </div>
@@ -744,7 +729,6 @@ const Contatti = () => {
                 </div>
               </CardContent>
             </Card>
-            </a>
           </div>
         </div>
       </section>

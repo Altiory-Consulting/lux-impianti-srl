@@ -107,55 +107,14 @@ const InteractiveMap = ({ latitude, longitude, title, address, zoom = 15, google
             <p style="
               font-size: 13px; 
               color: #444; 
-              margin-bottom: 12px;
+              margin-bottom: 0;
               line-height: 1.4;
             ">${address}</p>
-            ${googleMapsUrl ? `
-              <a href="${googleMapsUrl}" 
-                 target="_blank" 
-                 rel="noopener noreferrer" 
-                 style="
-                   display: inline-flex;
-                   align-items: center;
-                   gap: 6px;
-                   background: linear-gradient(135deg, hsl(84 81% 44%) 0%, hsl(84 71% 54%) 100%);
-                   color: #000;
-                   padding: 10px 16px;
-                   border-radius: 8px;
-                   text-decoration: none;
-                   font-weight: bold;
-                   font-size: 13px;
-                   box-shadow: 0 4px 12px rgba(156,225,55,0.3);
-                   transition: all 0.3s ease;
-                 "
-                 onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 16px rgba(156,225,55,0.5)';"
-                 onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(156,225,55,0.3)';"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                Apri in Google Maps
-              </a>
-            ` : ''}
           </div>
         `, {
           maxWidth: 300,
           className: 'custom-popup'
         }).openPopup();
-
-        // Make entire map clickable to open Google Maps
-        if (googleMapsUrl) {
-          map.on('click', () => {
-            window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
-          });
-          
-          // Also make marker clickable
-          marker.on('click', (e) => {
-            L.DomEvent.stopPropagation(e);
-            window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
-          });
-        }
 
         mapInstanceRef.current = map;
 
