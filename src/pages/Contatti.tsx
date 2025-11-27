@@ -586,7 +586,7 @@ const Contatti = () => {
               {/* Google Maps Embed */}
               <div className="relative h-64 overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.8573!2d10.0!3d45.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQyJzAwLjAiTiAxMMKwMDAnMDAuMCJF!5e0!3m2!1sit!2sit!4v1234567890"
+                  src="https://maps.google.com/maps?q=Largo+Ochi+7+Capriolo+BS+Italia&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -671,7 +671,7 @@ const Contatti = () => {
               {/* Google Maps Embed */}
               <div className="relative h-64 overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.4!2d14.3344!3d41.0742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b1a!2s0x0!5e0!3m2!1sit!2sit!4v1234567890"
+                  src="https://maps.google.com/maps?q=Via+Mulini+Militari+40+Caserta+CE+Italia&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
