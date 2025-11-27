@@ -92,7 +92,7 @@ const Soluzioni = () => {
 
       {/* Page Header */}
       <section 
-        className="relative min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh] flex items-center justify-center overflow-hidden py-10 sm:py-12 lg:py-20"
+        className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden py-12 md:py-20"
         style={{
           background: 'linear-gradient(135deg, hsl(189 95% 28%) 0%, hsl(189 85% 38%) 35%, hsl(189 75% 48%) 70%, hsl(189 65% 58%) 100%)',
         }}
