@@ -593,12 +593,13 @@ const Contatti = () => {
                 }}
               >
                 {/* Interactive Map */}
-                <div className="relative h-64 overflow-hidden border-2 border-white/20 group-hover:border-lime-green/50 transition-all duration-300">
+                <div className="relative h-64 overflow-hidden rounded-t-xl border-2 border-lime-green/30 group-hover:border-lime-green transition-all duration-500 shadow-lg group-hover:shadow-glow-lime">
+                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
                   <Suspense fallback={
                     <div className="h-full w-full bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
                       <div className="text-white text-center">
-                        <MapPin className="h-12 w-12 mx-auto mb-2 animate-pulse" />
-                        <p className="text-sm">Caricamento mappa...</p>
+                        <MapPin className="h-12 w-12 mx-auto mb-2 animate-pulse text-lime-green" />
+                        <p className="text-sm font-semibold">Caricamento mappa...</p>
                       </div>
                     </div>
                   }>
@@ -676,12 +677,13 @@ const Contatti = () => {
                 }}
               >
                 {/* Interactive Map */}
-                <div className="relative h-64 overflow-hidden border-2 border-white/20 group-hover:border-lime-green/50 transition-all duration-300">
+                <div className="relative h-64 overflow-hidden rounded-t-xl border-2 border-lime-green/30 group-hover:border-lime-green transition-all duration-500 shadow-lg group-hover:shadow-glow-lime">
+                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"></div>
                   <Suspense fallback={
                     <div className="h-full w-full bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50 flex items-center justify-center">
                       <div className="text-white text-center">
-                        <MapPin className="h-12 w-12 mx-auto mb-2 animate-pulse" />
-                        <p className="text-sm">Caricamento mappa...</p>
+                        <MapPin className="h-12 w-12 mx-auto mb-2 animate-pulse text-lime-green" />
+                        <p className="text-sm font-semibold">Caricamento mappa...</p>
                       </div>
                     </div>
                   }>
