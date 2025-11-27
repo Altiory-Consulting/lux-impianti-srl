@@ -249,18 +249,18 @@ const Home = () => {
           <div className={`transition-all duration-700 ${communitySection.isVisible ? 'animate-scale-in' : 'scale-95'}`}>
             <div className="overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0">
               <div className="flex gap-4 md:gap-6 min-w-max">
-                {[{
+              {[{
                 image: projectHeating,
                 title: "Sistema Riscaldamento a Pavimento",
                 type: "Climatizzazione",
                 power: "12 kW",
                 description: "Installazione di sistema di riscaldamento radiante a pavimento con pompa di calore per comfort ottimale ed efficienza energetica."
               }, {
-                image: projectAngri,
-                title: "Impianto Fotovoltaico su Tetto Piano",
-                type: "Fotovoltaico Commerciale",
-                power: "4 kW",
-                description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica. Angri (SA)."
+                image: projectMunicipalPolice,
+                title: "Grande Impianto Fotovoltaico",
+                type: "Fotovoltaico Industriale",
+                power: "140 kW",
+                description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale. Caserma Polizia Municipale di Caserta (CE)."
               }, {
                 image: projectSanFelice,
                 title: "Impianto Residenziale su Tegole",
@@ -268,11 +268,11 @@ const Home = () => {
                 power: "12 kW",
                 description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale. San Felice a Cancello (CE)."
               }, {
-                image: projectMunicipalPolice,
-                title: "Grande Impianto Fotovoltaico",
-                type: "Fotovoltaico Industriale",
-                power: "140 kW",
-                description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale. Caserma Polizia Municipale di Caserta (CE)."
+                image: projectAngri,
+                title: "Impianto su Tetto Piano",
+                type: "Fotovoltaico Commerciale",
+                power: "4 kW",
+                description: "Sistema fotovoltaico su tetto piano con struttura ottimizzata per massima esposizione solare e produzione energetica. Angri (SA)."
               }].map((project, index) => <div key={index} className="w-[280px] sm:w-[350px] md:w-[400px] flex-shrink-0">
                     <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card h-full">
                       <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
