@@ -96,28 +96,28 @@ const Header = () => {
                 className="w-56 bg-background/95 backdrop-blur-sm border-border"
                 align="center"
               >
-                <DropdownMenuItem asChild className="cursor-pointer group">
+                <DropdownMenuItem asChild className="cursor-pointer group focus:bg-transparent hover:bg-transparent">
                   <Link 
                     to="/soluzione/fotovoltaico"
-                    className="flex items-center gap-2 w-full"
+                    className="flex items-center gap-2 w-full hover:text-foreground"
                   >
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
                     <span>Fotovoltaico</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer group">
+                <DropdownMenuItem asChild className="cursor-pointer group focus:bg-transparent hover:bg-transparent">
                   <Link 
                     to="/soluzione/solare-termico"
-                    className="flex items-center gap-2 w-full"
+                    className="flex items-center gap-2 w-full hover:text-foreground"
                   >
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
                     <span>Solare Termico</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild className="cursor-pointer group">
+                <DropdownMenuItem asChild className="cursor-pointer group focus:bg-transparent hover:bg-transparent">
                   <Link 
                     to="/soluzione/climatizzazione"
-                    className="flex items-center gap-2 w-full"
+                    className="flex items-center gap-2 w-full hover:text-foreground"
                   >
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-lime-green">—</span>
                     <span>Climatizzazione</span>
