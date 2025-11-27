@@ -9,7 +9,7 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import projectHeating from "@/assets/project-heating-1.jpg";
 import projectSolarRooftop from "@/assets/project-solar-rooftop-1.jpg";
 import projectSolarTiles from "@/assets/project-solar-tiles-1.jpg";
-import projectSolarSunset from "@/assets/project-solar-sunset-1.jpg";
+import projectMunicipalPolice from "@/assets/project-municipal-police-caserta.jpg";
 import postSalesSupport from "@/assets/post-sales-support.jpg";
 const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -268,11 +268,11 @@ const Home = () => {
                 power: "8 kW",
                 description: "Installazione di pannelli fotovoltaici ad alta efficienza su tetto in tegole con integrazione architettonica ottimale."
               }, {
-                image: projectSolarSunset,
+                image: projectMunicipalPolice,
                 title: "Grande Impianto Fotovoltaico",
                 type: "Fotovoltaico Industriale",
-                power: "120 kW",
-                description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale."
+                power: "140 kW",
+                description: "Installazione fotovoltaica di grande potenza su copertura industriale per massimizzare l'autoconsumo aziendale. Caserma Polizia Municipale di Caserta (CE)."
               }].map((project, index) => <div key={index} className="w-[280px] sm:w-[350px] md:w-[400px] flex-shrink-0">
                     <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card h-full">
                       <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
