@@ -580,7 +580,7 @@ const Contatti = () => {
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Sede Legale - Capriolo */}
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Largo+Ochi+7+Capriolo+BS+Italia"
+              href="https://maps.google.com/?q=Largo+Ochi+7,+Capriolo,+BS,+Italia"
               target="_blank"
               rel="noopener noreferrer"
               className="block no-underline"
@@ -609,7 +609,7 @@ const Contatti = () => {
                       title="Capriolo (BS)"
                       address="Largo Ochi, 7 Capriolo (BS)"
                       zoom={15}
-                      googleMapsUrl="https://www.google.com/maps/search/?api=1&query=Largo+Ochi+7+Capriolo+BS+Italia"
+                      googleMapsUrl="https://maps.google.com/?q=Largo+Ochi+7,+Capriolo,+BS,+Italia"
                     />
                   </Suspense>
                 </div>
@@ -664,7 +664,7 @@ const Contatti = () => {
 
             {/* Sede Operativa - Caserta */}
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Via+Mulini+Militari+40+Caserta+CE+Italia"
+              href="https://maps.google.com/?q=Via+Mulini+Militari+40,+Caserta,+CE,+Italia"
               target="_blank"
               rel="noopener noreferrer"
               className="block no-underline"
@@ -693,7 +693,7 @@ const Contatti = () => {
                       title="Caserta (CE)"
                       address="Via Mulini Militari, 40 Caserta (CE)"
                       zoom={15}
-                      googleMapsUrl="https://www.google.com/maps/search/?api=1&query=Via+Mulini+Militari+40+Caserta+CE+Italia"
+                      googleMapsUrl="https://maps.google.com/?q=Via+Mulini+Militari+40,+Caserta,+CE,+Italia"
                     />
                   </Suspense>
                 </div>
