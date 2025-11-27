@@ -176,6 +176,7 @@ const Contatti = () => {
 
       {/* Form Section - Completamente Rinnovato */}
       <section
+        id="contact-form"
         ref={formSection.ref}
         className="py-16 bg-muted/30"
       >
@@ -445,15 +446,16 @@ const Contatti = () => {
               Non hai trovato la risposta che cercavi?
             </p>
             <Button 
-              asChild
+              onClick={() => {
+                const formSection = document.getElementById('contact-form');
+                formSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
               variant="outline"
               size="lg"
               className="border-lime-green text-lime-green hover:bg-lime-green hover:text-foreground"
             >
-              <a href="tel:08231556627">
-                <Phone className="mr-2 h-5 w-5" />
-                Chiamaci Ora
-              </a>
+              <Send className="mr-2 h-5 w-5" />
+              Compila il Form
             </Button>
           </div>
         </div>
