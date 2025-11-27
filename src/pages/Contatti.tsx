@@ -113,43 +113,6 @@ const Contatti = () => {
     form.reset();
   };
 
-  const contactMethods = [
-    {
-      icon: Phone,
-      title: "Chiamaci",
-      description: "Lun-Ven 9:00-18:00",
-      action: "0823 155 6627",
-      href: "tel:08231556627",
-      color: "text-lime-green",
-      bgColor: "bg-lime-green/10",
-    },
-    {
-      icon: Mail,
-      title: "Scrivici",
-      description: "Risposta entro 24h",
-      action: "info@luximpiantisrl.com",
-      href: "mailto:info@luximpiantisrl.com",
-      color: "text-blue-medium",
-      bgColor: "bg-blue-medium/10",
-    },
-    {
-      icon: MessageSquare,
-      title: "WhatsApp",
-      description: "Chat in tempo reale",
-      action: "+39 333 123 4567",
-      href: "https://wa.me/393331234567",
-      color: "text-green-500",
-      bgColor: "bg-green-500/10",
-    },
-  ];
-
-  const stats = [
-    { label: "Clienti Felici", value: "500+" },
-    { label: "Progetti Fatti", value: "1000+" },
-    { label: "Risposta", value: "<24h" },
-    { label: "Consulenze", value: "∞" },
-  ];
-
   const faqs = [
     {
       question: "Quanto costa un impianto fotovoltaico?",
@@ -211,75 +174,12 @@ const Contatti = () => {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-8 md:mb-10 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] px-4">
               La nostra esperienza al tuo servizio. Consulenza gratuita e supporto completo per ogni fase del progetto.
             </p>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6 max-w-6xl mx-auto px-4">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index}
-                  className={`group relative bg-white/10 backdrop-blur-xl rounded-2xl md:rounded-3xl px-2 sm:px-3 md:px-4 py-6 md:py-8 transition-all duration-500 hover:scale-110 hover:bg-white/20 border-2 border-white/20 hover:border-lime-green/60 shadow-2xl hover:shadow-glow-lime text-center min-h-[120px] md:min-h-[160px] flex flex-col items-center justify-center overflow-hidden ${heroSection.isVisible ? 'animate-scale-in' : 'scale-90'}`}
-                  style={{
-                    animationDelay: `${index * 0.1}s`,
-                    animationFillMode: 'both'
-                  }}
-                >
-                  {/* Animated background gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-lime-green drop-shadow-[0_0_25px_rgba(156,225,55,0.6)] mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
-                    <div className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-white font-bold uppercase tracking-wider leading-tight break-words max-w-full px-1 group-hover:text-lime-green transition-colors duration-300">{stat.label}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Methods - Cards Interattive */}
-      <section 
-        ref={infoSection.ref}
-        className="py-16 bg-background -mt-20 relative z-20"
-      >
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {contactMethods.map((method, index) => (
-              <a
-                key={index}
-                href={method.href}
-                target={method.href.startsWith('http') ? '_blank' : undefined}
-                rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`group transition-all duration-700 ${infoSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  animationFillMode: 'both'
-                }}
-              >
-                <Card className="h-full hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-300 border-border hover:border-lime-green overflow-hidden">
-                  <CardContent className="p-6 text-center relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative z-10">
-                      <div className={`inline-flex p-4 rounded-full ${method.bgColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <method.icon className={`h-8 w-8 ${method.color}`} />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2 text-primary group-hover:text-lime-green transition-colors">
-                        {method.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-3">{method.description}</p>
-                      <p className="text-lg font-semibold text-secondary group-hover:text-lime-green transition-colors">
-                        {method.action}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </a>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Form Section - Completamente Rinnovato */}
-      <section 
+      <section
         ref={formSection.ref}
         className="py-16 bg-muted/30"
       >
