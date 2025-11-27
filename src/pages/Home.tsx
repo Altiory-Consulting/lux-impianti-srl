@@ -111,13 +111,6 @@ const Home = () => {
     link: "/soluzione/climatizzazione",
     color: "text-cyan-500",
     bgColor: "bg-cyan-500/10 group-hover:bg-cyan-500/20"
-  }, {
-    icon: Euro,
-    title: "Reddito Energetico",
-    desc: "Accedi ai contributi statali per il fotovoltaico",
-    link: "/soluzione/reddito-energetico",
-    color: "text-green-500",
-    bgColor: "bg-green-500/10 group-hover:bg-green-500/20"
   }];
   return <div className="min-h-screen bg-background">
       <Header />
