@@ -653,14 +653,7 @@ const Contatti = () => {
                   
                   {/* Google Maps Button */}
                   <button
-                    onClick={() => {
-                      const url = `https://www.google.com/maps/search/?api=1&query=45.6947,9.9997`;
-                      const newWindow = window.open('', '_blank');
-                      if (newWindow) {
-                        newWindow.opener = null;
-                        newWindow.location = url;
-                      }
-                    }}
+                    onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=45.6947,9.9997', '_blank', 'noopener,noreferrer')}
                     className="mt-4 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-lime-green to-lime-green/80 hover:from-lime-green/90 hover:to-lime-green/70 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-glow-lime hover:scale-105 cursor-pointer"
                   >
                     <MapPin className="h-5 w-5" />
@@ -745,14 +738,7 @@ const Contatti = () => {
                   
                   {/* Google Maps Button */}
                   <button
-                    onClick={() => {
-                      const url = `https://www.google.com/maps/search/?api=1&query=41.0742,14.3333`;
-                      const newWindow = window.open('', '_blank');
-                      if (newWindow) {
-                        newWindow.opener = null;
-                        newWindow.location = url;
-                      }
-                    }}
+                    onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=41.0742,14.3333', '_blank', 'noopener,noreferrer')}
                     className="mt-4 w-full flex items-center justify-center gap-2 bg-gradient-to-r from-lime-green to-lime-green/80 hover:from-lime-green/90 hover:to-lime-green/70 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-glow-lime hover:scale-105 cursor-pointer"
                   >
                     <MapPin className="h-5 w-5" />
