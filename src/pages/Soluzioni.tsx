@@ -72,30 +72,6 @@ const Soluzioni = () => {
       color: "text-cyan-500",
       bgColor: "bg-cyan-500/10 group-hover:bg-cyan-500/20"
     },
-    {
-      icon: Flame,
-      title: "Biomasse",
-      desc: "Riscaldamento ecologico con legno e pellet. Una fonte rinnovabile che crea un'atmosfera accogliente e riduce i costi energetici.",
-      link: "/soluzione/biomasse",
-      color: "text-red-500",
-      bgColor: "bg-red-500/10 group-hover:bg-red-500/20"
-    },
-    {
-      icon: Wind,
-      title: "Eolico",
-      desc: "Il vento come fonte di energia rinnovabile. Un investimento sostenibile che riduce la dipendenza dai combustibili fossili.",
-      link: "/soluzione/eolico",
-      color: "text-sky-500",
-      bgColor: "bg-sky-500/10 group-hover:bg-sky-500/20"
-    },
-    {
-      icon: Mountain,
-      title: "Geotermico",
-      desc: "Sfrutta il calore del sottosuolo per riscaldare e raffrescare la tua casa. Comfort e risparmio energetico tutto l'anno.",
-      link: "/soluzione/geotermico",
-      color: "text-emerald-500",
-      bgColor: "bg-emerald-500/10 group-hover:bg-emerald-500/20"
-    },
   ];
 
   return (
