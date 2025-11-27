@@ -76,6 +76,7 @@ const Contatti = () => {
   const infoSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
   const formSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
   const faqSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
+  const locationsSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -559,51 +560,96 @@ const Contatti = () => {
         </div>
       </section>
 
-      {/* Office Locations - Migliorata */}
-      <section className="py-16 bg-muted/30">
+      {/* Office Locations - Interattiva con Mappe */}
+      <section 
+        ref={locationsSection.ref}
+        className="py-16 bg-muted/30"
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 transition-all duration-700 ${locationsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">Dove Siamo</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Le Nostre Sedi</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Visita i nostri uffici oppure contattaci per una consulenza. Siamo a tua disposizione!
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card className="group hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 hover:border-lime-green">
-              <CardHeader className="bg-gradient-card border-b">
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <MapPin className="h-6 w-6 text-lime-green" />
-                  Capriolo (BS)
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Sede Legale - Capriolo */}
+            <Card 
+              className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
+              style={{
+                animationDelay: '0s',
+                animationFillMode: 'both'
+              }}
+            >
+              {/* Google Maps Embed */}
+              <div className="relative h-64 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.8573!2d10.0!3d45.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQyJzAwLjAiTiAxMMKwMDAnMDAuMCJF!5e0!3m2!1sit!2sit!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="group-hover:scale-105 transition-transform duration-500"
+                ></iframe>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+              </div>
+
+              <CardHeader className="bg-gradient-card border-b relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <CardTitle className="text-2xl flex items-center gap-2 relative z-10">
+                  <MapPin className="h-6 w-6 text-lime-green group-hover:animate-bounce" />
+                  <span className="group-hover:text-lime-green transition-colors">Capriolo (BS)</span>
                 </CardTitle>
                 <CardDescription>Sede Legale</CardDescription>
               </CardHeader>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
+              
+              <CardContent className="p-6 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="space-y-4 relative z-10">
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=Largo+Ochi+7+Capriolo+BS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
+                  >
+                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-bounce" />
                     <div>
-                      <p className="font-semibold text-primary">Indirizzo</p>
+                      <p className="font-semibold text-primary group-hover/item:text-lime-green transition-colors">Indirizzo</p>
                       <p className="text-muted-foreground">Largo Ochi, 7 Capriolo (BS)</p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
+                  </a>
+                  
+                  <a 
+                    href="tel:08231556627"
+                    className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
+                  >
+                    <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-pulse" />
                     <div>
-                      <p className="font-semibold text-primary">Telefono</p>
-                      <a href="tel:08231556627" className="text-secondary hover:text-lime-green transition-colors">
+                      <p className="font-semibold text-primary group-hover/item:text-lime-green transition-colors">Telefono</p>
+                      <p className="text-secondary group-hover/item:text-lime-green transition-colors font-semibold">
                         0823 155 6627
-                      </a>
+                      </p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
+                  </a>
+                  
+                  <a 
+                    href="mailto:info@luximpiantisrl.com"
+                    className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
+                  >
+                    <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-pulse" />
                     <div>
-                      <p className="font-semibold text-primary">Email</p>
-                      <a href="mailto:info@luximpiantisrl.com" className="text-secondary hover:text-lime-green transition-colors">
+                      <p className="font-semibold text-primary group-hover/item:text-lime-green transition-colors">Email</p>
+                      <p className="text-secondary group-hover/item:text-lime-green transition-colors">
                         info@luximpiantisrl.com
-                      </a>
+                      </p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
+                  </a>
+                  
+                  <div className="flex items-start gap-3 p-2">
                     <Clock className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-primary">Orari</p>
@@ -614,42 +660,81 @@ const Contatti = () => {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 hover:border-lime-green">
-              <CardHeader className="bg-gradient-card border-b">
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <MapPin className="h-6 w-6 text-lime-green" />
-                  Caserta (CE)
+            {/* Sede Operativa - Caserta */}
+            <Card 
+              className={`group overflow-hidden hover:shadow-card-hover hover:shadow-glow-lime hover:-translate-y-2 transition-all duration-500 hover:border-lime-green ${locationsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
+              style={{
+                animationDelay: '0.1s',
+                animationFillMode: 'both'
+              }}
+            >
+              {/* Google Maps Embed */}
+              <div className="relative h-64 overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.4!2d14.3344!3d41.0742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b1a!2s0x0!5e0!3m2!1sit!2sit!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="group-hover:scale-105 transition-transform duration-500"
+                ></iframe>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+              </div>
+
+              <CardHeader className="bg-gradient-card border-b relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <CardTitle className="text-2xl flex items-center gap-2 relative z-10">
+                  <MapPin className="h-6 w-6 text-lime-green group-hover:animate-bounce" />
+                  <span className="group-hover:text-lime-green transition-colors">Caserta (CE)</span>
                 </CardTitle>
                 <CardDescription>Sede Operativa</CardDescription>
               </CardHeader>
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
+              
+              <CardContent className="p-6 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="space-y-4 relative z-10">
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=Via+Mulini+Militari+40+Caserta+CE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
+                  >
+                    <MapPin className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-bounce" />
                     <div>
-                      <p className="font-semibold text-primary">Indirizzo</p>
+                      <p className="font-semibold text-primary group-hover/item:text-lime-green transition-colors">Indirizzo</p>
                       <p className="text-muted-foreground">Via Mulini Militari, 40 Caserta (CE)</p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
+                  </a>
+                  
+                  <a 
+                    href="tel:08231556627"
+                    className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
+                  >
+                    <Phone className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-pulse" />
                     <div>
-                      <p className="font-semibold text-primary">Telefono</p>
-                      <a href="tel:08231556627" className="text-secondary hover:text-lime-green transition-colors">
+                      <p className="font-semibold text-primary group-hover/item:text-lime-green transition-colors">Telefono</p>
+                      <p className="text-secondary group-hover/item:text-lime-green transition-colors font-semibold">
                         0823 155 6627
-                      </a>
+                      </p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
+                  </a>
+                  
+                  <a 
+                    href="mailto:info@luximpiantisrl.com"
+                    className="flex items-start gap-3 hover:bg-lime-green/10 p-2 rounded-lg transition-all duration-300 group/item"
+                  >
+                    <Mail className="h-5 w-5 text-lime-green mt-1 flex-shrink-0 group-hover/item:animate-pulse" />
                     <div>
-                      <p className="font-semibold text-primary">Email</p>
-                      <a href="mailto:info@luximpiantisrl.com" className="text-secondary hover:text-lime-green transition-colors">
+                      <p className="font-semibold text-primary group-hover/item:text-lime-green transition-colors">Email</p>
+                      <p className="text-secondary group-hover/item:text-lime-green transition-colors">
                         info@luximpiantisrl.com
-                      </a>
+                      </p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
+                  </a>
+                  
+                  <div className="flex items-start gap-3 p-2">
                     <Clock className="h-5 w-5 text-lime-green mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-primary">Orari</p>
