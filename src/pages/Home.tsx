@@ -364,33 +364,7 @@ const Home = () => {
       </section>
 
       {/* Reddito Energetico */}
-      <section ref={redditoSection.ref} className="py-16 text-primary-foreground relative overflow-hidden section-transition-top section-transition-bottom" style={{
-      background: 'var(--gradient-header)',
-      boxShadow: 'var(--shadow-header)',
-      '--transition-from': 'hsl(211 100% 22% / 0.3)',
-      '--transition-to': 'hsl(211 100% 22% / 0.3)'
-    } as React.CSSProperties}>
-        <div className="absolute inset-0 bg-gradient-primary-soft opacity-50"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${redditoSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase">Fotovoltaico<br />Reddito Energetico</h2>
-            <p className="text-lg mb-4">
-              Il Reddito Energetico Nazionale finanzia impianti fotovoltaici domestici (2-6 kW) 
-              per famiglie in difficoltà economica, promuovendo autoconsumo ed energie rinnovabili.
-            </p>
-            <p className="mb-4">
-              Gestito dal GSE, il fondo è alimentato da 200 milioni di euro (2024-2025) e contribuzioni volontarie.
-            </p>
-            <p className="mb-8">
-              Accessibile a famiglie con ISEE sotto i 15.000 euro (o 30.000 con 4 figli), 
-              richiede requisiti catastali e contrattuali. L'energia in eccesso sostiene il fondo.
-            </p>
-            <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
-              <Link to="/soluzione/reddito-energetico">SCOPRI DI PIÙ</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Soluzioni Energetiche - Interactive Cards */}
       <section ref={solutionsSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
