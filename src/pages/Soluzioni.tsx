@@ -260,7 +260,7 @@ const Soluzioni = () => {
             <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
               <Link to="/contatti">Richiedi Consulenza Gratuita</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+            <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-300">
               <Link to="/chi-siamo">Scopri Chi Siamo</Link>
             </Button>
           </div>
