@@ -18,6 +18,8 @@ import Biomasse from "./pages/solutions/Biomasse";
 import Eolico from "./pages/solutions/Eolico";
 import Geotermico from "./pages/solutions/Geotermico";
 import RedditoEnergetico from "./pages/solutions/RedditoEnergetico";
+import Auth from "./pages/Auth";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +46,8 @@ const App = () => (
           <Route path="/soluzione/eolico" element={<Eolico />} />
           <Route path="/soluzione/geotermico" element={<Geotermico />} />
           <Route path="/soluzione/reddito-energetico" element={<RedditoEnergetico />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
