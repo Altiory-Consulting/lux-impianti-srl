@@ -27,7 +27,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import { supabase } from "@/integrations/supabase/client";
 
 // Schema di validazione con zod
 const contactFormSchema = z.object({
@@ -92,34 +91,22 @@ const Contatti = () => {
     },
   });
 
-  const onSubmit = async (data: ContactFormValues) => {
-    try {
-      // Salva i dati nel database
-      const { error } = await supabase
-        .from('leads')
-        .insert({
-          name: `${data.nome} ${data.cognome}`,
-          email: data.email,
-          interest: data.interessato,
-          subject: data.oggetto,
-          message: `Tipologia: ${data.tipologia}\nTelefono: ${data.telefono}\n\n${data.messaggio}`,
-        });
-
-      if (error) {
-        console.error("Error saving lead:", error);
-        toast.error("Errore nell'invio del messaggio. Riprova.");
-        return;
-      }
-
-      toast.success("Messaggio inviato! Ti contatteremo presto.", {
-        description: "Grazie per averci contattato",
-      });
-      
-      form.reset();
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Errore nell'invio del messaggio. Riprova.");
-    }
+  const onSubmit = (data: ContactFormValues) => {
+    // Validazione input prima dell'invio
+    const message = `Nuovo contatto da ${data.nome} ${data.cognome}\nEmail: ${data.email}\nTelefono: ${data.telefono}\nTipologia: ${data.tipologia}\nInteressato a: ${data.interessato}\nOggetto: ${data.oggetto}\nMessaggio: ${data.messaggio}`;
+    
+    // Encoding sicuro per WhatsApp
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/393331234567?text=${encodedMessage}`;
+    
+    toast.success("Messaggio inviato! Ti contatteremo presto.", {
+      description: "Grazie per averci contattato",
+    });
+    
+    // Apri WhatsApp in una nuova scheda
+    window.open(whatsappUrl, '_blank');
+    
+    form.reset();
   };
 
   const faqs = [
