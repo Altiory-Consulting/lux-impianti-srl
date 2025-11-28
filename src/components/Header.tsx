@@ -110,7 +110,7 @@ const Header = () => {
           <nav className="lg:hidden pb-4 flex flex-col gap-4 bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
             <Link
               to="/"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+              className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
                 isActive("/") ? "text-lime-green" : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
@@ -119,7 +119,7 @@ const Header = () => {
             </Link>
             <Link
               to="/chi-siamo"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+              className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
                 isActive("/chi-siamo") ? "text-lime-green" : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
@@ -128,7 +128,7 @@ const Header = () => {
             </Link>
             <Link
               to="/soluzioni"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+              className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
                 isActive("/soluzioni") ? "text-lime-green" : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
@@ -137,7 +137,7 @@ const Header = () => {
             </Link>
             <Link
               to="/contatti"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+              className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
                 isActive("/contatti") ? "text-lime-green" : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
