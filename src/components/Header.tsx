@@ -56,7 +56,8 @@ const Header = () => {
           {/* Spacer for mobile to maintain layout */}
           <div className="md:hidden w-10"></div>
 
-          <nav className="hidden md:flex items-center gap-8 relative z-10 ml-auto">
+          {/* Desktop Navigation - Large screens */}
+          <nav className="hidden lg:flex items-center gap-8 relative z-10 ml-auto">
             <Link
               to="/"
               className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
@@ -93,55 +94,55 @@ const Header = () => {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Tablet & Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-primary-foreground hover:text-lime-green"
+            className="lg:hidden text-primary-foreground hover:text-lime-green relative z-10"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Tablet & Mobile Dropdown Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-4">
+          <nav className="lg:hidden pb-4 flex flex-col gap-4 bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
             <Link
               to="/"
-              className={`text-primary-foreground hover:text-lime-green transition-colors ${
-                isActive("/") ? "text-lime-green font-semibold" : ""
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+                isActive("/") ? "text-lime-green" : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Home
+              HOME
             </Link>
             <Link
               to="/chi-siamo"
-              className={`text-primary-foreground hover:text-lime-green transition-colors ${
-                isActive("/chi-siamo") ? "text-lime-green font-semibold" : ""
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+                isActive("/chi-siamo") ? "text-lime-green" : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Chi Siamo
+              CHI SIAMO
             </Link>
             <Link
               to="/soluzioni"
-              className={`text-primary-foreground hover:text-lime-green transition-colors ${
-                isActive("/soluzioni") ? "text-lime-green font-semibold" : ""
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+                isActive("/soluzioni") ? "text-lime-green" : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Soluzioni
+              SOLUZIONI
             </Link>
             <Link
               to="/contatti"
-              className={`text-primary-foreground hover:text-lime-green transition-colors ${
-                isActive("/contatti") ? "text-lime-green font-semibold" : ""
+              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
+                isActive("/contatti") ? "text-lime-green" : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Contatti
+              CONTATTI
             </Link>
           </nav>
         )}
