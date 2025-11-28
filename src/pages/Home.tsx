@@ -372,23 +372,23 @@ const Home = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {solutions.map((solution, index) => <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${solutionsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`} style={{
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {solutions.map((solution, index) => <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 h-full ${solutionsSection.isVisible ? 'animate-scale-in' : 'scale-95'}`} style={{
             animationDelay: `${index * 0.1}s`,
             animationFillMode: 'both'
           }}>
-                <CardContent className="p-6 h-full flex flex-col relative">
+                <CardContent className="p-8 h-full flex flex-col relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative z-10 flex-1 flex flex-col">
-                    <div className="mb-4 flex justify-center">
-                      <div className={`p-4 rounded-full transition-all duration-300 group-hover:scale-110 ${solution.bgColor}`}>
-                        <solution.icon className={`h-12 w-12 ${solution.color} group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`} />
+                  <div className="relative z-10 flex-1 flex flex-col items-center">
+                    <div className="mb-6 flex justify-center">
+                      <div className={`p-5 rounded-full transition-all duration-300 group-hover:scale-110 ${solution.bgColor}`}>
+                        <solution.icon className={`h-14 w-14 ${solution.color} group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`} />
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-center text-primary group-hover:text-lime-green transition-colors duration-300">
+                    <h3 className="text-xl font-bold mb-4 text-center text-primary group-hover:text-lime-green transition-colors duration-300">
                       {solution.title}
                     </h3>
-                    <p className="text-muted-foreground text-center mb-6 flex-1 group-hover:text-foreground transition-colors duration-300">
+                    <p className="text-muted-foreground text-center mb-8 flex-1 group-hover:text-foreground transition-colors duration-300">
                       {solution.desc}
                     </p>
                     <Button asChild variant="outline" className="w-full border-border group-hover:bg-lime-green group-hover:text-foreground group-hover:border-lime-green group-hover:shadow-glow-lime transition-all duration-300">
