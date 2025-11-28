@@ -120,7 +120,7 @@ const Contatti = () => {
     },
     {
       question: "Quanto tempo ci vuole per l'installazione?",
-      answer: "Generalmente 2-5 giorni lavorativi per impianti residenziali standard, più tempo per installazioni complesse.",
+      answer: "I tempi di installazione variano in base alle dimensioni dell'impianto.",
     },
     {
       question: "Offrite assistenza post-vendita?",
