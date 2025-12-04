@@ -106,8 +106,14 @@ const Header = () => {
         </div>
 
         {/* Tablet & Mobile Dropdown Navigation */}
-        {isMenuOpen && (
-          <nav className="lg:hidden pb-4 flex flex-col gap-4 bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+        <nav 
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${
+            isMenuOpen 
+              ? 'max-h-64 opacity-100 pb-4' 
+              : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="flex flex-col gap-4 bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
             <Link
               to="/"
               className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
@@ -144,8 +150,8 @@ const Header = () => {
             >
               CONTATTI
             </Link>
-          </nav>
-        )}
+          </div>
+        </nav>
       </div>
     </header>
   );
