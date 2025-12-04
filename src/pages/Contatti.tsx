@@ -92,19 +92,11 @@ const Contatti = () => {
   });
 
   const onSubmit = (data: ContactFormValues) => {
-    // Validazione input prima dell'invio
-    const message = `Nuovo contatto da ${data.nome} ${data.cognome}\nEmail: ${data.email}\nTelefono: ${data.telefono}\nTipologia: ${data.tipologia}\nInteressato a: ${data.interessato}\nOggetto: ${data.oggetto}\nMessaggio: ${data.messaggio}`;
-    
-    // Encoding sicuro per WhatsApp
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/393331234567?text=${encodedMessage}`;
-    
-    toast.success("Messaggio inviato! Ti contatteremo presto.", {
-      description: "Grazie per averci contattato",
+    // Mostra messaggio di conferma
+    toast.success("Richiesta inviata con successo!", {
+      description: `Grazie ${data.nome}, ti contatteremo al più presto all'indirizzo ${data.email}`,
+      duration: 5000,
     });
-    
-    // Apri WhatsApp in una nuova scheda
-    window.open(whatsappUrl, '_blank');
     
     form.reset();
   };
