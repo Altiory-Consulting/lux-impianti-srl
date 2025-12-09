@@ -17,26 +17,26 @@ const Header = () => {
     }}>
       {/* Top Bar - Dark with contacts */}
       <div className="bg-foreground text-background">
-        <div className="container mx-auto px-2 md:px-4 py-2 md:py-3">
-          <div className="flex flex-row justify-between items-center gap-1 md:gap-4 text-[10px] md:text-sm">
+        <div className="container mx-auto px-3 md:px-4 py-3 md:py-3">
+          <div className="flex flex-row justify-between items-center gap-2 md:gap-4 text-xs md:text-sm">
             {/* Capriolo location - Left */}
-            <div className="flex items-center gap-1">
-              <MapPin className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+            <div className="flex items-center gap-1.5">
+              <MapPin className="h-4 w-4 md:h-4 md:w-4 flex-shrink-0" />
               <span className="whitespace-nowrap">Capriolo (BS)</span>
             </div>
             
             {/* Phone number - Center */}
             <a 
               href="tel:08231556627" 
-              className="flex items-center gap-1 md:gap-2 hover:text-lime-green transition-colors duration-300 font-semibold whitespace-nowrap"
+              className="flex items-center gap-1.5 md:gap-2 hover:text-lime-green transition-colors duration-300 font-semibold whitespace-nowrap"
             >
-              <Phone className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <Phone className="h-4 w-4 md:h-4 md:w-4 flex-shrink-0" />
               <span>0823 155 6627</span>
             </a>
             
             {/* Caserta location - Right */}
-            <div className="flex items-center gap-1">
-              <MapPin className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+            <div className="flex items-center gap-1.5">
+              <MapPin className="h-4 w-4 md:h-4 md:w-4 flex-shrink-0" />
               <span className="whitespace-nowrap">Caserta (CE)</span>
             </div>
           </div>
@@ -45,11 +45,11 @@ const Header = () => {
 
       {/* Main Navigation */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4 md:py-10 relative">
+        <div className="flex items-center justify-between py-6 md:py-10 relative">
           {/* Center Logo - Mobile & Desktop */}
           <div className="absolute left-1/2 transform -translate-x-1/2 z-0">
             <Link to="/">
-              <img src={logoTrasparente} alt="Lux Impianti" className="h-16 md:h-20 w-auto" />
+              <img src={logoTrasparente} alt="Lux Impianti" className="h-20 md:h-24 w-auto" />
             </Link>
           </div>
           
