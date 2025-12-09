@@ -14,7 +14,6 @@ import postSalesSupport from "@/assets/post-sales-support.jpg";
 const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   
   const heroSlides = [{
@@ -39,29 +38,11 @@ const Home = () => {
     }, 300);
   };
 
-  const handleVideoCanPlay = () => {
-    setIsVideoLoaded(true);
-    videoRef.current?.play().catch(() => {});
-  };
-
   useEffect(() => {
-    setIsVideoLoaded(false);
     if (videoRef.current) {
       videoRef.current.load();
+      videoRef.current.play().catch(() => {});
     }
-  }, [currentVideoIndex]);
-
-  // Preload next video
-  useEffect(() => {
-    const nextIndex = (currentVideoIndex + 1) % heroSlides.length;
-    const link = document.createElement('link');
-    link.rel = 'prefetch';
-    link.href = heroSlides[nextIndex].video;
-    link.as = 'video';
-    document.head.appendChild(link);
-    return () => {
-      document.head.removeChild(link);
-    };
   }, [currentVideoIndex]);
   const servicesSection = useIntersectionObserver({
     threshold: 0.01,
@@ -138,21 +119,16 @@ const Home = () => {
       <Header />
 
       {/* Hero Section - Full Screen with Video Carousel */}
-      <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden bg-primary">
-        {/* Loading placeholder */}
-        {!isVideoLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
-            <div className="w-12 h-12 border-4 border-lime-green border-t-transparent rounded-full animate-spin" />
-          </div>
-        )}
+      <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
         <video 
           ref={videoRef} 
+          autoPlay
           muted 
           playsInline 
           preload="auto"
-          onCanPlay={handleVideoCanPlay}
           onEnded={handleVideoEnd} 
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isTransitioning || !isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
+          style={{ backgroundColor: 'hsl(189 85% 30%)' }}
         >
           <source src={heroSlides[currentVideoIndex].video} type="video/mp4" />
         </video>
