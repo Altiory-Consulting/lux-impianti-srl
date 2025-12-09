@@ -298,9 +298,9 @@ const Home = () => {
       '--transition-from': 'hsl(214 50% 98% / 0.5)',
       '--transition-to': 'hsl(211 100% 22% / 0.3)'
     } as React.CSSProperties}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={`order-2 md:order-1 transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className={`order-2 md:order-1 text-center md:text-left transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">INNOVAZIONE CONTINUA</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Tecnologia all'Avanguardia
@@ -318,8 +318,8 @@ const Home = () => {
                 <Link to="/soluzioni">Esplora le Soluzioni</Link>
               </Button>
             </div>
-            <div className={`order-1 md:order-2 transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
-              <img alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/fffeab52-7bd4-4694-91fc-a098ed4b6967.png" />
+            <div className={`order-1 md:order-2 flex justify-center transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
+              <img alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 max-w-full" src="/lovable-uploads/fffeab52-7bd4-4694-91fc-a098ed4b6967.png" />
             </div>
           </div>
         </div>
