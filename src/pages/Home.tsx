@@ -14,7 +14,9 @@ import postSalesSupport from "@/assets/post-sales-support.jpg";
 const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  
   const heroSlides = [{
     video: "/videos/hero-video-3.mp4",
     tagline: "IL TUO DOMANI, TU LO SCEGLI, NOI LO ILLUMINIAMO",
@@ -28,18 +30,38 @@ const Home = () => {
     tagline: "IL TUO COMFORT, TU LO SOGNI, NOI LO COSTRUIAMO",
     headline: "Una casa intelligente, pronta per il domani."
   }];
+
   const handleVideoEnd = () => {
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentVideoIndex(prev => (prev + 1) % heroSlides.length);
       setIsTransitioning(false);
-    }, 500);
+    }, 300);
   };
+
+  const handleVideoCanPlay = () => {
+    setIsVideoLoaded(true);
+    videoRef.current?.play().catch(() => {});
+  };
+
   useEffect(() => {
+    setIsVideoLoaded(false);
     if (videoRef.current) {
       videoRef.current.load();
-      videoRef.current.play();
     }
+  }, [currentVideoIndex]);
+
+  // Preload next video
+  useEffect(() => {
+    const nextIndex = (currentVideoIndex + 1) % heroSlides.length;
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = heroSlides[nextIndex].video;
+    link.as = 'video';
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
   }, [currentVideoIndex]);
   const servicesSection = useIntersectionObserver({
     threshold: 0.01,
@@ -116,8 +138,22 @@ const Home = () => {
       <Header />
 
       {/* Hero Section - Full Screen with Video Carousel */}
-      <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
-        <video ref={videoRef} autoPlay muted playsInline onEnded={handleVideoEnd} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+      <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden bg-primary">
+        {/* Loading placeholder */}
+        {!isVideoLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
+            <div className="w-12 h-12 border-4 border-lime-green border-t-transparent rounded-full animate-spin" />
+          </div>
+        )}
+        <video 
+          ref={videoRef} 
+          muted 
+          playsInline 
+          preload="auto"
+          onCanPlay={handleVideoCanPlay}
+          onEnded={handleVideoEnd} 
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isTransitioning || !isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}
+        >
           <source src={heroSlides[currentVideoIndex].video} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
@@ -243,7 +279,7 @@ const Home = () => {
               }].map((project, index) => <div key={index} className="w-[280px] sm:w-[350px] md:w-[400px] flex-shrink-0">
                     <Card className="overflow-hidden hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2 border-border hover:border-lime-green bg-gradient-card h-full">
                       <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                        <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+                        <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                         <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-lime-green text-foreground px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold shadow-glow-lime">
                           {project.power}
                         </div>
@@ -271,7 +307,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className={`flex justify-center transition-all duration-1000 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
-              <img alt="Installazione pannelli solari" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 max-w-full" src="/lovable-uploads/73d574f0-46cc-4c33-a759-ea56e6eb39d1.png" />
+              <img alt="Installazione pannelli solari" loading="lazy" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 max-w-full" src="/lovable-uploads/73d574f0-46cc-4c33-a759-ea56e6eb39d1.png" />
             </div>
             <div className={`text-center md:text-left transition-all duration-1000 delay-300 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">LA NOSTRA ESPERIENZA</p>
@@ -319,7 +355,7 @@ const Home = () => {
               </Button>
             </div>
             <div className={`order-1 md:order-2 flex justify-center transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
-              <img alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 max-w-full" src="/lovable-uploads/fffeab52-7bd4-4694-91fc-a098ed4b6967.png" />
+              <img alt="Tecnologia pompe di calore" loading="lazy" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 max-w-full" src="/lovable-uploads/fffeab52-7bd4-4694-91fc-a098ed4b6967.png" />
             </div>
           </div>
         </div>
