@@ -300,7 +300,7 @@ const Home = () => {
     } as React.CSSProperties}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={`order-2 md:order-1 transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
+            <div className={`order-2 md:order-1 text-center md:text-left transition-all duration-1000 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">INNOVAZIONE CONTINUA</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Tecnologia all'Avanguardia
@@ -314,9 +314,11 @@ const Home = () => {
                 Sistemi di monitoraggio smart ti permettono di controllare la tua produzione energetica
                 in tempo reale, direttamente dal tuo smartphone.
               </p>
-              <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
-                <Link to="/soluzioni">Esplora le Soluzioni</Link>
-              </Button>
+              <div className="flex justify-center md:justify-start">
+                <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
+                  <Link to="/soluzioni">Esplora le Soluzioni</Link>
+                </Button>
+              </div>
             </div>
             <div className={`order-1 md:order-2 transition-all duration-1000 delay-300 ${redditoSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <img alt="Tecnologia pompe di calore" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/fffeab52-7bd4-4694-91fc-a098ed4b6967.png" />
@@ -335,7 +337,7 @@ const Home = () => {
             <div className={`transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
               <img alt="Assistenza tecnica post-vendita" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/19160f48-ec2b-4a52-9f93-2a1b07df1125.png" />
             </div>
-            <div className={`transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
+            <div className={`text-center md:text-left transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">SEMPRE AL TUO FIANCO</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Assistenza Post-Vendita Garantita
@@ -348,9 +350,11 @@ const Home = () => {
                 Un team dedicato è sempre a tua disposizione per garantire che il tuo impianto
                 funzioni al massimo delle prestazioni per tutta la sua vita utile.
               </p>
-              <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
-                <Link to="/contatti">Contattaci</Link>
-              </Button>
+              <div className="flex justify-center md:justify-start">
+                <Button className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all shadow-glow-lime hover:animate-pulse-glow" asChild>
+                  <Link to="/contatti">Contattaci</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
