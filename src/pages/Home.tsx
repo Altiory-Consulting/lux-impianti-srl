@@ -268,12 +268,12 @@ const Home = () => {
       '--transition-from': 'hsl(211 100% 22% / 0.3)',
       '--transition-to': 'hsl(214 50% 98% / 0.5)'
     } as React.CSSProperties}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={`transition-all duration-1000 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
-              <img alt="Installazione pannelli solari" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/73d574f0-46cc-4c33-a759-ea56e6eb39d1.png" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className={`flex justify-center transition-all duration-1000 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
+              <img alt="Installazione pannelli solari" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 max-w-full" src="/lovable-uploads/73d574f0-46cc-4c33-a759-ea56e6eb39d1.png" />
             </div>
-            <div className={`transition-all duration-1000 delay-300 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
+            <div className={`text-center md:text-left transition-all duration-1000 delay-300 ${communitySection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">LA NOSTRA ESPERIENZA</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Oltre 15 Anni di Eccellenza
@@ -326,16 +326,17 @@ const Home = () => {
       </section>
 
       {/* Feature Section 3 - Assistenza */}
+      {/* Feature Section 3 - Assistenza */}
       <section className="py-20 px-4 bg-background section-transition-top section-transition-bottom relative" style={{
       '--transition-from': 'hsl(211 100% 22% / 0.3)',
       '--transition-to': 'hsl(211 100% 22% / 0.3)'
     } as React.CSSProperties}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={`transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
-              <img alt="Assistenza tecnica post-vendita" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105" src="/lovable-uploads/19160f48-ec2b-4a52-9f93-2a1b07df1125.png" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className={`flex justify-center transition-all duration-1000 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 -translate-x-4'}`}>
+              <img alt="Assistenza tecnica post-vendita" className="rounded-lg shadow-2xl hover:shadow-glow-lime transition-all duration-300 hover:scale-105 max-w-full" src="/lovable-uploads/19160f48-ec2b-4a52-9f93-2a1b07df1125.png" />
             </div>
-            <div className={`transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
+            <div className={`text-center md:text-left transition-all duration-1000 delay-300 ${solutionsSection.isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-100 translate-x-4'}`}>
               <p className="text-lime-green uppercase tracking-wider text-sm mb-4 font-semibold">SEMPRE AL TUO FIANCO</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
                 Assistenza Post-Vendita Garantita
