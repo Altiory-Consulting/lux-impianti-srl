@@ -13,7 +13,6 @@ import projectMunicipalPolice from "@/assets/project-municipal-police-caserta.jp
 import postSalesSupport from "@/assets/post-sales-support.jpg";
 const Home = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   
   const heroSlides = [{
@@ -31,11 +30,7 @@ const Home = () => {
   }];
 
   const handleVideoEnd = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentVideoIndex(prev => (prev + 1) % heroSlides.length);
-      setIsTransitioning(false);
-    }, 300);
+    setCurrentVideoIndex(prev => (prev + 1) % heroSlides.length);
   };
 
   useEffect(() => {
@@ -119,22 +114,29 @@ const Home = () => {
       <Header />
 
       {/* Hero Section - Full Screen with Video Carousel */}
-      <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden">
+      <section className="relative min-h-[70vh] md:min-h-[calc(100vh-120px)] flex items-center overflow-hidden bg-black">
+        {/* Static poster image as immediate fallback */}
+        <img 
+          src="/videos/hero-video-3.mp4#t=0.1" 
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ display: 'none' }}
+        />
         <video 
           ref={videoRef} 
           autoPlay
           muted 
           playsInline 
-          preload="auto"
+          preload="metadata"
+          poster=""
           onEnded={handleVideoEnd} 
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
-          style={{ backgroundColor: 'hsl(189 85% 30%)' }}
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={heroSlides[currentVideoIndex].video} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className={`max-w-4xl transition-all duration-500 ${isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+          <div className="max-w-4xl">
             <p className="text-lime-green uppercase tracking-wider text-xs sm:text-sm md:text-base mb-3 md:mb-4 font-semibold leading-relaxed">
               {heroSlides[currentVideoIndex].tagline}
             </p>
@@ -151,13 +153,14 @@ const Home = () => {
         
         {/* Video Navigation Dots */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
-          {heroSlides.map((_, index) => <button key={index} onClick={() => {
-          setIsTransitioning(true);
-          setTimeout(() => {
-            setCurrentVideoIndex(index);
-            setIsTransitioning(false);
-          }, 500);
-        }} className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentVideoIndex ? 'bg-lime-green w-8' : 'bg-white/50 hover:bg-white/80'}`} aria-label={`Go to slide ${index + 1}`} />)}
+          {heroSlides.map((_, index) => (
+            <button 
+              key={index} 
+              onClick={() => setCurrentVideoIndex(index)} 
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentVideoIndex ? 'bg-lime-green w-8' : 'bg-white/50 hover:bg-white/80'}`} 
+              aria-label={`Go to slide ${index + 1}`} 
+            />
+          ))}
         </div>
       </section>
 
