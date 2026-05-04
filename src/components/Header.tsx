@@ -61,12 +61,10 @@ const Header = () => {
           {/* Center: Logo */}
           <Link
             to="/"
-            className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 py-2"
+            aria-label="Lux Impianti — Home"
+            className="absolute left-1/2 -translate-x-1/2 flex items-center py-1"
           >
-            <img src={logoTrasparente} alt="Lux Impianti" className="h-10 w-auto" />
-            <span className="font-display font-bold text-lg tracking-tight uppercase hidden sm:inline">
-              Lux Impianti
-            </span>
+            <img src={logoTrasparente} alt="Lux Impianti" className="h-16 sm:h-20 w-auto" />
           </Link>
 
           {/* Right: CTA */}
