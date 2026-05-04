@@ -2,110 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* === LUX IMPIANTI — VistaHaven-inspired Premium Design System ===
+   All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 18%;
+    /* Core palette — pure white background, near-black text, lime accent */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 189 85% 40%;
+    --primary: 0 0% 8%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 189 75% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 189 40% 70%;
-    --muted-foreground: 0 0% 18%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 84 81% 44%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 88 65% 52%;
+    --accent-foreground: 0 0% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 189 30% 90%;
-    --input: 189 30% 90%;
-    --ring: 189 85% 40%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 8%;
 
-    --radius: 0.5rem;
+    --radius: 1.25rem;
 
-    /* Custom Lux Impianti colors - Modern palette */
-    --blue-deep: 189 85% 40%;
-    --blue-medium: 189 75% 50%;
-    --blue-light: 189 40% 70%;
-    --lime-green: 84 81% 44%; /* Vibrant lime green for CTAs */
-    --lime-green-light: 84 81% 60%;
-    --text-dark: 0 0% 18%;
+    /* Backward-compat tokens remapped */
+    --blue-deep: 0 0% 8%;
+    --blue-medium: 0 0% 20%;
+    --blue-light: 0 0% 80%;
+    --lime-green: 88 65% 52%;
+    --lime-green-light: 88 70% 65%;
+    --text-dark: 0 0% 8%;
+    --forest-deep: 0 0% 8%;
+    --forest: 0 0% 12%;
+    --sage: 0 0% 70%;
+    --cream: 0 0% 96%;
+    --cream-light: 0 0% 98%;
+    --ochre: 88 65% 52%;
+    --ochre-deep: 88 70% 40%;
 
-    /* Dynamic gradients - Modern and fresh */
-    --gradient-primary: linear-gradient(135deg, hsl(189 85% 40%) 0%, hsl(189 75% 50%) 50%, hsl(189 65% 60%) 100%);
-    --gradient-primary-soft: linear-gradient(to right, hsl(189 85% 40% / 0.95) 0%, hsl(189 75% 50% / 0.9) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(84 81% 44%) 0%, hsl(84 81% 55%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(189 85% 40%) 0%, hsl(189 75% 50%) 50%, hsl(84 81% 44%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(189 10% 98%) 100%);
-    --gradient-blue-elegant: linear-gradient(135deg, hsl(189 95% 28%) 0%, hsl(189 85% 38%) 35%, hsl(189 75% 48%) 70%, hsl(189 65% 58%) 100%);
-    --gradient-header: linear-gradient(180deg, hsl(189 30% 70%) 0%, hsl(189 50% 50%) 100%);
-    
-    /* Dynamic shadows */
-    --shadow-glow-lime: 0 0 30px hsla(84 81% 44% / 0.4);
-    --shadow-glow-blue: 0 0 30px hsla(189 85% 40% / 0.3);
-    --shadow-elevation: 0 10px 40px -10px hsla(189 85% 40% / 0.2);
-    --shadow-card-hover: 0 20px 50px -15px hsla(189 85% 40% / 0.25);
-    --shadow-header: 0 4px 20px -2px hsla(189 50% 50% / 0.25);
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 18%) 100%);
+    --gradient-primary-soft: linear-gradient(135deg, hsl(0 0% 8% / 0.92) 0%, hsl(0 0% 15% / 0.88) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(88 70% 45%) 0%, hsl(88 65% 52%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 8% / 0.4) 0%, hsl(0 0% 8% / 0.7) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 100%);
+    --gradient-blue-elegant: linear-gradient(135deg, hsl(0 0% 6%) 0%, hsl(0 0% 14%) 100%);
+    --gradient-header: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 14%) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 100%) 100%);
+
+    /* Shadows */
+    --shadow-glow-lime: 0 8px 28px -10px hsla(88 65% 52% / 0.45);
+    --shadow-glow-blue: 0 8px 24px -8px hsla(0 0% 0% / 0.18);
+    --shadow-elevation: 0 16px 48px -20px hsla(0 0% 0% / 0.18);
+    --shadow-card-hover: 0 24px 60px -24px hsla(0 0% 0% / 0.22);
+    --shadow-header: 0 8px 32px -12px hsla(0 0% 0% / 0.12);
+    --shadow-soft: 0 1px 3px hsla(0 0% 0% / 0.05), 0 8px 24px hsla(0 0% 0% / 0.06);
+    --shadow-pill: 0 6px 20px -6px hsla(0 0% 0% / 0.25);
   }
 
   .dark {
-    --background: 189 80% 10%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
 
-    --card: 189 70% 15%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 189 70% 15%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 189 75% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 189 60% 35%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 189 30% 25%;
-    --muted-foreground: 189 40% 70%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 84 81% 44%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 88 65% 55%;
+    --accent-foreground: 0 0% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 96%;
 
-    --border: 189 50% 20%;
-    --input: 189 50% 20%;
-    --ring: 189 75% 50%;
-
-    /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(189 75% 50%) 0%, hsl(189 65% 55%) 50%, hsl(189 55% 60%) 100%);
-    --gradient-primary-soft: linear-gradient(to right, hsl(189 75% 50% / 0.95) 0%, hsl(189 65% 55% / 0.9) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(84 81% 44%) 0%, hsl(84 81% 55%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(189 80% 10%) 0%, hsl(189 70% 25%) 50%, hsl(84 81% 35%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(189 70% 15%) 0%, hsl(189 60% 18%) 100%);
-    --gradient-blue-elegant: linear-gradient(135deg, hsl(189 85% 35%) 0%, hsl(189 75% 45%) 35%, hsl(189 65% 52%) 70%, hsl(189 55% 58%) 100%);
-    --gradient-header: linear-gradient(180deg, hsl(189 30% 70%) 0%, hsl(189 50% 50%) 100%);
-    
-    --shadow-glow-lime: 0 0 30px hsla(84 81% 44% / 0.5);
-    --shadow-glow-blue: 0 0 30px hsla(189 75% 50% / 0.4);
-    --shadow-elevation: 0 10px 40px -10px hsla(0 0% 0% / 0.5);
-    --shadow-card-hover: 0 20px 50px -15px hsla(84 81% 44% / 0.3);
-    --shadow-header: 0 4px 20px -2px hsla(189 50% 50% / 0.3);
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 88 65% 55%;
   }
 }
 
@@ -115,124 +111,78 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Outfit', system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+    line-height: 0.95;
+  }
+
+  .display-xl {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+}
+
+@layer components {
+  .btn-pill {
+    @apply inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium transition-all hover:bg-foreground/90 hover:scale-[1.02];
+    box-shadow: var(--shadow-pill);
+  }
+
+  .btn-pill-outline {
+    @apply inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background text-foreground px-6 py-3 text-sm font-medium transition-all hover:bg-foreground hover:text-background;
+  }
+
+  .pulse-dot {
+    @apply relative inline-block w-2 h-2 rounded-full bg-accent;
+  }
+  .pulse-dot::after {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-accent;
+    animation: pulse-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(2.5); opacity: 0; }
+  }
+}
+
+@layer components {
+  .legal-prose h2 {
+    @apply font-display uppercase text-2xl md:text-3xl font-bold mt-10 mb-4 text-foreground tracking-tight leading-tight;
+  }
+  .legal-prose h3 {
+    @apply font-display uppercase text-lg md:text-xl font-bold mt-8 mb-3 text-foreground tracking-tight;
+  }
+  .legal-prose p {
+    @apply text-muted-foreground mb-5 leading-relaxed;
+  }
+  .legal-prose ul {
+    @apply list-disc pl-6 text-muted-foreground mb-5 space-y-2 leading-relaxed;
+  }
+  .legal-prose a {
+    @apply text-foreground underline underline-offset-4 hover:text-accent transition-colors;
   }
 }
 
 @layer utilities {
-  /* Section transitions with color fades */
-  .section-transition-top {
-    position: relative;
-  }
-  
-  .section-transition-top::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to bottom, var(--transition-from, transparent), transparent);
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  .section-transition-bottom {
-    position: relative;
-  }
-  
-  .section-transition-bottom::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to top, var(--transition-to, transparent), transparent);
-    pointer-events: none;
-    z-index: 1;
-  }
+  .section-transition-top { position: relative; }
+  .section-transition-bottom { position: relative; }
 
-  /* Custom Leaflet Map Styles */
-  .leaflet-container {
-    font-family: 'Outfit', sans-serif;
-  }
-
-  .leaflet-popup-content-wrapper {
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    padding: 0;
-  }
-
-  .leaflet-popup-content {
-    margin: 0;
-    line-height: 1.4;
-  }
-
-  .leaflet-popup-tip {
-    background: white;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.15);
-  }
-
-  .custom-popup .leaflet-popup-close-button {
-    color: white;
-    font-size: 24px;
-    padding: 8px 12px;
-    font-weight: bold;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-  }
-
-  .custom-popup .leaflet-popup-close-button:hover {
-    opacity: 1;
-    color: hsl(84 81% 44%);
-  }
-
-  .leaflet-control-zoom a {
-    background: white !important;
-    color: hsl(189 85% 40%) !important;
-    border: 2px solid hsl(84 81% 44%) !important;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .leaflet-control-zoom a:hover {
-    background: hsl(84 81% 44%) !important;
-    color: black !important;
-    transform: scale(1.1);
-  }
-
-  .map-tiles {
-    filter: brightness(1.05) contrast(1.05);
-  }
-
-  /* Custom marker animation */
-  .custom-marker {
-    animation: markerPulse 2s ease-in-out infinite;
-  }
+  .leaflet-container { font-family: 'Inter', sans-serif; }
 
   @keyframes markerPulse {
-    0%, 100% {
-      transform: scale(1);
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-    }
-    50% {
-      transform: scale(1.1);
-      filter: drop-shadow(0 8px 16px rgba(156,225,55,0.5));
-    }
-  }
-
-  /* Smooth hover effect on map container */
-  .leaflet-container:hover .custom-marker {
-    animation: markerBounce 1s ease-in-out;
-  }
-
-  @keyframes markerBounce {
-    0%, 100% { transform: translateY(0); }
-    25% { transform: translateY(-8px); }
-    50% { transform: translateY(0); }
-    75% { transform: translateY(-4px); }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
   }
 }

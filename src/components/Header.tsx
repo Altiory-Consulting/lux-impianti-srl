@@ -1,157 +1,120 @@
 import { Link, useLocation } from "react-router-dom";
-import { Phone, MapPin, Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.jpg";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { useState, useEffect } from "react";
 import logoTrasparente from "@/assets/logo-trasparente.png";
+
+const navItems = [
+  { to: "/", label: "Home" },
+  { to: "/chi-siamo", label: "Chi Siamo" },
+  { to: "/soluzioni", label: "Soluzioni" },
+  { to: "/contatti", label: "Contatti" },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) =>
+    path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 relative" style={{
-      background: 'var(--gradient-header)',
-      boxShadow: 'var(--shadow-header)'
-    }}>
-      {/* Top Bar - Dark with contacts */}
-      <div className="bg-foreground text-background">
-        <div className="container mx-auto px-3 md:px-4 py-3 md:py-3">
-          <div className="flex flex-row justify-between items-center gap-2 md:gap-4 text-xs md:text-sm">
-            {/* Capriolo location - Left */}
-            <div className="flex items-center gap-1.5">
-              <MapPin className="h-4 w-4 md:h-4 md:w-4 flex-shrink-0" />
-              <span className="whitespace-nowrap">Capriolo (BS)</span>
-            </div>
-            
-            {/* Phone number - Center */}
-            <a 
-              href="tel:08231556627" 
-              className="flex items-center gap-1.5 md:gap-2 hover:text-lime-green transition-colors duration-300 font-semibold whitespace-nowrap"
-            >
-              <Phone className="h-4 w-4 md:h-4 md:w-4 flex-shrink-0" />
-              <span>0823 155 6627</span>
-            </a>
-            
-            {/* Caserta location - Right */}
-            <div className="flex items-center gap-1.5">
-              <MapPin className="h-4 w-4 md:h-4 md:w-4 flex-shrink-0" />
-              <span className="whitespace-nowrap">Caserta (CE)</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <header className="sticky top-0 z-50 w-full">
+      <div
+        className={`mx-auto transition-all duration-300 ${
+          scrolled ? "px-3 pt-3" : "px-4 pt-4"
+        }`}
+      >
+        <div
+          className={`mx-auto flex items-center justify-between rounded-full bg-background/90 backdrop-blur-xl border border-foreground/8 transition-all duration-300 ${
+            scrolled ? "shadow-[0_8px_32px_-12px_rgba(0,0,0,0.18)]" : "shadow-[0_4px_20px_-8px_rgba(0,0,0,0.10)]"
+          }`}
+          style={{ maxWidth: "1320px" }}
+        >
+          <Link to="/" className="flex items-center gap-2 pl-5 py-2">
+            <img src={logoTrasparente} alt="Lux Impianti" className="h-10 w-auto" />
+            <span className="font-display font-bold text-lg tracking-tight uppercase hidden sm:inline">
+              Lux Impianti
+            </span>
+          </Link>
 
-      {/* Main Navigation */}
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-6 md:py-10 relative">
-          {/* Center Logo - Mobile & Desktop */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 z-0">
-            <Link to="/">
-              <img src={logoTrasparente} alt="Lux Impianti" className="h-20 md:h-24 w-auto" />
-            </Link>
-          </div>
-          
-          {/* Spacer for mobile to maintain layout */}
-          <div className="md:hidden w-10"></div>
-
-          {/* Desktop Navigation - Large screens */}
-          <nav className="hidden lg:flex items-center gap-8 relative z-10 ml-auto">
-            <Link
-              to="/"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/") ? "text-lime-green" : ""
-              }`}
-            >
-              HOME
-            </Link>
-            <Link
-              to="/chi-siamo"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/chi-siamo") ? "text-lime-green" : ""
-              }`}
-            >
-              CHI SIAMO
-            </Link>
-            <Link
-              to="/soluzioni"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/soluzioni") || location.pathname.startsWith("/soluzione/")
-                  ? "text-lime-green"
-                  : ""
-              }`}
-            >
-              SOLUZIONI
-            </Link>
-            <Link
-              to="/contatti"
-              className={`text-primary-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/contatti") ? "text-lime-green" : ""
-              }`}
-            >
-              CONTATTI
-            </Link>
+          <nav className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  isActive(item.to)
+                    ? "text-foreground bg-foreground/5"
+                    : "text-foreground/70 hover:text-foreground hover:bg-foreground/5"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
-          {/* Tablet & Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden text-primary-foreground hover:text-lime-green relative z-10"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
-        </div>
-
-        {/* Tablet & Mobile Dropdown Navigation */}
-        <nav 
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${
-            isMenuOpen 
-              ? 'max-h-64 opacity-100 pb-4' 
-              : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="flex flex-col gap-4 bg-background/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
-            <Link
-              to="/"
-              className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/") ? "text-lime-green" : ""
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              HOME
-            </Link>
-            <Link
-              to="/chi-siamo"
-              className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/chi-siamo") ? "text-lime-green" : ""
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              CHI SIAMO
-            </Link>
-            <Link
-              to="/soluzioni"
-              className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/soluzioni") ? "text-lime-green" : ""
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              SOLUZIONI
-            </Link>
+          <div className="flex items-center gap-2 pr-2">
             <Link
               to="/contatti"
-              className={`text-foreground hover:text-lime-green transition-colors uppercase text-sm font-semibold ${
-                isActive("/contatti") ? "text-lime-green" : ""
-              }`}
-              onClick={() => setIsMenuOpen(false)}
+              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-all hover:scale-[1.02]"
             >
-              CONTATTI
+              <span className="pulse-dot" />
+              Contattaci
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-background/15">
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </span>
             </Link>
+
+            <button
+              type="button"
+              aria-label="Apri menu"
+              className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full bg-foreground text-background mr-1"
+              onClick={() => setIsMenuOpen((s) => !s)}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
-        </nav>
+        </div>
+
+        <div
+          className={`lg:hidden mx-auto overflow-hidden transition-all duration-300 ${
+            isMenuOpen ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
+          }`}
+          style={{ maxWidth: "1320px" }}
+        >
+          <nav className="rounded-3xl bg-background border border-foreground/8 shadow-soft p-3 flex flex-col gap-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => setIsMenuOpen(false)}
+                className={`px-4 py-3 rounded-2xl text-sm font-medium transition-colors ${
+                  isActive(item.to)
+                    ? "bg-foreground text-background"
+                    : "text-foreground hover:bg-foreground/5"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              to="/contatti"
+              onClick={() => setIsMenuOpen(false)}
+              className="sm:hidden mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-background px-5 py-3 text-sm font-medium"
+            >
+              <span className="pulse-dot" />
+              Contattaci
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </nav>
+        </div>
       </div>
     </header>
   );
