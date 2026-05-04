@@ -92,11 +92,12 @@ const Home = () => {
         <div className="px-3 sm:px-4">
           <div className="relative mx-auto overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-foreground" style={{ maxWidth: "1320px" }}>
             <video
+              key={currentVideoIndex}
               ref={videoRef}
               autoPlay
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               onEnded={handleVideoEnd}
               className="absolute inset-0 w-full h-full object-cover"
             >
