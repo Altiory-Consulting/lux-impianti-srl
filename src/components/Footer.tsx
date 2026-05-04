@@ -117,7 +117,6 @@ const Footer = () => {
           <div className="pt-10 border-t border-background/10">
             <div className="flex flex-col sm:flex-row justify-between gap-3 text-xs text-background/50">
               <p>&copy; {new Date().getFullYear()} Lux Impianti S.R.L. Tutti i diritti riservati.</p>
-              <p>Energia rinnovabile · Italia</p>
             </div>
           </div>
         </div>
