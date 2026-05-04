@@ -1,440 +1,181 @@
 import { Link } from "react-router-dom";
-import { Target, Heart, Award, CheckCircle, Users, TrendingUp, Lightbulb, Shield, Calendar, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpRight, CheckCircle, Award, Users, Calendar, TrendingUp, Lightbulb, Shield, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import PageHero from "@/components/PageHero";
+
+const stats = [
+  { value: "100+", label: "Progetti Completati", icon: Award },
+  { value: "98%", label: "Clienti Soddisfatti", icon: Users },
+  { value: "15+", label: "Anni di Esperienza", icon: Calendar },
+  { value: "50+", label: "Partner Attivi", icon: TrendingUp },
+];
+
+const whyChooseUs = [
+  { icon: Lightbulb, title: "Soluzioni Innovative", desc: "Tecnologie all'avanguardia per massima efficienza energetica e risparmio reale." },
+  { icon: Shield, title: "Garanzia di Qualità", desc: "Materiali certificati e installazioni a norma con garanzie estese." },
+  { icon: Users, title: "Team Qualificato", desc: "Tecnici specializzati seguono ogni progetto dalla A alla Z." },
+  { icon: TrendingUp, title: "Risparmio Garantito", desc: "Riduci i costi energetici fino al 70% con impianti ad alta efficienza." },
+];
+
+const values = [
+  { title: "Ascolto del Cliente", desc: "Ogni progetto è studiato per rispondere alle esigenze specifiche, ottimizzando costi, tempi e impatto ambientale." },
+  { title: "Sostenibilità", desc: "Soluzioni progettate per ridurre l'impatto ambientale e promuovere l'utilizzo di energie rinnovabili." },
+  { title: "Qualità e Affidabilità", desc: "Componenti di alta qualità dai migliori partner del settore, con certificazioni che garantiscono standard elevati." },
+  { title: "Innovazione Continua", desc: "Sempre aggiornati sulle ultime tecnologie per offrire le soluzioni più avanzate ed efficienti." },
+];
+
 const ChiSiamo = () => {
-  const heroSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const statsSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const whyUsSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const missionSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const valuesSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const teamSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const objectivesSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const certificationsSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const ctaSection = useIntersectionObserver({
-    threshold: 0.2
-  });
-  const stats = [{
-    value: "100+",
-    label: "Progetti Completati",
-    icon: Award
-  }, {
-    value: "98%",
-    label: "Clienti Soddisfatti",
-    icon: Users
-  }, {
-    value: "15+",
-    label: "Anni di Esperienza",
-    icon: Calendar
-  }, {
-    value: "50+",
-    label: "Partner Attivi",
-    icon: TrendingUp
-  }];
-  const whyChooseUs = [{
-    icon: Lightbulb,
-    title: "Soluzioni Innovative",
-    desc: "Utilizziamo tecnologie all'avanguardia per garantire massima efficienza energetica e risparmio",
-    color: "text-amber-500",
-    bgColor: "bg-amber-500/10"
-  }, {
-    icon: Shield,
-    title: "Garanzia di Qualità",
-    desc: "Materiali certificati e installazioni a norma con garanzie estese su tutti i componenti",
-    color: "text-blue-500",
-    bgColor: "bg-blue-500/10"
-  }, {
-    icon: Users,
-    title: "Team Qualificato",
-    desc: "Tecnici specializzati e certificati seguono ogni progetto dalla A alla Z",
-    color: "text-green-500",
-    bgColor: "bg-green-500/10"
-  }, {
-    icon: TrendingUp,
-    title: "Risparmio Garantito",
-    desc: "Riduci i costi energetici fino al 70% con i nostri impianti ad alta efficienza",
-    color: "text-purple-500",
-    bgColor: "bg-purple-500/10"
-  }];
-  const team = [{
-    name: "Marco Rossi",
-    role: "CEO & Founder",
-    icon: Lightbulb
-  }, {
-    name: "Laura Bianchi",
-    role: "Technical Director",
-    icon: Shield
-  }, {
-    name: "Giuseppe Verdi",
-    role: "Project Manager",
-    icon: Target
-  }, {
-    name: "Sofia Russo",
-    role: "Customer Success",
-    icon: Heart
-  }];
-  const certifications = ["ISO 14001 - Gestione Ambientale", "ISO 18001 - Sicurezza sul Lavoro", "UNI EN ISO 9001 - Qualità", "UNI CEI 11352 - Energy Service Company"];
-  return <div className="min-h-screen bg-background">
+  return (
+    <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Breadcrumb */}
-      <div className="bg-muted py-4">
-        <div className="container mx-auto px-4">
-          <p className="text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-primary">
-              Home
-            </Link>{" "}
-            / Chi Siamo
-          </p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Chi Siamo"
+        breadcrumbs={[{ label: "Home", to: "/" }, { label: "Chi Siamo" }]}
+        title={<>PARTNER DI<br />FIDUCIA NELL'<span className="text-accent">ENERGIA</span></>}
+        description="Da oltre 15 anni progettiamo, installiamo e manuteniamo impianti ad alta efficienza per privati e aziende, con un approccio editoriale alla sostenibilità."
+        cta={{ label: "Lavora con noi", to: "/contatti" }}
+      />
 
-      {/* Page Header */}
-      <section 
-        className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden py-12 md:py-20"
-        style={{
-          background: 'linear-gradient(135deg, hsl(189 95% 28%) 0%, hsl(189 85% 38%) 35%, hsl(189 75% 48%) 70%, hsl(189 65% 58%) 100%)',
-        }}
-      >
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+DQo8L2c+PC9zdmc+')] opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-5xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-lg border-2 border-lime-green/60 shadow-xl hover:bg-white/15 hover:border-lime-green hover:scale-105 transition-all duration-300 group">
-              <Users className="h-4 w-4 md:h-5 md:w-5 text-lime-green group-hover:scale-110 transition-transform duration-300" />
-              <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Il Nostro Team</span>
+      <section className="px-3 sm:px-4 -mt-4 mb-16">
+        <div className="mx-auto max-w-[1320px] grid sm:grid-cols-2 gap-3">
+          {[
+            { city: "Capriolo (BS)", region: "Sede Lombardia" },
+            { city: "Caserta (CE)", region: "Sede Campania" },
+          ].map((l) => (
+            <div key={l.city} className="rounded-3xl border border-foreground/10 bg-card p-6 flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground">{l.region}</p>
+                  <p className="text-xl font-semibold">{l.city}</p>
+                </div>
+              </div>
+              <span className="pulse-dot" />
             </div>
-            
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
-              Chi <span className="text-lime-green drop-shadow-[0_0_30px_rgba(156,225,55,0.5)]">Siamo</span>
-            </h1>
-            
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 md:mb-8 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] px-4">
-              Partner di fiducia per soluzioni energetiche sostenibili e innovative
+          ))}
+        </div>
+      </section>
+
+      <section className="px-3 sm:px-4 mb-20">
+        <div className="mx-auto max-w-[1320px] grid grid-cols-2 md:grid-cols-4 gap-3">
+          {stats.map((s) => (
+            <div key={s.label} className="rounded-3xl bg-foreground text-background p-8">
+              <s.icon className="h-6 w-6 text-accent mb-6" />
+              <div className="text-5xl md:text-6xl font-display font-medium tracking-tight">{s.value}</div>
+              <div className="text-sm text-background/60 mt-2 uppercase tracking-wider">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-3 sm:px-4 mb-20">
+        <div className="mx-auto max-w-[1320px] grid lg:grid-cols-2 gap-3">
+          <div className="rounded-3xl bg-card border border-foreground/10 p-10 md:p-14">
+            <p className="text-accent uppercase tracking-widest text-xs font-semibold mb-5 flex items-center gap-2">
+              <span className="pulse-dot" /> Mission
             </p>
-            
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center px-4">
-              <div className="group relative inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-xl rounded-2xl px-4 md:px-6 py-3 md:py-4 border-2 border-white/20 hover:border-lime-green/60 shadow-2xl hover:scale-110 hover:bg-white/20 transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-lime-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <MapPin className="h-5 w-5 md:h-6 md:w-6 text-lime-green flex-shrink-0 relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-sm md:text-lg font-bold text-white relative z-10">Capriolo (BS)</span>
-              </div>
-              <div className="group relative inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-xl rounded-2xl px-4 md:px-6 py-3 md:py-4 border-2 border-white/20 hover:border-lime-green/60 shadow-2xl hover:scale-110 hover:bg-white/20 transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-lime-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <MapPin className="h-5 w-5 md:h-6 md:w-6 text-lime-green flex-shrink-0 relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-sm md:text-lg font-bold text-white relative z-10">Caserta (CE)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section ref={statsSection.ref} className="py-16 bg-background section-transition-top section-transition-bottom relative" style={{
-      '--transition-from': 'hsl(210 35% 42% / 0.3)',
-      '--transition-to': 'hsl(214 50% 98% / 0.5)'
-    } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {stats.map((stat, index) => <Card key={index} className={`text-center group cursor-default overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${statsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-            animationDelay: `${index * 0.1}s`,
-            animationFillMode: 'both'
-          }}>
-                <CardContent className="p-6 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative z-10">
-                    <div className="mb-3 flex justify-center">
-                      <div className="p-3 rounded-full bg-lime-green/10 group-hover:bg-lime-green/20 transition-all duration-300">
-                        <stat.icon className="h-8 w-8 text-lime-green group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                    </div>
-                    <div className="text-4xl font-bold text-lime-green mb-2 group-hover:scale-110 transition-transform duration-300">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                      {stat.label}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section ref={whyUsSection.ref} className="py-16 bg-muted/30 section-transition-top section-transition-bottom relative" style={{
-      '--transition-from': 'hsl(214 50% 98% / 0.5)',
-      '--transition-to': 'hsl(211 40% 70% / 0.2)'
-    } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${whyUsSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">I NOSTRI PUNTI DI FORZA</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Perché Sceglierci</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Scopri cosa ci rende il partner ideale per le tue esigenze energetiche
+            <h2 className="display-xl text-3xl md:text-5xl mb-6">CREARE AMBIENTI SOSTENIBILI E CONFORTEVOLI.</h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-4">
+              Assistiamo il cliente in ogni fase del progetto: dalla progettazione iniziale all'installazione, fino all'assistenza post-vendita continuativa.
+            </p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Costruiamo relazioni durature basate su fiducia, affidabilità e competenza tecnica.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {whyChooseUs.map((item, index) => <Card key={index} className={`group cursor-pointer overflow-hidden bg-gradient-card border-border hover:border-lime-green hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 ${whyUsSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-            animationDelay: `${index * 0.1}s`,
-            animationFillMode: 'both'
-          }}>
-                <CardContent className="p-6 text-center relative h-full flex flex-col">
-                  <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative z-10 flex-1 flex flex-col">
-                    <div className="mb-4 flex justify-center">
-                      <div className={`p-4 rounded-full transition-all duration-300 group-hover:scale-110 ${item.bgColor}`}>
-                        <item.icon className={`h-12 w-12 ${item.color} group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`} />
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300 mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 flex-1">
-                      {item.desc}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>)}
+
+          <div className="rounded-3xl bg-foreground text-background p-10 md:p-14">
+            <p className="text-accent uppercase tracking-widest text-xs font-semibold mb-8">Cosa offriamo</p>
+            <ul className="space-y-5">
+              {[
+                "Consulenza energetica personalizzata",
+                "Progettazione su misura",
+                "Installazione professionale",
+                "Manutenzione programmata",
+                "Assistenza post-vendita",
+                "Accesso agli incentivi statali",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-4 border-b border-background/10 pb-4 last:border-0">
+                  <CheckCircle className="h-5 w-5 text-accent flex-shrink-0 mt-1" />
+                  <span className="text-lg">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Mission */}
-      <section ref={missionSection.ref} className="py-16 section-transition-top section-transition-bottom relative" style={{
-      '--transition-from': 'hsl(0 0% 100% / 0.5)',
-      '--transition-to': 'hsl(211 40% 70% / 0.2)'
-    } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className={`transition-all duration-700 ${missionSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              <div className="flex items-center gap-3 mb-6 group">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                  <Target className="h-12 w-12 text-secondary relative z-10 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-lg" />
+      <section className="px-3 sm:px-4 mb-20">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 px-2">
+            <div>
+              <p className="text-accent uppercase tracking-widest text-xs font-semibold mb-3 flex items-center gap-2">
+                <span className="pulse-dot" /> Perché sceglierci
+              </p>
+              <h2 className="display-xl text-3xl md:text-5xl max-w-3xl">UN PARTNER, QUATTRO PILASTRI.</h2>
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {whyChooseUs.map((w) => (
+              <div key={w.title} className="rounded-3xl bg-card border border-foreground/10 p-8 hover:border-foreground/30 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center mb-6">
+                  <w.icon className="h-5 w-5" />
                 </div>
-                <h2 className="text-3xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300">La Nostra Mission</h2>
+                <h3 className="text-xl font-semibold mb-3">{w.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{w.desc}</p>
               </div>
-              <p className="text-lg text-muted-foreground mb-4 hover:text-foreground transition-colors duration-300">
-                Il nostro obiettivo è creare ambienti sostenibili e confortevoli attraverso soluzioni
-                energetiche innovative e personalizzate.
-              </p>
-              <p className="text-lg text-muted-foreground mb-4 hover:text-foreground transition-colors duration-300">
-                Il nostro team di professionisti qualificati assiste il cliente in ogni fase del
-                progetto: dalla progettazione iniziale all'installazione, fino all'assistenza
-                post-vendita continuativa.
-              </p>
-              <p className="text-lg text-muted-foreground hover:text-foreground transition-colors duration-300">
-                Crediamo nell'importanza di costruire relazioni durature basate sulla fiducia,
-                l'affidabilità e la competenza tecnica.
-              </p>
-            </div>
-            <Card className={`shadow-elevation hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card border-border hover:border-lime-green overflow-hidden group ${missionSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-            animationDelay: '0.2s',
-            animationFillMode: 'both'
-          }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <CardContent className="p-8 relative z-10">
-                <ul className="space-y-4">
-                  {["Consulenza energetica personalizzata", "Progettazione su misura", "Installazione professionale", "Manutenzione programmata", "Assistenza post-vendita h24", "Accesso agli incentivi statali"].map((item, index) => <li key={index} className={`flex items-start gap-3 group/item hover:translate-x-2 transition-all duration-300 ${missionSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
-                      animationDelay: `${0.3 + index * 0.1}s`,
-                      animationFillMode: 'both'
-                    }}>
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-secondary/30 rounded-full blur-md opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
-                        <CheckCircle className="h-6 w-6 text-secondary flex-shrink-0 mt-1 relative z-10 group-hover/item:scale-125 group-hover/item:rotate-12 transition-all duration-300" />
-                      </div>
-                      <span className="text-lg group-hover/item:text-lime-green group-hover/item:font-semibold transition-all duration-300">{item}</span>
-                    </li>)}
-                </ul>
-              </CardContent>
-            </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section ref={valuesSection.ref} className="py-16 bg-blue-light/20 section-transition-top section-transition-bottom relative" style={{
-      '--transition-from': 'hsl(211 40% 70% / 0.2)',
-      '--transition-to': 'hsl(214 50% 98% / 0.5)'
-    } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className={`flex items-center gap-3 mb-8 transition-all duration-700 group ${valuesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              <div className="relative">
-                <div className="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <Heart className="h-12 w-12 text-secondary drop-shadow-lg relative z-10 group-hover:scale-125 group-hover:fill-secondary/20 transition-all duration-500" />
+      <section className="px-3 sm:px-4 mb-20">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="mb-10 px-2">
+            <p className="text-accent uppercase tracking-widest text-xs font-semibold mb-3 flex items-center gap-2">
+              <span className="pulse-dot" /> Valori
+            </p>
+            <h2 className="display-xl text-3xl md:text-5xl">CIÒ IN CUI CREDIAMO.</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-3">
+            {values.map((v, i) => (
+              <div key={v.title} className="rounded-3xl border border-foreground/10 p-10 bg-card">
+                <div className="text-xs uppercase tracking-widest text-muted-foreground mb-4">0{i + 1}</div>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-4">{v.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{v.desc}</p>
               </div>
-              <h2 className="text-3xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300">I Nostri Valori</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className={`hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-              animationDelay: '0.1s',
-              animationFillMode: 'both'
-            }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-green/10 rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-700"></div>
-                <CardContent className="p-6 relative z-10">
-                  <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">Ascolto del Cliente</h3>
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                    Il valore aggiunto della nostra azienda consiste nell'ascoltare attentamente il
-                    cliente e proporre soluzioni personalizzate che ottimizzano costi, tempi e
-                    impatto ambientale. Ogni progetto è studiato per rispondere alle esigenze
-                    specifiche del cliente.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className={`hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-              animationDelay: '0.2s',
-              animationFillMode: 'both'
-            }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-green/10 rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-700"></div>
-                <CardContent className="p-6 relative z-10">
-                  <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">Sostenibilità</h3>
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                    Crediamo fortemente nell'importanza della sostenibilità ambientale. Ogni
-                    soluzione che proponiamo è progettata per ridurre l'impatto ambientale e
-                    promuovere l'utilizzo di energie rinnovabili, contribuendo a un futuro più verde.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className={`hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-              animationDelay: '0.3s',
-              animationFillMode: 'both'
-            }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-green/10 rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-700"></div>
-                <CardContent className="p-6 relative z-10">
-                  <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">Qualità e Affidabilità</h3>
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                    Utilizziamo solo componenti e materiali di alta qualità forniti dai migliori
-                    partner del settore. La nostra esperienza pluriennale e le certificazioni
-                    conseguite garantiscono standard qualitativi elevati.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className={`hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${valuesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-              animationDelay: '0.4s',
-              animationFillMode: 'both'
-            }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-green/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-lime-green/10 rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:translate-x-8 group-hover:-translate-y-8 transition-transform duration-700"></div>
-                <CardContent className="p-6 relative z-10">
-                  <h3 className="text-xl font-bold mb-4 text-primary group-hover:text-lime-green transition-colors duration-300">Innovazione Continua</h3>
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                    Ci impegniamo a rimanere sempre aggiornati sulle ultime tecnologie e innovazioni
-                    nel settore delle energie rinnovabili, per offrire ai nostri clienti le
-                    soluzioni più avanzate ed efficienti.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Objectives */}
-      <section ref={objectivesSection.ref} className="py-16 section-transition-top section-transition-bottom relative" style={{
-      '--transition-from': 'hsl(214 50% 98% / 0.5)',
-      '--transition-to': 'hsl(211 100% 22% / 0.3)'
-    } as React.CSSProperties}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className={`flex items-center gap-3 mb-8 transition-all duration-700 group ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              <div className="relative">
-                <div className="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <Award className="h-12 w-12 text-secondary drop-shadow-lg relative z-10 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500" />
-              </div>
-              <h2 className="text-3xl font-bold text-primary group-hover:text-lime-green transition-colors duration-300">I Nostri Obiettivi</h2>
-            </div>
-            <Card className={`shadow-elevation hover:shadow-card-hover hover:shadow-glow-lime transition-all duration-500 hover:-translate-y-3 bg-gradient-card hover:border-lime-green overflow-hidden group cursor-pointer ${objectivesSection.isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
-            animationDelay: '0.2s',
-            animationFillMode: 'both'
-          }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-lime-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute top-0 left-0 w-64 h-64 bg-lime-green/10 rounded-full blur-3xl -translate-y-32 -translate-x-32 group-hover:-translate-x-16 group-hover:-translate-y-16 transition-transform duration-700"></div>
-              <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl translate-y-32 translate-x-32 group-hover:translate-x-16 group-hover:translate-y-16 transition-transform duration-700"></div>
-              <CardContent className="p-8 relative z-10">
-                <p className={`text-lg text-muted-foreground group-hover:text-foreground mb-6 transition-all duration-300 ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
-                  animationDelay: '0.3s',
-                  animationFillMode: 'both'
-                }}>
-                  Il nostro obiettivo principale è diventare il partner di fiducia dei nostri
-                  clienti, offrendo soluzioni affidabili nel tempo e un'assistenza post-vendita
-                  puntuale e professionale.
-                </p>
-                <p className={`text-lg text-muted-foreground group-hover:text-foreground mb-6 transition-all duration-300 ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
-                  animationDelay: '0.4s',
-                  animationFillMode: 'both'
-                }}>
-                  Vogliamo che ogni cliente sia pienamente soddisfatto del proprio investimento in
-                  energie rinnovabili, beneficiando di un risparmio economico concreto e di un
-                  comfort abitativo ottimale.
-                </p>
-                <div className={`relative inline-block ${objectivesSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
-                  animationDelay: '0.5s',
-                  animationFillMode: 'both'
-                }}>
-                  <div className="absolute inset-0 bg-lime-green/20 blur-lg group-hover:blur-xl transition-all duration-300"></div>
-                  <p className="text-lg font-semibold text-primary group-hover:text-lime-green transition-colors duration-300 relative z-10">
-                    La soddisfazione del cliente è la nostra più grande ricompensa.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications */}
-      
-
-      {/* Team Section */}
-      
-
-
-      {/* CTA */}
-      <section ref={ctaSection.ref} className="py-16 section-transition-top relative" style={{
-      '--transition-from': 'hsl(211 40% 70% / 0.2)'
-    } as React.CSSProperties}>
-        <div className="container mx-auto px-4 text-center">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 text-primary transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            Scegli un Futuro più Green
-          </h2>
-          <p className={`text-xl mb-8 max-w-2xl mx-auto text-muted-foreground transition-all duration-700 ${ctaSection.isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
-          animationDelay: '0.2s',
-          animationFillMode: 'both'
-        }}>
-            Scopri come possiamo aiutarti a risparmiare energia e ridurre i costi
+      <section className="px-3 sm:px-4 pb-16">
+        <div className="mx-auto max-w-[1320px] rounded-[2rem] md:rounded-[2.5rem] bg-foreground text-background p-10 md:p-20 text-center">
+          <p className="text-accent uppercase tracking-widest text-xs font-semibold mb-5 flex items-center justify-center gap-2">
+            <span className="pulse-dot" /> Iniziamo
           </p>
-          <Button asChild size="lg" className="bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime hover:animate-pulse-glow">
-            <Link to="/contatti">Contattaci Ora</Link>
-          </Button>
+          <h2 className="display-xl text-4xl md:text-6xl mb-6">SCEGLI UN FUTURO PIÙ GREEN.</h2>
+          <p className="text-background/70 text-lg max-w-xl mx-auto mb-10">
+            Scopri come possiamo aiutarti a risparmiare energia e ridurre i costi.
+          </p>
+          <Link
+            to="/contatti"
+            className="inline-flex items-center gap-3 rounded-full bg-background text-foreground pl-6 pr-2 py-2 text-sm font-medium hover:scale-[1.02] transition-transform"
+          >
+            Contattaci ora
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-foreground text-background">
+              <ArrowUpRight className="h-4 w-4" />
+            </span>
+          </Link>
         </div>
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default ChiSiamo;

@@ -1,454 +1,220 @@
-import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, CheckCircle, Send, MessageSquare, User, Building2, Sparkles } from "lucide-react";
+import { CheckCircle, Send, Building2, Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
-// Schema di validazione con zod
 const contactFormSchema = z.object({
-  nome: z
-    .string()
-    .trim()
-    .min(2, { message: "Il nome deve contenere almeno 2 caratteri" })
-    .max(50, { message: "Il nome non può superare 50 caratteri" }),
-  cognome: z
-    .string()
-    .trim()
-    .min(2, { message: "Il cognome deve contenere almeno 2 caratteri" })
-    .max(50, { message: "Il cognome non può superare 50 caratteri" }),
-  email: z
-    .string()
-    .trim()
-    .email({ message: "Inserisci un indirizzo email valido" })
-    .max(255, { message: "L'email non può superare 255 caratteri" }),
-  telefono: z
-    .string()
-    .trim()
-    .min(8, { message: "Inserisci un numero di telefono valido" })
-    .max(15, { message: "Il numero di telefono non può superare 15 caratteri" })
+  nome: z.string().trim().min(2, { message: "Il nome deve contenere almeno 2 caratteri" }).max(50),
+  cognome: z.string().trim().min(2, { message: "Il cognome deve contenere almeno 2 caratteri" }).max(50),
+  email: z.string().trim().email({ message: "Inserisci un indirizzo email valido" }).max(255),
+  telefono: z.string().trim().min(8, { message: "Inserisci un numero di telefono valido" }).max(15)
     .regex(/^[0-9+\s()-]+$/, { message: "Il numero può contenere solo numeri, +, -, (, ), e spazi" }),
-  tipologia: z.enum(["privato", "azienda"], {
-    required_error: "Seleziona una tipologia",
-  }),
-  interessato: z.string({
-    required_error: "Seleziona un'opzione",
-  }).min(1, { message: "Seleziona un'opzione" }),
-  oggetto: z
-    .string()
-    .trim()
-    .min(5, { message: "L'oggetto deve contenere almeno 5 caratteri" })
-    .max(100, { message: "L'oggetto non può superare 100 caratteri" }),
-  messaggio: z
-    .string()
-    .trim()
-    .min(10, { message: "Il messaggio deve contenere almeno 10 caratteri" })
-    .max(1000, { message: "Il messaggio non può superare 1000 caratteri" }),
+  tipologia: z.enum(["privato", "azienda"], { required_error: "Seleziona una tipologia" }),
+  interessato: z.string({ required_error: "Seleziona un'opzione" }).min(1),
+  oggetto: z.string().trim().min(5, { message: "L'oggetto deve contenere almeno 5 caratteri" }).max(100),
+  messaggio: z.string().trim().min(10, { message: "Il messaggio deve contenere almeno 10 caratteri" }).max(1000),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const Contatti = () => {
-  const heroSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
-  const infoSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
-  const formSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
-  const faqSection = useIntersectionObserver({ threshold: 0.1, rootMargin: '100px' });
+const faqs = [
+  { q: "Quanto costa un impianto fotovoltaico?", a: "Il costo varia in base alla potenza e alle specifiche esigenze. Offriamo preventivi gratuiti personalizzati." },
+  { q: "Ci sono incentivi statali disponibili?", a: "Sì, supportiamo i clienti nell'accesso a bonus fiscali e Conto Termico." },
+  { q: "Quanto tempo ci vuole per l'installazione?", a: "I tempi variano in base alle dimensioni dell'impianto, generalmente da pochi giorni a qualche settimana." },
+  { q: "Offrite assistenza post-vendita?", a: "Sì, forniamo manutenzione programmata e assistenza tecnica per tutta la vita utile dell'impianto." },
+];
 
+const Contatti = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      nome: "",
-      cognome: "",
-      email: "",
-      telefono: "",
-      tipologia: undefined,
-      interessato: "",
-      oggetto: "",
-      messaggio: "",
+      nome: "", cognome: "", email: "", telefono: "",
+      tipologia: undefined, interessato: "", oggetto: "", messaggio: "",
     },
   });
 
   const onSubmit = (data: ContactFormValues) => {
-    // Mostra messaggio di conferma
     toast.success("Richiesta inviata con successo!", {
       description: `Grazie ${data.nome}, ti contatteremo al più presto all'indirizzo ${data.email}`,
       duration: 5000,
     });
-    
     form.reset();
   };
-
-  const faqs = [
-    {
-      question: "Quanto costa un impianto fotovoltaico?",
-      answer: "Il costo varia in base alla potenza e alle specifiche esigenze. Offriamo preventivi gratuiti personalizzati.",
-    },
-    {
-      question: "Ci sono incentivi statali disponibili?",
-      answer: "Sì, supportiamo i clienti nell'accesso a bonus fiscali, Conto Termico e Reddito Energetico.",
-    },
-    {
-      question: "Quanto tempo ci vuole per l'installazione?",
-      answer: "I tempi di installazione variano in base alle dimensioni dell'impianto.",
-    },
-    {
-      question: "Offrite assistenza post-vendita?",
-      answer: "Sì, forniamo manutenzione programmata e assistenza tecnica per tutta la vita utile dell'impianto.",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Breadcrumb */}
-      <div className="bg-muted py-4">
-        <div className="container mx-auto px-4">
-          <p className="text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-primary">
-              Home
-            </Link>{" "}
-            / Contatti
-          </p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Contatti"
+        breadcrumbs={[{ label: "Home", to: "/" }, { label: "Contatti" }]}
+        title={<>PARLIAMO DEL TUO<br />PROGETTO <span className="text-accent">ENERGETICO</span></>}
+        description="Consulenza gratuita e supporto completo per ogni fase. Rispondiamo entro 24 ore lavorative."
+      />
 
-      {/* Hero Section - Completamente rinnovata */}
-      <section
-        ref={heroSection.ref}
-        className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden py-16 md:py-24"
-        style={{
-          background: 'linear-gradient(135deg, hsl(189 95% 28%) 0%, hsl(189 85% 38%) 35%, hsl(189 75% 48%) 70%, hsl(189 65% 58%) 100%)',
-        }}
-      >
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE2YzAtMS4xLS45LTItMi0yaC0yYy0xLjEgMC0yIC45LTIgMnYyYzAgMS4xLjkgMiAyIDJoMmMxLjEgMCAyLS45IDItMnYtMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className={`text-center max-w-5xl mx-auto transition-all duration-1000 ${heroSection.isVisible ? 'animate-fade-in' : 'translate-y-8'}`}>
-            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 backdrop-blur-lg border-2 border-lime-green/60 shadow-xl hover:bg-white/15 hover:border-lime-green hover:scale-105 transition-all duration-300 group">
-              <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-lime-green group-hover:rotate-12 transition-transform duration-300" />
-              <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Contatto Diretto</span>
+      <section className="px-3 sm:px-4 -mt-4 mb-16">
+        <div className="mx-auto max-w-[1320px] grid sm:grid-cols-3 gap-3">
+          {[
+            { icon: Phone, label: "Telefono", value: "Chiamaci direttamente" },
+            { icon: Mail, label: "Email", value: "Scrivici via email" },
+            { icon: MapPin, label: "Sedi", value: "Capriolo (BS) · Caserta (CE)" },
+          ].map((item) => (
+            <div key={item.label} className="rounded-3xl border border-foreground/10 bg-card p-8">
+              <div className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center mb-6">
+                <item.icon className="h-5 w-5" />
+              </div>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">{item.label}</p>
+              <p className="text-lg font-semibold">{item.value}</p>
             </div>
-            
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] px-4">
-              Parliamo del Tuo <br />
-              <span className="text-lime-green drop-shadow-[0_0_30px_rgba(156,225,55,0.5)]">Progetto Energetico</span>
-            </h1>
-            
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-8 md:mb-10 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] px-4">
-              La nostra esperienza al tuo servizio. Consulenza gratuita e supporto completo per ogni fase del progetto.
+          ))}
+        </div>
+      </section>
+
+      <section id="contact-form" className="px-3 sm:px-4 mb-20">
+        <div className="mx-auto max-w-[1320px] grid lg:grid-cols-[1fr_1.5fr] gap-3">
+          <div className="rounded-3xl bg-foreground text-background p-10 md:p-14">
+            <p className="text-accent uppercase tracking-widest text-xs font-semibold mb-5 flex items-center gap-2">
+              <span className="pulse-dot" /> Form di contatto
             </p>
+            <h2 className="display-xl text-3xl md:text-5xl mb-6">RACCONTACI<br />IL TUO<br />PROGETTO.</h2>
+            <p className="text-background/70 leading-relaxed mb-8">
+              Compila il modulo: il nostro team analizzerà la tua richiesta e ti ricontatterà con una proposta personalizzata.
+            </p>
+            <ul className="space-y-3 text-sm text-background/80">
+              {["Risposta entro 24h", "Sopralluogo e preventivo gratuiti", "Consulenza incentivi statali"].map((t) => (
+                <li key={t} className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-accent" /> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-3xl bg-card border border-foreground/10 p-8 md:p-12">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField control={form.control} name="tipologia" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-sm font-medium uppercase tracking-wider flex items-center gap-2">
+                      <Building2 className="h-4 w-4 text-accent" /> Tipologia *
+                    </FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <FormControl><SelectTrigger className="h-12 rounded-xl"><SelectValue placeholder="Privato o azienda?" /></SelectTrigger></FormControl>
+                      <SelectContent>
+                        <SelectItem value="privato">Privato</SelectItem>
+                        <SelectItem value="azienda">Azienda</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <FormField control={form.control} name="nome" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-sm font-medium uppercase tracking-wider">Nome *</FormLabel>
+                      <FormControl><Input placeholder="Mario" className="h-12 rounded-xl" {...field} /></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="cognome" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-sm font-medium uppercase tracking-wider">Cognome *</FormLabel>
+                      <FormControl><Input placeholder="Rossi" className="h-12 rounded-xl" {...field} /></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <FormField control={form.control} name="email" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-sm font-medium uppercase tracking-wider">Email *</FormLabel>
+                      <FormControl><Input type="email" placeholder="mario.rossi@esempio.it" className="h-12 rounded-xl" {...field} /></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="telefono" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-sm font-medium uppercase tracking-wider">Telefono *</FormLabel>
+                      <FormControl><Input type="tel" placeholder="+39 333 1234567" className="h-12 rounded-xl" {...field} /></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                </div>
+
+                <FormField control={form.control} name="interessato" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-sm font-medium uppercase tracking-wider">Interessato a *</FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <FormControl><SelectTrigger className="h-12 rounded-xl"><SelectValue placeholder="Seleziona la soluzione" /></SelectTrigger></FormControl>
+                      <SelectContent>
+                        <SelectItem value="fotovoltaico">Impianto Fotovoltaico</SelectItem>
+                        <SelectItem value="solare">Solare Termico</SelectItem>
+                        <SelectItem value="climatizzazione">Climatizzazione</SelectItem>
+                        <SelectItem value="manutenzione">Manutenzione Impianti</SelectItem>
+                        <SelectItem value="consulenza">Consulenza Energetica</SelectItem>
+                        <SelectItem value="altro">Altro</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="oggetto" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-sm font-medium uppercase tracking-wider">Oggetto *</FormLabel>
+                    <FormControl><Input placeholder="Es: Richiesta preventivo fotovoltaico 6kW" className="h-12 rounded-xl" {...field} /></FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="messaggio" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-sm font-medium uppercase tracking-wider">Messaggio *</FormLabel>
+                    <FormControl><Textarea placeholder="Descrivi la tua richiesta in dettaglio..." className="min-h-[150px] resize-none rounded-xl" {...field} /></FormControl>
+                    <FormDescription className="text-xs">{field.value.length}/1000 caratteri</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <Button type="submit" size="lg" className="w-full h-14 rounded-full bg-foreground text-background hover:bg-foreground/90 font-medium">
+                  <Send className="mr-2 h-4 w-4" /> Invia richiesta
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
       </section>
 
-      {/* Form Section - Completamente Rinnovato */}
-      <section
-        id="contact-form"
-        ref={formSection.ref}
-        className="py-16 bg-muted/30"
-      >
-        <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${formSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">Richiedi Informazioni</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-              Compila il Form di Contatto
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tutti i campi sono obbligatori. Riceverai una risposta entro 24 ore.
+      <section className="px-3 sm:px-4 pb-20">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="mb-10 px-2">
+            <p className="text-accent uppercase tracking-widest text-xs font-semibold mb-3 flex items-center gap-2">
+              <span className="pulse-dot" /> FAQ
             </p>
+            <h2 className="display-xl text-3xl md:text-5xl">DOMANDE FREQUENTI.</h2>
           </div>
-
-          <div className={`max-w-4xl mx-auto transition-all duration-700 ${formSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}>
-            <Card className="shadow-elevation border-border hover:border-lime-green/50 transition-all duration-300">
-              <CardHeader className="bg-gradient-card border-b">
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Send className="h-6 w-6 text-lime-green" />
-                  Inviaci una Richiesta
-                </CardTitle>
-                <CardDescription>
-                  Compila il modulo con i tuoi dati e ti ricontatteremo al più presto
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-8">
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    {/* Tipologia Cliente */}
-                    <FormField
-                      control={form.control}
-                      name="tipologia"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-base font-semibold flex items-center gap-2">
-                            <Building2 className="h-4 w-4 text-lime-green" />
-                            Tipologia Cliente *
-                          </FormLabel>
-                          <Select onValueChange={field.onChange} value={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="h-12">
-                                <SelectValue placeholder="Sei un privato o un'azienda?" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="privato">Privato</SelectItem>
-                              <SelectItem value="azienda">Azienda</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    {/* Nome e Cognome */}
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="nome"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-base font-semibold">Nome *</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Mario" 
-                                className="h-12"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="cognome"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-base font-semibold">Cognome *</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Rossi" 
-                                className="h-12"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    {/* Email e Telefono */}
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-base font-semibold">Email *</FormLabel>
-                            <FormControl>
-                              <Input 
-                                type="email"
-                                placeholder="mario.rossi@esempio.it" 
-                                className="h-12"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="telefono"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-base font-semibold">Telefono *</FormLabel>
-                            <FormControl>
-                              <Input 
-                                type="tel"
-                                placeholder="+39 333 1234567" 
-                                className="h-12"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormDescription className="text-xs">
-                              Inserisci un numero valido con prefisso
-                            </FormDescription>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    {/* Interessato a */}
-                    <FormField
-                      control={form.control}
-                      name="interessato"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-base font-semibold">Interessato a *</FormLabel>
-                          <Select onValueChange={field.onChange} value={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="h-12">
-                                <SelectValue placeholder="Seleziona la soluzione che ti interessa" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="fotovoltaico">Impianto Fotovoltaico</SelectItem>
-                              <SelectItem value="solare">Solare Termico</SelectItem>
-                              <SelectItem value="pompa-calore">Pompa di Calore</SelectItem>
-                              <SelectItem value="climatizzazione">Climatizzazione</SelectItem>
-                              <SelectItem value="geotermico">Geotermico</SelectItem>
-                              <SelectItem value="biomasse">Biomasse</SelectItem>
-                              <SelectItem value="reddito-energetico">Reddito Energetico</SelectItem>
-                              <SelectItem value="manutenzione">Manutenzione Impianti</SelectItem>
-                              <SelectItem value="consulenza">Consulenza Energetica</SelectItem>
-                              <SelectItem value="altro">Altro</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    {/* Oggetto */}
-                    <FormField
-                      control={form.control}
-                      name="oggetto"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-base font-semibold">Oggetto *</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Es: Richiesta preventivo impianto fotovoltaico 6kW" 
-                              className="h-12"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    {/* Messaggio */}
-                    <FormField
-                      control={form.control}
-                      name="messaggio"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-base font-semibold">Messaggio *</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Descrivi la tua richiesta in dettaglio. Più informazioni fornisci, più preciso sarà il nostro preventivo..."
-                              className="min-h-[150px] resize-none"
-                              {...field} 
-                            />
-                          </FormControl>
-                          <FormDescription className="text-xs">
-                            {field.value.length}/1000 caratteri
-                          </FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    {/* Submit Button */}
-                    <div className="pt-4">
-                      <Button 
-                        type="submit" 
-                        size="lg" 
-                        className="w-full bg-lime-green hover:bg-lime-green/90 hover:scale-105 text-foreground font-semibold text-lg transition-all duration-300 shadow-glow-lime hover:shadow-glow-lime h-14"
-                      >
-                        <Send className="mr-2 h-5 w-5" />
-                        Invia Richiesta
-                      </Button>
-                    </div>
-                  </form>
-                </Form>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section - Nuova */}
-      <section 
-        ref={faqSection.ref}
-        className="py-16 bg-background"
-      >
-        <div className="container mx-auto px-4">
-          <div className={`text-center mb-12 transition-all duration-700 ${faqSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
-            <p className="text-lime-green uppercase tracking-wider text-sm mb-2 font-semibold">Domande Frequenti</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-              Hai Domande? Abbiamo le Risposte
-            </h2>
-          </div>
-
-          <div className="max-w-3xl mx-auto grid gap-4">
-            {faqs.map((faq, index) => (
-              <Card 
-                key={index}
-                className={`group hover:shadow-card-hover hover:border-lime-green transition-all duration-700 ${faqSection.isVisible ? 'animate-scale-in' : 'scale-95'}`}
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  animationFillMode: 'both'
-                }}
-              >
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-start gap-3 group-hover:text-lime-green transition-colors">
-                    <CheckCircle className="h-5 w-5 text-lime-green flex-shrink-0 mt-0.5" />
-                    {faq.question}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </CardContent>
-              </Card>
+          <div className="grid md:grid-cols-2 gap-3">
+            {faqs.map((f, i) => (
+              <div key={i} className="rounded-3xl border border-foreground/10 bg-card p-8">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center flex-shrink-0 text-sm font-medium">
+                    0{i + 1}
+                  </div>
+                  <h3 className="text-lg md:text-xl font-semibold pt-1">{f.q}</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed pl-14">{f.a}</p>
+              </div>
             ))}
-          </div>
-
-          <div className={`text-center mt-12 transition-all duration-700 ${faqSection.isVisible ? 'animate-fade-in' : 'translate-y-4'}`}>
-            <p className="text-lg text-muted-foreground mb-4">
-              Non hai trovato la risposta che cercavi?
-            </p>
-            <Button 
-              onClick={() => {
-                const formSection = document.getElementById('contact-form');
-                formSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-              variant="outline"
-              size="lg"
-              className="border-lime-green text-lime-green hover:bg-lime-green hover:text-foreground"
-            >
-              <Send className="mr-2 h-5 w-5" />
-              Compila il Form
-            </Button>
           </div>
         </div>
       </section>
