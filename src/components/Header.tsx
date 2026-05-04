@@ -72,7 +72,7 @@ const Header = () => {
           </Link>
 
           {/* Right: CTA */}
-          <div className="flex items-center pr-2">
+          <div className="flex items-center">
             <Link
               to="/contatti"
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:bg-foreground/90 transition-all hover:scale-[1.02]"
