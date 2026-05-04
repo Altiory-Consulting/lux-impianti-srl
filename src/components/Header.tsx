@@ -37,13 +37,13 @@ const Header = () => {
         }`}
       >
         <div
-          className={`relative mx-auto flex items-center justify-between rounded-full bg-background/90 backdrop-blur-xl border border-foreground/8 transition-all duration-300 ${
+          className={`relative mx-auto flex items-center justify-between rounded-[2.5rem] bg-background/90 backdrop-blur-xl border border-foreground/8 transition-all duration-300 min-h-[88px] sm:min-h-[104px] md:min-h-[120px] px-3 ${
             scrolled ? "shadow-[0_8px_32px_-12px_rgba(0,0,0,0.18)]" : "shadow-[0_4px_20px_-8px_rgba(0,0,0,0.10)]"
           }`}
           style={{ maxWidth: "1320px" }}
         >
           {/* Left: Hamburger menu trigger */}
-          <div className="flex items-center pl-2">
+          <div className="flex items-center">
             <button
               type="button"
               aria-label={isMenuOpen ? "Chiudi menu" : "Apri menu"}
@@ -58,7 +58,7 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Center: Logo (larger, can overflow the pill) */}
+          {/* Center: Logo — fits inside the bar */}
           <Link
             to="/"
             aria-label="Lux Impianti — Home"
@@ -67,7 +67,7 @@ const Header = () => {
             <img
               src={logoTrasparente}
               alt="Lux Impianti"
-              className="h-20 sm:h-24 md:h-28 w-auto drop-shadow-sm"
+              className="h-16 sm:h-20 md:h-24 w-auto"
             />
           </Link>
 
