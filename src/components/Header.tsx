@@ -58,13 +58,17 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Center: Logo */}
+          {/* Center: Logo (larger, can overflow the pill) */}
           <Link
             to="/"
             aria-label="Lux Impianti — Home"
-            className="absolute left-1/2 -translate-x-1/2 flex items-center py-1"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10"
           >
-            <img src={logoTrasparente} alt="Lux Impianti" className="h-16 sm:h-20 w-auto" />
+            <img
+              src={logoTrasparente}
+              alt="Lux Impianti"
+              className="h-20 sm:h-24 md:h-28 w-auto drop-shadow-sm"
+            />
           </Link>
 
           {/* Right: CTA */}
