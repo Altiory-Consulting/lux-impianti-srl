@@ -36,10 +36,29 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play().catch(() => {});
-    }
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.playsInline = true;
+    try {
+      v.load();
+    } catch {}
+    const tryPlay = () => {
+      const p = v.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => {
+          // Retry once shortly after
+          setTimeout(() => {
+            v.play().catch(() => {});
+          }, 200);
+        });
+      }
+    };
+    tryPlay();
+    v.addEventListener("canplay", tryPlay, { once: true });
+    return () => {
+      v.removeEventListener("canplay", tryPlay);
+    };
   }, [currentVideoIndex]);
 
   const services = [
