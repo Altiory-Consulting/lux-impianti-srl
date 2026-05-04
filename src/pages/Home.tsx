@@ -36,10 +36,29 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play().catch(() => {});
-    }
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.playsInline = true;
+    try {
+      v.load();
+    } catch {}
+    const tryPlay = () => {
+      const p = v.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => {
+          // Retry once shortly after
+          setTimeout(() => {
+            v.play().catch(() => {});
+          }, 200);
+        });
+      }
+    };
+    tryPlay();
+    v.addEventListener("canplay", tryPlay, { once: true });
+    return () => {
+      v.removeEventListener("canplay", tryPlay);
+    };
   }, [currentVideoIndex]);
 
   const services = [
@@ -73,11 +92,12 @@ const Home = () => {
         <div className="px-3 sm:px-4">
           <div className="relative mx-auto overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-foreground" style={{ maxWidth: "1320px" }}>
             <video
+              key={currentVideoIndex}
               ref={videoRef}
               autoPlay
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
               onEnded={handleVideoEnd}
               className="absolute inset-0 w-full h-full object-cover"
             >
