@@ -48,11 +48,11 @@ const Header = () => {
               type="button"
               aria-label={isMenuOpen ? "Chiudi menu" : "Apri menu"}
               aria-expanded={isMenuOpen}
-              className="inline-flex items-center gap-2 rounded-full bg-foreground/5 hover:bg-foreground/10 text-foreground px-4 py-2.5 transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground text-background hover:bg-foreground/90 px-4 sm:px-5 py-2.5 transition-all hover:scale-[1.02] shadow-soft"
               onClick={() => setIsMenuOpen((s) => !s)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              <span className="text-sm font-medium hidden sm:inline">
+              <span className="text-sm font-semibold">
                 {isMenuOpen ? "Chiudi" : "Menu"}
               </span>
             </button>
