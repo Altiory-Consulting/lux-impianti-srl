@@ -123,19 +123,6 @@ const Home = () => {
                 ))}
               </div>
 
-              <div className="hidden md:flex absolute bottom-8 right-8 items-center gap-3 rounded-full bg-background/95 backdrop-blur px-4 py-2 shadow-elevation">
-                <div className="flex items-center">
-                  {[0, 1, 2, 3].map((i) => (
-                    <div key={i} className="w-9 h-9 rounded-full border-2 border-background bg-muted -ml-2 first:ml-0 flex items-center justify-center text-xs font-bold text-foreground/60">
-                      {["LX", "SR", "GA", "MP"][i]}
-                    </div>
-                  ))}
-                </div>
-                <div className="pl-2">
-                  <div className="text-xs font-semibold text-foreground leading-tight">10+ Tecnici certificati</div>
-                  <div className="text-xs text-accent font-bold">★★★★★ 4.9/5</div>
-                </div>
-              </div>
             </div>
 
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2 md:hidden">
