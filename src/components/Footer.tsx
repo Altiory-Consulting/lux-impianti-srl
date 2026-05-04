@@ -115,10 +115,7 @@ const Footer = () => {
           </div>
 
           <div className="pt-10 border-t border-background/10">
-            <div className="font-display uppercase font-bold text-background/95 text-[18vw] md:text-[14vw] lg:text-[200px] leading-[0.85] tracking-tighter overflow-hidden">
-              Lux<span className="text-accent">.</span>Impianti
-            </div>
-            <div className="flex flex-col sm:flex-row justify-between gap-3 pt-8 text-xs text-background/50">
+            <div className="flex flex-col sm:flex-row justify-between gap-3 text-xs text-background/50">
               <p>&copy; {new Date().getFullYear()} Lux Impianti S.R.L. Tutti i diritti riservati.</p>
               <p>Energia rinnovabile · Italia</p>
             </div>
